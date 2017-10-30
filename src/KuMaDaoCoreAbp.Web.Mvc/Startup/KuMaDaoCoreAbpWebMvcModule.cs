@@ -1,5 +1,6 @@
 ﻿using Abp.Modules;
 using Abp.Reflection.Extensions;
+//using KuMaDaoCoreAbp.Articles.Authorization;
 using KuMaDaoCoreAbp.Configuration;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -21,6 +22,10 @@ namespace KuMaDaoCoreAbp.Web.Startup
         public override void PreInitialize()
         {
             Configuration.Navigation.Providers.Add<KuMaDaoCoreAbpNavigationProvider>();
+
+         //   Configuration.Authorization.Providers.Add<ArticleAppAuthorizationProvider>();
+
+
         }
 
         public override void Initialize()

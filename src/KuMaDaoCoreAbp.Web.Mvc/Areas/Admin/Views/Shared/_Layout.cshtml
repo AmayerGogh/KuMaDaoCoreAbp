@@ -5,11 +5,11 @@
 @using KuMaDaoCoreAbp
 @using KuMaDaoCoreAbp.SignalR
 @using KuMaDaoCoreAbp.Web.Resources
-@using KuMaDaoCoreAbp.Web.Views.Shared.Components.SideBarNav
-@using KuMaDaoCoreAbp.Web.Views.Shared.Components.SideBarUserArea
-@using KuMaDaoCoreAbp.Web.Views.Shared.Components.TopBarLanguageSwitch
+@using KuMaDaoCoreAbp.Web.Areas.Admin.Views.Shared.Components.SideBarNav
+@using KuMaDaoCoreAbp.Web.Areas.Admin.Views.Shared.Components.SideBarUserArea
+@using KuMaDaoCoreAbp.Web.Areas.Admin.Views.Shared.Components.TopBarLanguageSwitch
 @using KuMaDaoCoreAbp.Configuration
-@using KuMaDaoCoreAbp.Web.Views.Shared.Components.RightSideBar
+@using KuMaDaoCoreAbp.Web.Areas.Admin.Views.Shared.Components.RightSideBar
 @inject KuMaDaoCoreAbp.Timing.AppTimes AppTimes
 @inject IAbpAntiForgeryManager AbpAntiForgeryManager
 @inject IMultiTenancyConfig MultiTenancyConfig
@@ -72,7 +72,7 @@
                     </div>
                 </div>
             </div>
-            <p>Please wait...</p>
+            <p>稍候...</p>
         </div>
     </div>
     <!-- #END# Page Loader -->
@@ -96,12 +96,12 @@
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="fa fa-cubes"></i> KuMaDaoCoreAbp</a>
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><i class="fa fa-cubes"></i> CCode Studio 管理后台</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <!-- Call Search -->
-                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">search</i></a></li>
+                    <li><a href="javascript:void(0);" class="js-search" data-close="true"><i class="material-icons">搜索</i></a></li>
                     <!-- #END# Call Search -->
                     @await Component.InvokeAsync(typeof(TopBarLanguageSwitchViewComponent))
                     <li class="pull-right"><a href="javascript:void(0);" class="js-right-sidebar" data-close="true"><i class="material-icons">more_vert</i></a></li>
@@ -110,6 +110,7 @@
         </div>
     </nav>
     <!-- #Top Bar -->
+    <!-- Left Bar -->
     <section>
         <aside id="leftsidebar" class="sidebar">
             @await Component.InvokeAsync(typeof(SideBarUserAreaViewComponent))
@@ -117,16 +118,14 @@
             <!-- Footer -->
             <div class="legal">
                 <div class="copyright">
-                    &copy; @DateTime.Now.Year <a href="javascript:void(0);">KuMaDaoCoreAbp</a>.
-                </div>
-                <div class="version">
-                    <b>Version </b> @AppVersionHelper.Version [@AppVersionHelper.ReleaseDate.ToString("yyyyMMdd")]
+                    &copy; @DateTime.Now.Year <a href="javascript:void(0);">CCode Studio</a>. @AppVersionHelper.Version
                 </div>
             </div>
             <!-- #Footer -->
         </aside>
         @await Component.InvokeAsync(typeof(RightSideBarViewComponent))
     </section>
+    <!-- #Left Bar -->
     <section class="content">
         <div class="container-fluid">
             @RenderBody()

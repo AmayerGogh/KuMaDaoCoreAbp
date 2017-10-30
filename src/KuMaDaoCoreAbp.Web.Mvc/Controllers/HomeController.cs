@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace KuMaDaoCoreAbp.Web.Controllers
 {
-    [AbpMvcAuthorize]
+    //[AbpMvcAuthorize]
     public class HomeController : KuMaDaoCoreAbpControllerBase
     {
         public ActionResult Index()

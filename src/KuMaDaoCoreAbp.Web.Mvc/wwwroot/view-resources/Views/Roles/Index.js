@@ -24,7 +24,7 @@
 
 			e.preventDefault();
 			$.ajax({
-				url: abp.appPath + 'Roles/EditRoleModal?roleId=' + roleId,
+				url: abp.appPath + 'admin/roles/EditRoleModal?roleId=' + roleId,
 				type: 'POST',
 				contentType: 'application/html',
 				success: function (content) {

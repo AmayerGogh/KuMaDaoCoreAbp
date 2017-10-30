@@ -1,6 +1,6 @@
 ﻿@using Abp.Collections.Extensions
-@using KuMaDaoCoreAbp.Web.Views
-@using KuMaDaoCoreAbp.Web.Views.Shared.Components.SideBarNav
+@using KuMaDaoCoreAbp.Web.Areas.Admin.Views
+@using KuMaDaoCoreAbp.Web.Areas.Admin.Views.Shared.Components.SideBarNav
 @model SideBarNavViewModel
 @{
     var calculateMenuUrl = new Func<string, string>((url) =>
@@ -15,7 +15,7 @@
             return url;
         }
 
-        return ApplicationPath + url;
+        return ApplicationPath +"admin/"+ url;
     });
 }
 <div class="menu">

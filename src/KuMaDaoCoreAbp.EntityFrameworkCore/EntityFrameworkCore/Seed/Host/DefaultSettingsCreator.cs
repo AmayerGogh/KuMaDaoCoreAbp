@@ -18,7 +18,7 @@ namespace KuMaDaoCoreAbp.EntityFrameworkCore.Seed.Host
         public void Create()
         {
             // Emailing
-            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "admin@mydomain.com");
+            AddSettingIfNotExists(EmailSettingNames.DefaultFromAddress, "454593034@qq.com");
             AddSettingIfNotExists(EmailSettingNames.DefaultFromDisplayName, "mydomain.com mailer");
 
             // Languages

@@ -30,7 +30,7 @@
 
             e.preventDefault();
             $.ajax({
-                url: abp.appPath + 'Users/EditUserModal?userId=' + userId,
+                url: abp.appPath + 'admin/users/EditUserModal?userId=' + userId,
                 type: 'POST',
                 contentType: 'application/html',
                 success: function (content) {

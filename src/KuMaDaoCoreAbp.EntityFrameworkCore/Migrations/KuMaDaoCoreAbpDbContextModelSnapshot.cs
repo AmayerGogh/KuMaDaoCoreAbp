@@ -730,6 +730,42 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.ToTable("AbpOrganizationUnits");
                 });
 
+            modelBuilder.Entity("KuMaDaoCoreAbp.Articles.Article", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Body");
+
+                    b.Property<int>("CategoryId");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<long?>("CreatorUserId");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(20);
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Article");
+                });
+
+            modelBuilder.Entity("KuMaDaoCoreAbp.Articles.ArticleDetail", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long>("ArticleId");
+
+                    b.Property<string>("Body");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ArticleDetail");
+                });
+
             modelBuilder.Entity("KuMaDaoCoreAbp.Authorization.Roles.Role", b =>
                 {
                     b.Property<int>("Id")
