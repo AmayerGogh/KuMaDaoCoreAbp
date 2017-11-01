@@ -1,5 +1,6 @@
 ﻿using Abp.Modules;
 using Abp.Reflection.Extensions;
+using KuMaDaoCoreAbp.Articles.Authorization;
 //using KuMaDaoCoreAbp.Articles.Authorization;
 using KuMaDaoCoreAbp.Configuration;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +24,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
         {
             Configuration.Navigation.Providers.Add<KuMaDaoCoreAbpNavigationProvider>();
 
-         //   Configuration.Authorization.Providers.Add<ArticleAppAuthorizationProvider>();
+            Configuration.Authorization.Providers.Add<ArticleAppAuthorizationProvider>();
 
 
         }

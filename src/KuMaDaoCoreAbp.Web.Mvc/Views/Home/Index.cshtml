@@ -751,27 +751,8 @@
     <div style="height:500px;background: url('/img/1920x1080.jpg')  no-repeat center fixed"
          data-paroller-factor="-0.3">
         <style>
-            .swiper-ad .swiper-slide {
-                /*height:340px;*/
-            }
-
-
-
-            .swiper-pagination-bullet-active {
-                background: #00a986;
-            }
-
-
-            /* Clearfix hack by Nicolas Gallagher: http://nicolasgallagher.com/micro-clearfix-hack/ */
-            .clearfix:before,
-            .clearfix:after {
-                content: " ";
-                display: table;
-            }
-
-            .clearfix:after {
-                clear: both;
-            }
+         
+           
 
             .swiper-ad-next, .swiper-ad-prev {
                 border-radius: 50%;
@@ -779,34 +760,90 @@
                 height: 44px;
                 background-size: 44px 44px;
             }
+            #carousel-ad .carousel-caption-ad {
+                height: 400px;
+                color:#fff;
+                text-align: center;
+                padding: 40px 10px;
+            }
+            .ad-sy {
+                padding: 70px 50px 45px;
+                
+            }
+            .ad-sy p{
+               font-size:35px
+            }
+            .ad-syer {
+                padding: 10px 50px;
+            
+              
+            }
+            .ad-syer p {
+                float: right;
+                font-size: 32px;
+            }
         </style>
         <div class="container">
 
 
+            <div id="carousel-ad" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-blog" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-blog" data-slide-to="1"></li>
+                    <li data-target="#carousel-blog" data-slide-to="2"></li>
+                </ol>
 
-
-            <div class="swiper-ad" style="height: 400px; margin-top:55px;position: relative;overflow: hidden;">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide ">
-                        <p class="ani">创意赋予代码灵魂</p>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner"  style="height:400px;margin:50px auto" role="listbox">
+                    <div class="item active">
+                      
+                        <div class="carousel-caption-ad">
+                           <div class="ad-sy">
+                               <p>不知疲倦的翻越,每一个山丘</p>
+                           </div>
+                          <div class="ad-syer"> 
+                              <p> < 山丘 > -- 李宗盛</p>
+                          </div>
+                           
+                        </div>
                     </div>
-                    <div class="swiper-slide" style="">
-                        <p class="ani">不知疲倦的翻越,每一个山丘</p>
+                    <div class="item">
+                      
+                        <div class="carousel-caption-ad">
+                            <div class="ad-sy">
+                                <p>UNIX很简单。但需要有一定天赋的人才能理解这种简单。</p>
+                            </div>
+                            <div class="ad-syer">
+                                <p> inter</p>
+                            </div>
+                        </div>
                     </div>
-                    <div class="swiper-slide ">
-                        <p class="ani">Arrays.asList()将返回一个数组内部是私有静态类的ArrayList，这不是java.util.ArrayList类，java.util.Arrays.ArrayList类有set()、 get()、 contains()方法，但是没有任何加元素的方法，因此它的大小是固定的。你应该这么做来创建一个真正的数组：</p>
+                    <div class="item">
+                        <div class="carousel-caption-ad">
+                            <div class="ad-sy">
+                                <p>IF（BOOL学习==FALSE）BOOL落后=TRUE；不断的学习，我们才能不断的前进。</p>
+                               
+                            </div>
+                            <div class="ad-syer">
+                                <p> 程序员励志名言</p>
+                            </div>
+                        </div>
                     </div>
-
 
                 </div>
-                <!-- 如果需要分页器 -->
-                <div class="swiper-pagination" id="swiper-pagination-ad"></div>
 
-
-                <a class="swiper-button-prev swiper-ad-prev"></a>
-                <a class="swiper-button-next swiper-ad-next"></a>
+                <!-- Controls -->
+                <a class="left " href="#carousel-ad" role="button" data-slide="prev">
+   
+                    <div class="swiper-button-prev swiper-ad-prev"></div>
+                </a>
+                <a class="right " href="#carousel-ad" role="button" data-slide="next">
+                    <div class="swiper-button-next swiper-ad-next"></div>
+                </a>
             </div>
-            @*<div class="acrylic" style="height:300px;    border-radius: 20px;"></div>*@
+
+       
         </div>
     </div>
 
@@ -1158,30 +1195,7 @@
             centeredSlides: true,
 
         })
-        var mySwiper3 = new Swiper('.swiper-ad', {
-            loop: true,
-            autoplay: 8000, //自动滑动
-            speed: 2000,
-            calculateHeight: true,
-            nextButton: '.swiper-ad-next',
-            prevButton: '.swiper-ad-prev',
-            pagination: '#swiper-pagination-ad',
-            paginationType: 'custom',
-            paginationCustomRender: function (swiper, current, total) {
-                return current + ' / ' + total;
-            },
-            paginationClickable: true,
-            // 如果需要前进后退按钮
-            centeredSlides: true,
-            onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
-                swiperAnimateCache(swiper); //隐藏动画元素
-                swiperAnimate(swiper); //初始化完成开始动画
-            },
-            onSlideChangeEnd: function (swiper) {
-                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
-            }
-
-        })
+      
         $(window).paroller();
     </script>
 
