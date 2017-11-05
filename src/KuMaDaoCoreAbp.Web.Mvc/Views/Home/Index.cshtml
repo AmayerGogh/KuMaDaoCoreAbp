@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="~/libs/swiper/css/swiper.min.css">
     <link href="~/libs/swiper/css/animate.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/libs/IsometricGrids/normalize.css" />
-    <link href="~/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css" rel="stylesheet"/>
+    <link href="~/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css" rel="stylesheet" />
     @*<link href="~/libs/metro/jquery.gridster.min.css" rel="stylesheet" />*@
     @*<link href="~/libs/waves/waves.css" rel="stylesheet" />*@
     @*<link href="~/libs/metro/metro.css" rel="stylesheet" />*@
@@ -81,24 +81,10 @@
             position: fixed !important;
         }
 
-        i.famfamfam-flags{
-            display:inline-block;
-        }
-        .swiper-banner {
-            width: 100%;
-            height: 700px;
-            position: relative;
-            overflow: hidden;
+        i.famfamfam-flags {
+            display: inline-block;
         }
 
-        .swiper-slide {
-            background-position: center;
-            background-size: cover;
-            line-height: 300px;
-            color: #fff;
-            font-size: 36px;
-            text-align: center;
-        }
 
 
         /*body {
@@ -302,13 +288,81 @@
             </a>
         </div>*@
     <div class="swiper-banner">
+        <style>
+            .swiper-banner {
+                width: 100%;
+                height: 700px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .swiper-slide {
+                background-position: center;
+                background-size: cover;
+                line-height: 60px;
+                color: #fff;
+                font-size: 36px;
+                text-align: center;
+            }
+        </style>
+
+
         <div class="swiper-wrapper">
 
             <div class="swiper-slide" style="background-image:url(http://file.runtoinfo.com/upload/image/201609/276361059365640415404147591.jpg)">
-                <p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容</p>
+                @*<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容</p>*@
+                @*<div class=""><h1>WELCOME TO SORTO</h1></div>
+                    <div class=""><h2>THE BEST MULTI-PAGE TEMPLATE FOR YOUR BUSINESS</h2></div>
+                    <div class=""><h3>WELCOME TO SORTO</h3></div>*@
+                <div style="position: absolute;left: 8%;top:25%;z-index:10;    text-align: left">
+
+
+                    <div class="ani" style=" margin: 10px 0;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+
+                        <span>WELCOME TO SORTO</span>
+                    </div>
+                    <div class="ani" style="    margin: 30px 0;background-color:hsla(0,0%,100%,.4);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.7s" swiper-animate-delay="0.5s">
+                        <span style="padding: 12px;">THE BEST MULTI-PAGE TEMPLATE FOR YOUR BUSINESS</span>
+                    </div>
+                    <div class="ani" style="    margin: 10px 0;background-color:hsl(168, 100%, 33%);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                        <span style="padding:12px;">Important: When you first run the sample that you'll download at the end of this quick start, you might see this error when you sign in:
+                            SSL certificate problem: unable to get local issuer certificate</span>
+                    </div>
+
+
+                </div>
+
+
             </div>
 
-            <div class="swiper-slide" style="background-image:url(/img/banner/wi1.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(/img/banner/wi1.jpg)">
+
+                <div style="    position: absolute;
+    left: 12%;
+    top: 25%;
+    width: 75%;
+    z-index: 10;
+    text-align: center;">
+
+
+                    <div class="ani" style=" margin: 10px 0;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+
+                        <span>WELCOME TO SORTO</span>
+                    </div>
+                    <div class="ani" style="    margin: 30px 0;background-color:hsla(0,0%,100%,.4);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.7s" swiper-animate-delay="0.5s">
+                        <span style="padding: 12px;">THE BEST MULTI-PAGE TEMPLATE FOR YOUR BUSINESS</span>
+                    </div>
+                    <div class="ani" style="    margin: 10px 0;background-color:hsl(168, 100%, 33%);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                        <span style="padding:12px;">
+                            Important: When you first run the sample that you'll download at the end of this quick start, you might see this error when you sign in:
+                            SSL certificate problem: unable to get local issuer certificate
+                        </span>
+                    </div>
+
+
+                </div>
+
+            </div>
             <div class="swiper-slide" style="background-image:url(/img/banner/wi2.jpg)"></div>
             <div class="swiper-slide" style="background-image:url(/img/banner/w3.jpg)"></div>
             <div class="swiper-slide" style="background-image:url(/img/banner/wi4.jpg)"></div>
@@ -471,8 +525,8 @@
 
                             </div>
                         </div>
-                       </div>
                     </div>
+                </div>
 
             </div>
         </div>
@@ -559,7 +613,7 @@
                                     </div>
                                 </div>
                                 <div class="item">
-                                 
+
                                     <img src="~/img/Dribbble1/4.jpg" alt="Alternate Text" />
                                     <div class="carousel-caption">
 
@@ -590,7 +644,7 @@
                         <div style="background: url(/img/game/game1.jpg) center;height: 156px;background-size: 100%;">
 
                         </div>
-                      
+
                     </div>
                 </div>
                 <div class="col-md-12 metro-out red-border">
@@ -667,9 +721,11 @@
                 ul.c-list li {
                     padding: 10px;
                 }
+
             #area3 ul.c-list li a, #area3 span {
                 color: #f1f1f1
             }
+
             #area3 a.sa23d2 {
                 color: #5f6065;
             }
@@ -684,7 +740,7 @@
                         <div style="padding: 10px 9px;">
                             <span class="c-heading" style="font-size:24px;">Shop categories</span>
                         </div>
-                     
+
                         <ul class="c-list f-bare">
                             <li>
                                 <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/office?icid=Homepage_LeftNav_01_Office_en_US" data-m="{&quot;cN&quot;:&quot;Office&quot;,&quot;id&quot;:&quot;n1m1r2a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;m1r2a2&quot;}">Office</a>
@@ -751,37 +807,36 @@
     <div style="height:500px;background: url('/img/1920x1080.jpg')  no-repeat center fixed"
          data-paroller-factor="-0.3">
         <style>
-         
-           
-
             .swiper-ad-next, .swiper-ad-prev {
                 border-radius: 50%;
                 width: 44px;
                 height: 44px;
                 background-size: 44px 44px;
             }
+
             #carousel-ad .carousel-caption-ad {
                 height: 400px;
-                color:#fff;
+                color: #fff;
                 text-align: center;
                 padding: 40px 10px;
             }
+
             .ad-sy {
                 padding: 70px 50px 45px;
-                
             }
-            .ad-sy p{
-               font-size:35px
-            }
+
+                .ad-sy p {
+                    font-size: 35px
+                }
+
             .ad-syer {
                 padding: 10px 50px;
-            
-              
             }
-            .ad-syer p {
-                float: right;
-                font-size: 32px;
-            }
+
+                .ad-syer p {
+                    float: right;
+                    font-size: 32px;
+                }
         </style>
         <div class="container">
 
@@ -795,21 +850,21 @@
                 </ol>
 
                 <!-- Wrapper for slides -->
-                <div class="carousel-inner"  style="height:400px;margin:50px auto" role="listbox">
+                <div class="carousel-inner" style="height:400px;margin:50px auto" role="listbox">
                     <div class="item active">
-                      
+
                         <div class="carousel-caption-ad">
-                           <div class="ad-sy">
-                               <p>不知疲倦的翻越,每一个山丘</p>
-                           </div>
-                          <div class="ad-syer"> 
-                              <p> < 山丘 > -- 李宗盛</p>
-                          </div>
-                           
+                            <div class="ad-sy">
+                                <p>不知疲倦的翻越,每一个山丘</p>
+                            </div>
+                            <div class="ad-syer">
+                                <p> < 山丘 > -- 李宗盛</p>
+                            </div>
+
                         </div>
                     </div>
                     <div class="item">
-                      
+
                         <div class="carousel-caption-ad">
                             <div class="ad-sy">
                                 <p>UNIX很简单。但需要有一定天赋的人才能理解这种简单。</p>
@@ -823,7 +878,7 @@
                         <div class="carousel-caption-ad">
                             <div class="ad-sy">
                                 <p>IF（BOOL学习==FALSE）BOOL落后=TRUE；不断的学习，我们才能不断的前进。</p>
-                               
+
                             </div>
                             <div class="ad-syer">
                                 <p> 程序员励志名言</p>
@@ -835,7 +890,7 @@
 
                 <!-- Controls -->
                 <a class="left " href="#carousel-ad" role="button" data-slide="prev">
-   
+
                     <div class="swiper-button-prev swiper-ad-prev"></div>
                 </a>
                 <a class="right " href="#carousel-ad" role="button" data-slide="next">
@@ -843,7 +898,7 @@
                 </a>
             </div>
 
-       
+
         </div>
     </div>
 
@@ -958,7 +1013,7 @@
                         <h2>-- 关于 --</h2>
                     </div>
                     <div style="padding: 32px 30px;">
-                        <span>Please tell your friends about website. Thank you for supporting us. Donec et augue quis quam porttitor consectetur ut nec sem. Integer sagittis viverra quam quis ultricies. Aenean risus nisl, consequat at nunc id, tincidunt tristique mauris.</span> 
+                        <span>Please tell your friends about website. Thank you for supporting us. Donec et augue quis quam porttitor consectetur ut nec sem. Integer sagittis viverra quam quis ultricies. Aenean risus nisl, consequat at nunc id, tincidunt tristique mauris.</span>
                     </div>
                 </div>
             </div>
@@ -1077,13 +1132,13 @@
                 <div class="col-md-4">
                     <h1>    12323</h1>
                     <h2>次访问</h2>
-             
+
                 </div>
                 <div class="col-md-4">
-                123篇文章
+                    123篇文章
                 </div>
                 <div class="col-md-4">
-                123123次留言
+                    123123次留言
                 </div>
             </div>
         </div>
@@ -1121,8 +1176,8 @@
 
                 <div class="col-md-4 col-xs-12 footer-subscribe">
                     <h4>联系我</h4>
-                  
-                  
+
+
                 </div> <!-- /.footer-subscribe -->
             </div>
 
@@ -1130,7 +1185,7 @@
                 <a id="locale-picker-link" class="c-hyperlink c-glyph glyph-world" href="https://www.microsoft.com/en-us/locale.aspx?absoluteReturnUrl=https%3a%2f%2fwww.microsoft.com%2fzh-cn%2f" data-m="{&quot;cN&quot;:&quot;locale_picker(CN)_nav&quot;,&quot;id&quot;:&quot;n7c1c1m1r1a3&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c1c1m1r1a3&quot;}">中文(中国)</a>
 
                 <ul role="contentinfo" class="c-list f-bare" data-m="{&quot;cN&quot;:&quot;Corp links_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c1c1m1r1a3&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c1c1m1r1a3&quot;}">
-            
+
                     <li>
                         <a class="c-hyperlink" href="#" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_Special_nav&quot;,&quot;id&quot;:&quot;n6c8c1c1m1r1a3&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c8c1c1m1r1a3&quot;}">京ICP备123123号-6</a>
                     </li>
@@ -1155,7 +1210,7 @@
         var mySwiper1 = new Swiper('.swiper-banner', {
             //direction: 'vertical',全部展开
             loop: true,
-            autoplay: 8000, //自动滑动
+            //autoplay: 8000, //自动滑动
             speed: 2000,
             calculateHeight: true,
             //  height: 500,
@@ -1195,7 +1250,7 @@
             centeredSlides: true,
 
         })
-      
+
         $(window).paroller();
     </script>
 
