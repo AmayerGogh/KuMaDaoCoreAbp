@@ -16,6 +16,10 @@ namespace KuMaDaoCoreAbp.EntityFrameworkCore
                 connectionStringResolver,
                 dbContextResolver)
         {
+
+         
         }
+
+   
     }
 }

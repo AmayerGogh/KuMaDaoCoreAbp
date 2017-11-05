@@ -743,6 +743,16 @@ namespace KuMaDaoCoreAbp.Migrations
 
                     b.Property<long?>("CreatorUserId");
 
+                    b.Property<long?>("DeleterUserId");
+
+                    b.Property<DateTime?>("DeletionTime");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
+
                     b.Property<string>("Title")
                         .IsRequired()
                         .HasMaxLength(20);

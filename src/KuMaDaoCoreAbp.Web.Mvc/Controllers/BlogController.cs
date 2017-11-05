@@ -5,11 +5,19 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using KuMaDaoCoreAbp.Controllers;
 
-namespace KuMaDaoCoreAbp.Web.Mvc.Controllers
+
+namespace KuMaDaoCoreAbp.Web.Controllers
 {
-    public class FluentController : KuMaDaoCoreAbpControllerBase
+    public class BlogController : KuMaDaoCoreAbpControllerBase
     {
+        // GET: /<controller>/
         public IActionResult Index()
+        {
+            return View();
+        }
+
+
+        public IActionResult Detail()
         {
             return View();
         }

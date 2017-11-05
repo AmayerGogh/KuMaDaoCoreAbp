@@ -31,8 +31,9 @@ namespace KuMaDaoCoreAbp.Web.Startup
                          .AddItem(new MenuItemDefinition(PageNames.Tenants, L("Tenants"), url: "Tenants",  requiredPermissionName: PermissionNames.Pages_Tenants))
                          .AddItem(new MenuItemDefinition(PageNames.Users, L("Users"), url: "Users",requiredPermissionName: PermissionNames.Pages_Users))
                          .AddItem(new MenuItemDefinition(PageNames.Roles, L("Roles"), url: "Roles", requiredPermissionName: PermissionNames.Pages_Roles))
-                         .AddItem(new MenuItemDefinition(PageNames.About, L("About"), url: "About")
-                         );
+                         .AddItem(new MenuItemDefinition(PageNames.About, L("About"), url: "About"))
+                         .AddItem(new MenuItemDefinition(PageNames.Article, L("Article"), url: "Article"))
+                         ;
         }
 
 

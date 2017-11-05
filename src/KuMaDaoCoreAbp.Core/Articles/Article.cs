@@ -7,7 +7,7 @@ using System.Text;
 namespace KuMaDaoCoreAbp.Articles
 {
 
-    public class Article : CreationAuditedEntity<long>
+    public class Article : FullAuditedEntity<long>// CreationAuditedEntity<long>
     {
 
         [Required]

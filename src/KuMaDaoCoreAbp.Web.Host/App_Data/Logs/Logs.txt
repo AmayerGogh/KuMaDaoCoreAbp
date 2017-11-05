@@ -1,0 +1,208 @@
+DEBUG 2017-11-11 15:11:59,380 [2    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2017-11-11 15:11:59,967 [2    ] Abp.Modules.AbpModuleManager             - Found 14 ABP modules in total.
+DEBUG 2017-11-11 15:12:00,011 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.Web.Host.Startup.KuMaDaoCoreAbpWebHostModule, KuMaDaoCoreAbp.Web.Host, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,017 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.KuMaDaoCoreAbpWebCoreModule, KuMaDaoCoreAbp.Web.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,018 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.KuMaDaoCoreAbpApplicationModule, KuMaDaoCoreAbp.Application, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,019 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.KuMaDaoCoreAbpCoreModule, KuMaDaoCoreAbp.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,020 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,021 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,021 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,022 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AutoMapper.AbpAutoMapperModule, Abp.AutoMapper, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,023 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.EntityFrameworkCore.KuMaDaoCoreAbpEntityFrameworkModule, KuMaDaoCoreAbp.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,024 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,025 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,025 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,026 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AspNetCore.AbpAspNetCoreModule, Abp.AspNetCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,027 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Web.AbpWebCommonModule, Abp.Web.Common, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:00,039 [2    ] Abp.Modules.AbpModuleManager             - 14 modules loaded.
+DEBUG 2017-11-11 15:12:00,216 [2    ] o.Configuration.LanguageManagementConfig - Converted Abp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-11 15:12:00,216 [2    ] o.Configuration.LanguageManagementConfig - Converted AbpZero (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-11 15:12:00,216 [2    ] o.Configuration.LanguageManagementConfig - Converted KuMaDaoCoreAbp (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-11 15:12:00,216 [2    ] o.Configuration.LanguageManagementConfig - Converted AbpWeb (Abp.Localization.Dictionaries.DictionaryBasedLocalizationSource) to MultiTenantLocalizationSource
+DEBUG 2017-11-11 15:12:01,006 [2    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: KuMaDaoCoreAbp.EntityFrameworkCore.KuMaDaoCoreAbpDbContext, KuMaDaoCoreAbp.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2017-11-11 15:12:04,241 [2    ] Abp.Localization.LocalizationManager     - Initializing 4 localization sources.
+DEBUG 2017-11-11 15:12:04,270 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2017-11-11 15:12:04,286 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2017-11-11 15:12:04,292 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: KuMaDaoCoreAbp
+DEBUG 2017-11-11 15:12:04,296 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpWeb
+DEBUG 2017-11-11 15:12:04,841 [2    ] Abp.BackgroundJobs.BackgroundJobManager  - Start background worker: Abp.BackgroundJobs.BackgroundJobManager
+DEBUG 2017-11-11 15:12:04,961 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - Found 12 classes define auto mapping attributes
+DEBUG 2017-11-11 15:12:04,961 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Models.TokenAuth.ExternalLoginProviderInfoModel
+DEBUG 2017-11-11 15:12:04,968 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Users.Dto.CreateUserDto
+DEBUG 2017-11-11 15:12:04,969 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Users.Dto.UserDto
+DEBUG 2017-11-11 15:12:04,970 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Sessions.Dto.TenantLoginInfoDto
+DEBUG 2017-11-11 15:12:04,970 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Sessions.Dto.UserLoginInfoDto
+DEBUG 2017-11-11 15:12:04,971 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Roles.Dto.CreateRoleDto
+DEBUG 2017-11-11 15:12:04,971 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Roles.Dto.PermissionDto
+DEBUG 2017-11-11 15:12:04,971 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Roles.Dto.RoleDto
+DEBUG 2017-11-11 15:12:04,972 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.MultiTenancy.Dto.CreateTenantDto
+DEBUG 2017-11-11 15:12:04,972 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.MultiTenancy.Dto.TenantDto
+DEBUG 2017-11-11 15:12:04,972 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Article.Dto.ArticleEditDto
+DEBUG 2017-11-11 15:12:04,972 [2    ] Abp.AutoMapper.AbpAutoMapperModule       - KuMaDaoCoreAbp.Article.Dto.ArticleListDto
+INFO  2017-11-11 15:12:09,981 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/  
+INFO  2017-11-11 15:12:10,119 [13   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:16,846 [13   ] ore.Mvc.Internal.ControllerActionInvoker - Executing action method KuMaDaoCoreAbp.Web.Host.Controllers.HomeController.Index (KuMaDaoCoreAbp.Web.Host) with arguments ((null)) - ModelState is Valid
+INFO  2017-11-11 15:12:17,011 [15   ] Core.Mvc.Internal.RedirectResultExecutor - Executing RedirectResult, redirecting to /swagger.
+INFO  2017-11-11 15:12:17,026 [15   ] ore.Mvc.Internal.ControllerActionInvoker - Executed action KuMaDaoCoreAbp.Web.Host.Controllers.HomeController.Index (KuMaDaoCoreAbp.Web.Host) in 1621.3995ms
+INFO  2017-11-11 15:12:17,054 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 7108.1985ms 302 
+INFO  2017-11-11 15:12:17,085 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger  
+INFO  2017-11-11 15:12:17,098 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,131 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 42.5139ms 301 
+INFO  2017-11-11 15:12:17,148 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/  
+INFO  2017-11-11 15:12:17,161 [6    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,205 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/index.html'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:17,660 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/jquery-1.8.0.min.js  
+INFO  2017-11-11 15:12:17,672 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/css/typography.css  
+INFO  2017-11-11 15:12:17,698 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/css/reset.css  
+INFO  2017-11-11 15:12:17,703 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 73.1488ms 200 text/html
+INFO  2017-11-11 15:12:17,716 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,722 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,727 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/object-assign-pollyfill.js  
+INFO  2017-11-11 15:12:17,742 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/css/screen.css  
+INFO  2017-11-11 15:12:17,747 [13   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,836 [6    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,850 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery-1.8.0.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:17,852 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/typography.css'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:17,856 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/screen.css'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:17,858 [12   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:17,885 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/reset.css'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:17,950 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 329.8131ms 200 text/css
+INFO  2017-11-11 15:12:17,961 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 301.9296ms 200 text/css
+INFO  2017-11-11 15:12:17,982 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/object-assign-pollyfill.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,003 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 187.8756ms 200 text/css
+INFO  2017-11-11 15:12:18,033 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/jquery.wiggle.min.js  
+INFO  2017-11-11 15:12:18,060 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/jquery.ba-bbq.min.js  
+INFO  2017-11-11 15:12:18,069 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/jquery.slideto.min.js  
+INFO  2017-11-11 15:12:18,111 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,122 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 367.5625ms 200 application/javascript
+INFO  2017-11-11 15:12:18,137 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,174 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/handlebars-4.0.5.js  
+INFO  2017-11-11 15:12:18,185 [13   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,205 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery.wiggle.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,212 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery.slideto.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,231 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jquery.ba-bbq.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,237 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/lodash.min.js  
+INFO  2017-11-11 15:12:18,254 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 238.3247ms 200 application/javascript
+INFO  2017-11-11 15:12:18,258 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 228.5176ms 200 application/javascript
+INFO  2017-11-11 15:12:18,264 [6    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,280 [12   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,292 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 246.234ms 200 application/javascript
+INFO  2017-11-11 15:12:18,304 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/backbone-min.js  
+INFO  2017-11-11 15:12:18,333 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/handlebars-4.0.5.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,348 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/lodash.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,438 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,473 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/highlight.9.1.0.pack.js  
+INFO  2017-11-11 15:12:18,477 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/swagger-ui.min.js  
+INFO  2017-11-11 15:12:18,497 [13   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,508 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/backbone-min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,517 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,532 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 916.773ms 200 application/javascript
+INFO  2017-11-11 15:12:18,540 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 160.0401ms 200 application/javascript
+INFO  2017-11-11 15:12:18,597 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 242.7453ms 200 application/javascript
+INFO  2017-11-11 15:12:18,601 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger-ui.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,624 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/highlight.9.1.0.pack_extended.js  
+INFO  2017-11-11 15:12:18,630 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/highlight.9.1.0.pack.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,686 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/marked.js  
+INFO  2017-11-11 15:12:18,724 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 329.5077ms 200 application/javascript
+INFO  2017-11-11 15:12:18,728 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/jsoneditor.min.js  
+INFO  2017-11-11 15:12:18,746 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,754 [6    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,782 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/marked.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,795 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 459.7808ms 200 application/javascript
+INFO  2017-11-11 15:12:18,806 [12   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:18,830 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/jsoneditor.min.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,873 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/highlight.9.1.0.pack_extended.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:18,913 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 118.9844ms 200 application/javascript
+INFO  2017-11-11 15:12:18,930 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 518.4635ms 200 application/javascript
+INFO  2017-11-11 15:12:18,965 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 333.7062ms 200 application/javascript
+INFO  2017-11-11 15:12:18,974 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 289.6478ms 200 application/javascript
+INFO  2017-11-11 15:12:18,985 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/images/logo_small.png  
+INFO  2017-11-11 15:12:19,003 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:19,004 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/lib/swagger-oauth.js  
+INFO  2017-11-11 15:12:19,016 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:19,029 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/logo_small.png'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:19,059 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/css/print.css  
+INFO  2017-11-11 15:12:19,064 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/lib/swagger-oauth.js'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:19,085 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 80.4057ms 200 image/png
+INFO  2017-11-11 15:12:19,090 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 127.5529ms 200 application/javascript
+INFO  2017-11-11 15:12:19,094 [6    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:19,115 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/css/print.css'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:19,128 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 72.8586ms 200 text/css
+INFO  2017-11-11 15:12:19,265 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2017-11-11 15:12:19,280 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:19,498 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/images/favicon-32x32.png  
+INFO  2017-11-11 15:12:19,509 [6    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:19,523 [6    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/favicon-32x32.png'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:19,545 [6    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 47.8561ms 200 image/png
+INFO  2017-11-11 15:12:19,562 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/images/favicon-16x16.png  
+INFO  2017-11-11 15:12:19,573 [12   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:19,582 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/favicon-16x16.png'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:19,593 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 41.5139ms 200 image/png
+INFO  2017-11-11 15:12:19,997 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 708.3692ms 200 application/json
+INFO  2017-11-11 15:12:20,739 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js?_=1510384340701  
+INFO  2017-11-11 15:12:20,748 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/on-complete.js?_=1510384340702  
+INFO  2017-11-11 15:12:20,761 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Code\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2017-11-11 15:12:20,777 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/on-complete.js'. Physical path: 'C:\Code\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\wwwroot\swagger\ui\on-complete.js'
+INFO  2017-11-11 15:12:20,819 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 54.5806ms 200 application/javascript
+INFO  2017-11-11 15:12:20,833 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 71.1405ms 200 application/javascript
+INFO  2017-11-11 15:12:30,436 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/images/explorer_icons.png  
+INFO  2017-11-11 15:12:30,440 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/images/throbber.gif  
+INFO  2017-11-11 15:12:30,490 [13   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:30,492 [15   ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:30,498 [13   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/explorer_icons.png'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:30,506 [13   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 74.1251ms 200 image/png
+INFO  2017-11-11 15:12:30,527 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/images/throbber.gif'. Physical path: 'N/A'
+INFO  2017-11-11 15:12:30,535 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 99.1924ms 200 image/gif
+INFO  2017-11-11 15:12:38,441 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/v1/swagger.json  
+INFO  2017-11-11 15:12:38,452 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:12:38,498 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 58.7754ms 200 application/json
+INFO  2017-11-11 15:12:39,173 [15   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js?_=1510384359154  
+INFO  2017-11-11 15:12:39,229 [15   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Code\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2017-11-11 15:12:39,236 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/on-complete.js?_=1510384359155  
+INFO  2017-11-11 15:12:39,253 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 75.9622ms 200 application/javascript
+INFO  2017-11-11 15:12:39,261 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/on-complete.js'. Physical path: 'C:\Code\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\wwwroot\swagger\ui\on-complete.js'
+INFO  2017-11-11 15:12:39,283 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 102.3666ms 200 application/javascript
+INFO  2017-11-11 15:13:07,250 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/api/services/app/Article/GetPagedArticlesAsync?Sorting=1&MaxResultCount=1&SkipCount=1  
+INFO  2017-11-11 15:13:07,259 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+WARN  2017-11-11 15:13:08,016 [5    ] Mvc.Authorization.AbpAuthorizationFilter - Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext() in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext() in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 98
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext() in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 57
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.<OnAuthorizationAsync>d__8.MoveNext() in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+Abp.Authorization.AbpAuthorizationException: 当前用户没有登录到系统！
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__19.MoveNext() in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 43
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<CheckPermissions>d__22.MoveNext() in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 98
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.Authorization.AuthorizationHelper.<AuthorizeAsync>d__20.MoveNext() in D:\Github\aspnetboilerplate\src\Abp\Authorization\AuthorizationHelper.cs:line 57
+--- End of stack trace from previous location where exception was thrown ---
+   at System.Runtime.ExceptionServices.ExceptionDispatchInfo.Throw()
+   at System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   at Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter.<OnAuthorizationAsync>d__8.MoveNext() in D:\Github\aspnetboilerplate\src\Abp.AspNetCore\AspNetCore\Mvc\Authorization\AbpAuthorizationFilter.cs:line 53
+INFO  2017-11-11 15:13:08,032 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Authorization failed for the request at filter 'Abp.AspNetCore.Mvc.Authorization.AbpAuthorizationFilter'.
+INFO  2017-11-11 15:13:08,049 [5    ] etCore.Mvc.Internal.ObjectResultExecutor - Executing ObjectResult, writing value Microsoft.AspNetCore.Mvc.ControllerContext.
+INFO  2017-11-11 15:13:08,077 [5    ] ore.Mvc.Internal.ControllerActionInvoker - Executed action KuMaDaoCoreAbp.Articles.ArticleAppService.GetPagedArticlesAsync (KuMaDaoCoreAbp.Application) in 763.8929ms
+INFO  2017-11-11 15:13:08,096 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 834.8479ms 401 application/json; charset=utf-8
+INFO  2017-11-11 15:13:57,399 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/abp.js?_=1510384437326  
+INFO  2017-11-11 15:13:57,410 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/ui/on-complete.js?_=1510384437330  
+INFO  2017-11-11 15:13:57,427 [5    ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/on-complete.js'. Physical path: 'C:\Code\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\wwwroot\swagger\ui\on-complete.js'
+INFO  2017-11-11 15:13:57,462 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 61.3092ms 200 application/javascript
+INFO  2017-11-11 15:13:57,488 [12   ] NetCore.StaticFiles.StaticFileMiddleware - Sending file. Request path: '/swagger/ui/abp.js'. Physical path: 'C:\Code\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\wwwroot\swagger\ui\abp.js'
+INFO  2017-11-11 15:13:57,535 [12   ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 132.4899ms 200 application/javascript
+INFO  2017-11-11 15:17:07,026 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request starting HTTP/1.1 GET http://localhost:21021/swagger/images/throbber.gif  
+INFO  2017-11-11 15:17:07,033 [5    ] tion.Cookies.CookieAuthenticationHandler - Identity.Application was not authenticated. Failure message: Unprotect ticket failed
+INFO  2017-11-11 15:17:07,093 [5    ] NetCore.StaticFiles.StaticFileMiddleware - The file /images/throbber.gif was not modified
+INFO  2017-11-11 15:17:07,117 [5    ] soft.AspNetCore.Hosting.Internal.WebHost - Request finished in 75.2376ms 304 image/gif

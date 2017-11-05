@@ -15,8 +15,8 @@ using System;
 namespace KuMaDaoCoreAbp.Migrations
 {
     [DbContext(typeof(KuMaDaoCoreAbpDbContext))]
-    [Migration("20171029140233_article")]
-    partial class article
+    [Migration("20171111044246_add_article")]
+    partial class add_article
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -743,6 +743,16 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.Property<DateTime>("CreationTime");
 
                     b.Property<long?>("CreatorUserId");
+
+                    b.Property<long?>("DeleterUserId");
+
+                    b.Property<DateTime?>("DeletionTime");
+
+                    b.Property<bool>("IsDeleted");
+
+                    b.Property<DateTime?>("LastModificationTime");
+
+                    b.Property<long?>("LastModifierUserId");
 
                     b.Property<string>("Title")
                         .IsRequired()

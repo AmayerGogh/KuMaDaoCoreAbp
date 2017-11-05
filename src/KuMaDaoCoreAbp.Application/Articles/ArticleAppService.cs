@@ -60,7 +60,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
-        public async Task<GetArticleForEditOutput> GetArticleForEditAsync(NullableIdDto<int> input)
+        public async Task<GetArticleForEditOutput> GetArticleForEditAsync(NullableIdDto<long> input)
         {
             var output = new GetArticleForEditOutput();
 

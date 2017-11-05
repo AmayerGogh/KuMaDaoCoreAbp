@@ -1,0 +1,228 @@
+﻿
+@{
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html >
+
+<head id="Head">
+    <title>博客皮肤模板</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta id="metaKeywords" name="keywords" content="博客,博客园,博客皮肤,博客园皮肤" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <style>
+        ul {
+            list-style-type: none;
+        }
+
+        .no-padding {
+            padding: 0;
+        }
+    </style>
+   <style>
+       .metro-out-head-title {
+           font-size: 22px;
+           height: 34px;
+       }
+       .metro-out-head-tools{
+           float:right;
+           line-height:34px;
+       }
+       .metro-out-head-tools li {
+           float: left
+       }
+   </style>
+    <style>
+        body, .acrylic::before {
+            background: url("/img/bg.jpg") fixed 0 center;
+        }
+
+        
+        .catListBox{
+            background-color:#808080
+        }
+        .article {
+            height: 170px;
+            margin: 10px 0;
+            background: url(images/body_bg.png) repeat-x scroll 0 0 #f0eef5;
+        }
+            .article:hover {
+                background: url(images/body_bg.png) repeat-x scroll 0 0 #f0eef5;
+            }
+        .article-left{
+         
+        }
+        .article-right {
+            height: 170px;
+        }
+        .article-img-out img{
+            width:100%;
+            height:170px;
+        }
+        .article-title {
+            font-size: 18px;
+            padding-top: 10px;
+            padding-bottom: 5px;
+        }
+        .article-label .label {
+            margin: 0 4px;
+            border-radius: 13px;
+            background-color: red;
+           
+        }
+        .article .message-data li {
+            float: left;
+            margin: 0 6px;
+        }
+        .article-label {
+            padding-bottom: 10px;
+        }
+        .article-buttom {
+            right: 10px;
+            bottom: 0px;
+            position: absolute;
+            line-height: 34px;
+        }
+        .article-author {
+            left:22px;
+            bottom: 0px;
+            position: absolute;
+        }
+        .article-author  span{
+           margin-left:8px;
+        }
+        .article-author img{
+            max-height:34px;
+        }
+    </style>
+</head>
+
+<body>
+   
+    <div style="height:80px;background-color: #00a986">
+        <span>论坛首页</span>
+        <span>板块</span>
+        <span>官网</span>
+    </div>
+ 
+    <div id="home">
+        <div id="header">
+            <div id="blogTitle" style="height:321px; background: url(http://www.cnblogs.com/skins/CodingLife/images/title-yellow.png) no-repeat center 21px;">
+       
+            </div>
+            <!--end: blogTitle 博客的标题和副标题 -->
+       
+            <!--end: navigator 博客导航栏 -->
+        </div>
+        <!--end: header 头部 -->
+        <div id="main" class="container">
+            <div id="mainContent" class="col-md-9">
+                <div class="metro-out-head">
+                    <span class="metro-out-head-title">首页</span>
+                    @*<ul class="metro-out-head-tools">
+                        <li><span class="glyphicon glyphicon-th" aria-hidden="true"></span></li>
+                        <li><span class="glyphicon glyphicon-align-justify" aria-hidden="true"></span></li>
+                    </ul>*@
+                </div>
+                @*<div style="border:1px solid red;height:400px;">
+
+                </div>*@
+                <div class="forFlow">
+                    @for (int i = 0; i < 10; i++)
+                    {
+                        <div class=" article">
+                            <div class="col-md-4 no-padding article-img-out">
+                                <img src="~/img/6.jpg" />
+
+                            </div>
+                            <div class="col-md-8  article-right">
+                                <div class="article-title">
+                                    <span>Linux系列教程（十二）——Linux软件包管理之yum在线管理</span>
+                                </div>
+
+                                <div class="article-label">
+                                    <span class="label label-success">Success</span><span class="label label-success">Success</span>
+                                </div>
+                                <div class="article-des">
+                                    如果你有大量的设置为 inline 属性的标签全部放在一个较窄的容器元素内，在页面上展示这些标签就会出现问题，每个标签就会有自己的一个 inline-block 元素（就像图标一样）。解决的办法是为每个标签
+                                </div>
+                                <div class="article-author">
+                                    <img class="img-circle" src="~/img/game/game1.jpg" />
+                                    <span>作者</span>
+                                </div>
+                                <div class="article-buttom">
+
+                                    <ul class="message-data">
+                                        <li class="message-data-item viewed"><span>阅读(123)</span></li>
+                                        <li class="message-data-item like">评论(78)</li>
+                                        <li class="message-data-item commends">时间:2013-02-11</li>
+                                        <li class="message-data-item"><span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                
+                 
+                </div>
+                <!--end: forFlow -->
+            </div>
+            <!--end: mainContent 主体内容容器-->
+            <div id="sideBar" class="col-md-3 ">
+                <div id="sideBarMain">
+                    <!--done-->
+                    
+                    <div class="newsItem">
+                        <h3 class="catListTitle">板块</h3>
+                        这里是公告。这里是公告。这里是公告。这里是公告。这里是公告。这里是公告。这里是公告。这里是公告。这里是公告。这里是公告。
+                    </div>
+                    <div id="calendar">
+                      
+                    </div>
+                    <div class="catListEssay">
+                        <h3 class="catListTitle">最新随笔</h3>
+                        <div class="catListBox">
+                            <ul>
+                                <li><a href="#">1. 测试新文章发布111222</a></li>
+                                <li><a href="#">2. 测试新文章发布</a></li>
+                                <li>
+                                    <a href="#">
+                                        3. Conscientiously Objecting the Living
+                                        Room War
+                                    </a>
+                                </li>
+                                <li><a href="#">4. 新的带标签</a></li>
+                                <li><a href="#">5. 发一篇带标签的文章</a></li>
+                                <li><a href="#">6. 发一篇标签的文章看看啊</a></li>
+                                <li><a href="#">7. 不会记录的把sdfsdfsdfsdfs212222</a></li>
+                                <li><a href="#">8. 来记录一个把</a></li>
+                                <li><a href="#">9. 我发正常的，应该不记录</a></li>
+                                <li><a href="#">10. test默认测试不记录的</a></li>
+                            </ul>
+                        </div>
+                       
+                    </div>
+                </div>
+                <!--end: sideBarMain -->
+                <div class="clear">
+                </div>
+                <!--end: sideBar 侧边栏容器 -->
+            </div>
+        </div>
+        <!--end: main -->
+        <div class="clear">
+        </div>
+        <div id="footer">
+            Copyright ©2008 杨正祎
+        </div>
+        <!--end: footer -->
+    </div>
+    <!--end: home 自定义的最大容器 -->
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+</body>
+
+</html>
