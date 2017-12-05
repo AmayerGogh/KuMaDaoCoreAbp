@@ -12,6 +12,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using Swashbuckle.AspNetCore.Swagger;
+
 
 #if FEATURE_SIGNALR
 using Owin;
@@ -42,7 +44,23 @@ namespace KuMaDaoCoreAbp.Web.Startup
             AuthConfigurer.Configure(services, _appConfiguration);
 
             services.AddScoped<IWebResourceManager, WebResourceManager>();
+            //Swagger - Enable this line and the related lines in Configure method to enable swagger UI
+            services.AddSwaggerGen(options =>
+            {
+                options.SwaggerDoc("v1", new Info { Title = "KuMaDaoCoreAbp API", Version = "v1" });
+                options.DocInclusionPredicate((docName, description) => true);
 
+                // Define the BearerAuth scheme that's in use
+                options.AddSecurityDefinition("bearerAuth", new ApiKeyScheme()
+                {
+                    Description = "JWT Authorization header using the Bearer scheme. Example: \"Authorization: Bearer {token}\"",
+                    Name = "Authorization",
+                    In = "header",
+                    Type = "apiKey"
+                });
+                // Assign scope requirements to operations based on AuthorizeAttribute
+                //options.OperationFilter<Host.Startup.SecurityRequirementsOperationFilter>();
+            });
             //Configure Abp and Dependency Injection
             return services.AddAbp<KuMaDaoCoreAbpWebMvcModule>(options =>
             {
@@ -86,6 +104,15 @@ namespace KuMaDaoCoreAbp.Web.Startup
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+          //  Enable middleware to serve generated Swagger as a JSON endpoint
+            app.UseSwagger();
+            // Enable middleware to serve swagger-ui assets (HTML, JS, CSS etc.)
+            app.UseSwaggerUI(options =>
+            {
+                options.InjectOnCompleteJavaScript("/swagger/ui/abp.js");
+                options.InjectOnCompleteJavaScript("/swagger/ui/on-complete.js");
+                options.SwaggerEndpoint("/swagger/v1/swagger.json", "KuMaDaoCoreAbp API V1");
+            }); // URL: /swagger
         }
 
 #if FEATURE_SIGNALR
