@@ -19,16 +19,16 @@
             deleteRole(roleId, roleName);
         });
 
-        $('.edit-role').click(function (e) {
-            var roleId = $(this).attr("data-role-id");
+        $('.edit-article').click(function (e) {
+            var id = $(this).attr("data-article-id");
 
             e.preventDefault();
             $.ajax({
-                url: abp.appPath + 'admin/aritlce/EditArticleModal?roleId=' + roleId,
+                url: abp.appPath + 'admin/article/EditArticleModal?Id=' + id,
                 type: 'POST',
                 contentType: 'application/html',
                 success: function (content) {
-                    $('#RoleEditModal div.modal-content').html(content);
+                    $('#ArticleEditModal div.modal-content').html(content);
                 },
                 error: function (e) { }
             });

@@ -49,9 +49,10 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
             {
                 GetArticleForEditOutput = article
             };
-            return View("_EditUserModal", model);
-        }
+            return View("_editArticleModal", model);
 
-      
+        }
+       
+
     }
 }

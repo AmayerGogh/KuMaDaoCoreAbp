@@ -24,5 +24,8 @@ namespace KuMaDaoCoreAbp.Articles
         /// 通过指定id获取文章ListDto信息
         /// </summary>
         Task<ArticleListDto> GetArticleByIdAsync(EntityDto<int> input);
+
+
+       // object PostTest(object input);
     }
 }

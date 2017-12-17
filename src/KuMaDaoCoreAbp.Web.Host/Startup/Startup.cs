@@ -76,8 +76,9 @@ namespace KuMaDaoCoreAbp.Web.Host.Startup
                     In = "header",
                     Type = "apiKey"
                 });
+                options.IncludeXmlComments("C:/Code/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Host/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
                 // Assign scope requirements to operations based on AuthorizeAttribute
-                options.OperationFilter<SecurityRequirementsOperationFilter>();
+                //options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
 
             // Configure Abp and Dependency Injection
@@ -125,6 +126,7 @@ namespace KuMaDaoCoreAbp.Web.Host.Startup
                 options.InjectOnCompleteJavaScript("/swagger/ui/abp.js");
                 options.InjectOnCompleteJavaScript("/swagger/ui/on-complete.js");
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "KuMaDaoCoreAbp API V1");
+                options.ShowRequestHeaders();
             }); // URL: /swagger
         }
 

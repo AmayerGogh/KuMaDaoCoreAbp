@@ -100,15 +100,15 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 新增或更改文章
         /// </summary>
-        public async Task CreateOrUpdateArticleAsync(CreateOrUpdateArticleInput input)
+        public async Task CreateOrUpdateArticleAsync(ArticleEditDto input)
         {
-            if (input.ArticleEditDto.Id.HasValue)
+            if (input.Id.HasValue)
             {
-                await UpdateArticleAsync(input.ArticleEditDto);
+                await UpdateArticleAsync(input);
             }
             else
             {
-                await CreateArticleAsync(input.ArticleEditDto);
+                await CreateArticleAsync(input);
             }
         }
 

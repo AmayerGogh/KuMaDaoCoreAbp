@@ -12,6 +12,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
     [AbpMvcAuthorize]
     public class HomeController : KuMaDaoCoreAbpControllerBase
     {
+        
         public ActionResult Index()
         {
             return View();

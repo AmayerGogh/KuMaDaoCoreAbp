@@ -17,5 +17,5 @@ namespace KuMaDaoCoreAbp.Articles
         }
 
         //领域代码
-    }
+        }
 }

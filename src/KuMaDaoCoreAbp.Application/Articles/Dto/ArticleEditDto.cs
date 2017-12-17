@@ -29,4 +29,17 @@ namespace KuMaDaoCoreAbp.Article.Dto
         public   int  CategoryId { get; set; }
 
     }
+
+    public  class Test
+    {
+        [DisplayName("主键Id")]
+        public Guid? Id { get; set; }
+        [Required]
+        [MaxLength(20)]
+        public string Title { get; set; }
+
+        public string Body { get; set; }
+
+        public int CategoryId { get; set; }
+    }
 }
