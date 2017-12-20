@@ -18,10 +18,8 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Controllers
         }
         [DisableAuditing]
         public IActionResult Admin()
-        {
-          
+        {          
             return File(System.IO.File.Open(host.WebRootPath +"/Angular/admin/dist/index.html", System.IO.FileMode.Open), "text/html");
-            
         }
     }
 }

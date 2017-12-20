@@ -2,21 +2,21 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { RouterModule } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
-import { dashboardRoutes } from './dashboard.routes';
+import { HomeComponent } from './home.component';
+import { homeRoutes } from './home.routes';
 
 
 @NgModule({
   imports: [
     CommonModule,  
-    RouterModule.forChild(dashboardRoutes)
+    RouterModule.forChild(homeRoutes)
   ],
   declarations: [
-    DashboardComponent,
+    HomeComponent,
   
   ],
   providers: [
     
   ]
 })
-export class DashboardModule { }
+export class HomeModule { }

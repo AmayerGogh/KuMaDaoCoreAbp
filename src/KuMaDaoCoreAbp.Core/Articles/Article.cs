@@ -16,7 +16,7 @@ namespace KuMaDaoCoreAbp.Articles
 
 
         public virtual string Body { get; set; }
-        public virtual int CategoryId { get; set; }
+        public virtual long CategoryId { get; set; }
     }
 
 }
