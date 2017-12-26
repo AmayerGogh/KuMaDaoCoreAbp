@@ -737,7 +737,7 @@ namespace KuMaDaoCoreAbp.Migrations
 
                     b.Property<string>("Body");
 
-                    b.Property<int>("CategoryId");
+                    b.Property<long>("CategoryId");
 
                     b.Property<DateTime>("CreationTime");
 
@@ -928,6 +928,28 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.ToTable("AbpUsers");
                 });
 
+            modelBuilder.Entity("KuMaDaoCoreAbp.Category.Category", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Icon");
+
+                    b.Property<string>("Mark");
+
+                    b.Property<string>("Name");
+
+                    b.Property<long>("ParentId");
+
+                    b.Property<int>("Sort");
+
+                    b.Property<int>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Category");
+                });
+
             modelBuilder.Entity("KuMaDaoCoreAbp.MultiTenancy.Tenant", b =>
                 {
                     b.Property<int>("Id")
@@ -975,6 +997,46 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.HasIndex("TenancyName");
 
                     b.ToTable("AbpTenants");
+                });
+
+            modelBuilder.Entity("KuMaDaoCoreAbp.Types.BaseData", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Description");
+
+                    b.Property<string>("Name");
+
+                    b.Property<string>("Param1");
+
+                    b.Property<string>("Param2");
+
+                    b.Property<string>("Param3");
+
+                    b.Property<int>("Status");
+
+                    b.Property<long>("TypeId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BaseData");
+                });
+
+            modelBuilder.Entity("KuMaDaoCoreAbp.Types.BaseDataType", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Mark");
+
+                    b.Property<string>("Name");
+
+                    b.Property<int>("Status");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("BaseDataType");
                 });
 
             modelBuilder.Entity("Abp.Application.Features.EditionFeatureSetting", b =>

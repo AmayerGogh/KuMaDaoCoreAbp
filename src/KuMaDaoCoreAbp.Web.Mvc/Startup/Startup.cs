@@ -34,6 +34,8 @@ namespace KuMaDaoCoreAbp.Web.Startup
 
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
+            //默认的链接数据库方式
+            //services.AddDbContext<EntityFrameworkCore.KuMaDaoCoreAbpDbContext>(m => m.UseSqlServer(Configuration.GetConnectionString("")));
             //MVC
             services.AddMvc(options =>
             {

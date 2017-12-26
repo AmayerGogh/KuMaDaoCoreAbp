@@ -6,7 +6,7 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Articles
 {
-   public  class ArticleManager: IDomainService
+   public  class ArticleManager: IArticleManager
     {
 
         private readonly IRepository<Article, long> _articleRepository;
@@ -16,6 +16,11 @@ namespace KuMaDaoCoreAbp.Articles
             _articleRepository = articleRepository;
         }
 
-        //领域代码
+        public void TestManager(Article article)
+        {
+            throw new NotImplementedException();
         }
+
+        //领域代码
+    }
 }

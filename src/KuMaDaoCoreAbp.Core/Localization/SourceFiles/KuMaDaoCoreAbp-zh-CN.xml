@@ -66,8 +66,8 @@
     <text name="Roles">权限</text>
     <text name="DisplayName">Display Name</text>
 
-    <text name="Edit">Edit</text>
-    <text name="Delete">Delete</text>
+    <text name="Edit">编辑</text>
+    <text name="Delete">删除</text>
 
     <text name="CreateNewRole">Create new role</text>
     <text name="RoleName">Role Name</text>
@@ -81,6 +81,7 @@
     <text name="EditUser">Edit user</text>
     <text name="TenantIdIsNotActive{0}">TenantId {0} is not active</text>
     <text name="UnknownTenantId{0}">Unknown tenantId {0}</text>
+     <text name="Article">文章</text>
     
   </texts>
 </localizationDictionary>

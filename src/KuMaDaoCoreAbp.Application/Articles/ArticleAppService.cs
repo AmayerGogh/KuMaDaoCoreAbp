@@ -2,6 +2,7 @@
 using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Events.Bus;
 using KuMaDaoCoreAbp.Article.Dto;
 using KuMaDaoCoreAbp.Articles.Authorization;
 using Microsoft.EntityFrameworkCore;
@@ -16,15 +17,17 @@ namespace KuMaDaoCoreAbp.Articles
     [AbpAuthorize(ArticleAppPermissions.Article)]
     public   class ArticleAppService: KuMaDaoCoreAbpAppServiceBase, IArticleAppService
     {
-        private readonly IRepository<Article, long> _articleRepository;
-
+        //private readonly IRepository<Article, long> _articleRepository;
+        private readonly IArticleRepository _articleRepository;
         private readonly ArticleManager _articleManage;
 
-        public ArticleAppService(IRepository<Article, long> articleRepository, ArticleManager articleManage
+        private IEventBus EventBus { get; set; }
+        public ArticleAppService(IArticleRepository articleRepository, ArticleManager articleManage
 )
         {
             _articleRepository = articleRepository;
             _articleManage = articleManage;
+            this.EventBus = NullEventBus.Instance;
         }
 
         private IQueryable<Article> _articleRepositoryAsNoTrack => _articleRepository.GetAll().AsNoTracking();
@@ -161,6 +164,11 @@ namespace KuMaDaoCoreAbp.Articles
         }
 
         #endregion
+
+        public void TestEvent()
+        {
+            EventBus.Trigger(new ArticleEventData { Article = new Article { } });
+        }
 
     }
 }

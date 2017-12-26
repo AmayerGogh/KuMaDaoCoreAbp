@@ -2,6 +2,7 @@
 using Abp.Domain.Entities.Auditing;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace KuMaDaoCoreAbp.Articles
@@ -10,6 +11,7 @@ namespace KuMaDaoCoreAbp.Articles
     {
         public virtual long ArticleId {get;set;}
         public virtual string Body { get; set; }
-       
+
+
     }
 }
