@@ -21,7 +21,8 @@
 <ul class="nav metismenu" id="side-menu">
     @foreach (var item in Model.MainMenu.Items)
     {
-        <li class="@(Model.ActiveMenuItemName == item.Name ? "active" : "")">
+        var active = item.Items.FirstOrDefault(m => m.Name == Model.ActiveMenuItemName);
+        <li class="@(active!=null? "active" : "")">
             @if (item.Items.IsNullOrEmpty())
             {
 
@@ -36,14 +37,15 @@
                     <i class="fa fa-th-large"></i>
                     <span class="nav-label">@item.Name</span> <span class="fa @item.Icon"></span>
                 </a>
-                <ul class="nav nav-second-level   @(Model.ActiveMenuItemName == item.Name ? "collapse" : "") ">
+                <ul class="nav nav-second-level  collapse @(active!=null ? "in" : "") ">
                     @foreach (var subItem in item.Items)
                     {
-                        <li><a href="@calculateMenuUrl(subItem.Url)">@subItem.DisplayName</a></li>
+                        <li ><a href="@calculateMenuUrl(subItem.Url)" class="@(subItem.Url==Model.ActiveMenuItemName?"active":"")">@subItem.DisplayName</a></li>
                     }
                 </ul>
             }
 
         </li>
     }
+   
 </ul>

@@ -32,10 +32,10 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         public async Task<ActionResult> Index()
         {
             //  var users = (await _articleAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
-            var articles = (await _articleAppService.GetPagedArticlesAsync(new Article.Dto.GetArticleInput { })).Items;
+           // var articles = (await _articleAppService.GetPagedArticlesAsync(new Article.Dto.GetArticleInput { })).Items;
             var model = new ArticleListViewModel
             {
-               Articles = articles,
+             //  Articles = articles,
                 ArticleEditModal =new Article.Dto.ArticleEditDto ()
             };
             return View(model);

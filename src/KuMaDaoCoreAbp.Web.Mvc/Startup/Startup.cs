@@ -13,6 +13,9 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Swashbuckle.AspNetCore.Swagger;
+using System.Linq;
+using KuMaDaoCoreAbp.Web.Startup._pingins;
+using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 
 
 #if FEATURE_SIGNALR
@@ -41,6 +44,13 @@ namespace KuMaDaoCoreAbp.Web.Startup
             {
                 options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
             });
+            // 为了兼容sqlserver 2008
+            //.ConfigureApplicationPartManager(manager =>
+            //{
+            //    manager.FeatureProviders.Remove(manager.FeatureProviders.First(f => f is MetadataReferenceFeatureProvider));
+            //    manager.FeatureProviders.Add(new ReferencesMetadataReferenceFeatureProvider());
+            //})
+            //;
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);

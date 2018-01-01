@@ -21,8 +21,8 @@ namespace KuMaDaoCoreAbp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452")
-                .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+                .HasAnnotation("MySql:ValueGenerationStrategy", MySqlValueGenerationStrategy.IdentityColumn)
+                .HasAnnotation("ProductVersion", "2.0.0-rtm-26452");
 
             modelBuilder.Entity("Abp.Application.Editions.Edition", b =>
                 {
@@ -735,9 +735,9 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.Property<long>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Body");
-
                     b.Property<long>("CategoryId");
+
+                    b.Property<string>("Cover");
 
                     b.Property<DateTime>("CreationTime");
 
@@ -746,6 +746,8 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.Property<long?>("DeleterUserId");
 
                     b.Property<DateTime?>("DeletionTime");
+
+                    b.Property<string>("Description");
 
                     b.Property<bool>("IsDeleted");
 

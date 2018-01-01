@@ -20,9 +20,9 @@ namespace KuMaDaoCoreAbp.Web.Areas.Admin.Controllers
             _userAppService = userAppService;
         }
 
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> Index(int count=10,int skip=0)
         {
-            var users = (await _userAppService.GetAll(new PagedResultRequestDto {MaxResultCount = int.MaxValue})).Items; //Paging not implemented yet
+            var users = (await _userAppService.GetAll(new PagedResultRequestDto {MaxResultCount = count,SkipCount =skip})).Items; //Paging not implemented yet
             var roles = (await _userAppService.GetRoles()).Items;
             var model = new UserListViewModel
             {
@@ -31,6 +31,7 @@ namespace KuMaDaoCoreAbp.Web.Areas.Admin.Controllers
             };
             return View(model);
         }
+    
 
         public async Task<ActionResult> EditUserModal(long userId)
         {

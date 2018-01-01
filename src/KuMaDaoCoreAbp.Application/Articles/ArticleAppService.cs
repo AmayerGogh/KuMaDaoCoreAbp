@@ -5,17 +5,19 @@ using Abp.Domain.Repositories;
 using Abp.Events.Bus;
 using KuMaDaoCoreAbp.Article.Dto;
 using KuMaDaoCoreAbp.Articles.Authorization;
+using KuMaDaoCoreAbp.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace KuMaDaoCoreAbp.Articles
 {
     [AbpAuthorize(ArticleAppPermissions.Article)]
-    public   class ArticleAppService: KuMaDaoCoreAbpAppServiceBase, IArticleAppService
+    public class ArticleAppService : KuMaDaoCoreAbpAppServiceBase, IArticleAppService
     {
         //private readonly IRepository<Article, long> _articleRepository;
         private readonly IArticleRepository _articleRepository;
@@ -40,26 +42,44 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 根据查询条件获取文章分页列表
         /// </summary>
-        public async Task<PagedResultDto<ArticleListDto>> GetPagedArticlesAsync(GetArticleInput input)
+        public async Task<PagedResultDto<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param)
         {
+            var expressionList = new List<Expression<Func<Article, bool>>>();
+            if (string.IsNullOrWhiteSpace(param.search))
+            {
+                expressionList.Add(m => m.Title == param.search);
+            }
+            var predicate = Amayer.Express.Express.BulidExpression(expressionList);
+            var query = _articleRepositoryAsNoTrack.Where(predicate);        
 
-            var query = _articleRepositoryAsNoTrack;
-            //TODO:根据传入的参数添加过滤条件
+            var count = await query.CountAsync();
 
-            var articleCount = await query.CountAsync();
-
-            var articles = await query
-            //.OrderBy(input.Sorting)
-            //.PageBy(input)
-            .ToListAsync();
-
-            var articleListDtos = articles.MapTo<List<ArticleListDto>>();
+            try
+            {
+          
+                var tgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10);
+                 var stgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToList();
+                var stssgs = await _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToListAsync();
+                var list = query
+                     .OrderByDescending(m => m.Id)
+                     .Skip(param.offset)
+                     .Take(param.limit)
+                     .ToList();
+                var listDtos = list.MapTo<List<ArticleListDto>>();
+                return new PagedResultDto<ArticleListDto>(
+                    count,
+                    listDtos
+                    );
+            }
+            catch (Exception e)
+            {
+                var es = e.Message;
+            }
             return new PagedResultDto<ArticleListDto>(
-            articleCount,
-            articleListDtos
-            );
+                      
+                       );
         }
-
+       
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
@@ -169,6 +189,7 @@ namespace KuMaDaoCoreAbp.Articles
         {
             EventBus.Trigger(new ArticleEventData { Article = new Article { } });
         }
+
 
     }
 }

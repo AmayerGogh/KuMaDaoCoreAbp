@@ -4,8 +4,12 @@
 @{
     ViewBag.CurrentPageName = PageNames.Users; //The menu item will be active for this page.
 }
+@section styles{ 
+<link href="~/pugins/bootstrap-table/boorstrap-table.css" rel="stylesheet" />
+}
 @section scripts
 {
+    <script src="~/pugins/bootstrap-table/bootstrap-table.js"></script>
     <environment names="Development">
         <script src="~/view-resources/Views/Users/Index.js" asp-append-version="true"></script>
     </environment>

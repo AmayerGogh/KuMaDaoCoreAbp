@@ -27,7 +27,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
         }
         private static MenuItemDefinition GuanliNav()
         {
-            return new MenuItemDefinition("管理", L("guanli"), icon: "menu", requiresAuthentication: true)
+            return new MenuItemDefinition("管理", L("guanli"),url:"", icon: "menu", requiresAuthentication: true)
                          .AddItem(new MenuItemDefinition(PageNames.Tenants, L("Tenants"), url: "Tenants",  requiredPermissionName: PermissionNames.Pages_Tenants))
                          .AddItem(new MenuItemDefinition(PageNames.Users, L("Users"), url: "Users",requiredPermissionName: PermissionNames.Pages_Users))
                          .AddItem(new MenuItemDefinition(PageNames.Roles, L("Roles"), url: "Roles", requiredPermissionName: PermissionNames.Pages_Roles))
