@@ -9,12 +9,15 @@ using System.Threading.Tasks;
 
 namespace KuMaDaoCoreAbp.Articles
 {
-    public interface IArticleAppService:IApplicationService
+    /// <summary>
+    /// 
+    /// </summary>
+    public interface IArticleAppService : IApplicationService
     {
         /// <summary>
         /// 根据查询条件获取文章分页列表
         /// </summary>        
-        Task<PagedResultDto<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param);
+        Task<BsTableResponseModel<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param);
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
@@ -26,6 +29,6 @@ namespace KuMaDaoCoreAbp.Articles
         Task<ArticleListDto> GetArticleByIdAsync(EntityDto<int> input);
 
 
-       // object PostTest(object input);
+        // object PostTest(object input);
     }
 }

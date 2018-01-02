@@ -51,19 +51,19 @@
             }
             var column = [
                  // {   checkbox: true},
-                 // { title: "Id", field: "Id", },
+                  { title: "Id", field: "id", },
                   { title: "文章标题", field: "title", width: "40%" },
-                  { title: "分类", field: "type", },
-                  { title: "查看次数", field: "seeCount", },
-                //  { title: "排序", events: sortEvents, formatter: sortFormatter, width: "8%" },
-                  { title: "是否置顶", formatter: statusFormatter },
-                  { title: "发布日期", field: "createTime", },
-                  { title: "操作", events: operateEvents, formatter: operateFormatter, },//自定义方法，添加操作按钮
+                  { title: "分类", field: "categoryId", },
+                //  { title: "查看次数", field: "seeCount", },
+                ////  { title: "排序", events: sortEvents, formatter: sortFormatter, width: "8%" },
+                //  { title: "是否置顶", formatter: statusFormatter },
+                //  { title: "发布日期", field: "createTime", },
+                //  { title: "操作", events: operateEvents, formatter: operateFormatter, },//自定义方法，添加操作按钮
             ];
             var table = $('#table').bootstrapTable({
                 url: '/api/services/app/Article/GetPagedArticlesAsync',
                 toolbar: '#toolbar',
-                method: 'post',
+                method: 'get',
                 striped: true,
                 pagination: true,
                 uniqueId: "id",                    //每一行的唯一标识，一般为主键列
@@ -82,7 +82,11 @@
                     params.searches = {                      
                     }
                     return params;
-                },       
+                },   
+                responseHandler: function (res) {
+                    console.log(res.result);
+                    return res.result;
+                }
             });
 
             function sortFormatter(value, row, index) {

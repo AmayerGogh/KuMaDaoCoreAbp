@@ -23,7 +23,10 @@ namespace KuMaDaoCoreAbp.Dto
 
     public class BsTableResponseModel<T>
     {
-        public List<T> data { get; set; }
+        /// <summary>
+        /// 一定要一样
+        /// </summary>
+        public List<T> rows { get; set; }
         public int total { get; set; }
     }
 }

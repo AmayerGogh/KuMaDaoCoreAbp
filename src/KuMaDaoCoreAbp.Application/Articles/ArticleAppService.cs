@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace KuMaDaoCoreAbp.Articles
 {
-    [AbpAuthorize(ArticleAppPermissions.Article)]
+    //[AbpAuthorize(ArticleAppPermissions.Article)]
     public class ArticleAppService : KuMaDaoCoreAbpAppServiceBase, IArticleAppService
     {
         //private readonly IRepository<Article, long> _articleRepository;
@@ -42,44 +42,51 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 根据查询条件获取文章分页列表
         /// </summary>
-        public async Task<PagedResultDto<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param)
+        /// 
+        [AbpAllowAnonymous]
+        public async Task<BsTableResponseModel<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param)
         {
             var expressionList = new List<Expression<Func<Article, bool>>>();
-            if (string.IsNullOrWhiteSpace(param.search))
+            if (!string.IsNullOrWhiteSpace(param.search))
             {
                 expressionList.Add(m => m.Title == param.search);
             }
             var predicate = Amayer.Express.Express.BulidExpression(expressionList);
-            var query = _articleRepositoryAsNoTrack.Where(predicate);        
+            var query = _articleRepositoryAsNoTrack.Where(predicate);
 
             var count = await query.CountAsync();
 
             try
             {
-          
-                var tgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10);
-                 var stgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToList();
-                var stssgs = await _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToListAsync();
                 var list = query
-                     .OrderByDescending(m => m.Id)
-                     .Skip(param.offset)
-                     .Take(param.limit)
-                     .ToList();
+               .OrderByDescending(m => m.Id)
+               .Skip(param.offset)
+               .Take(param.limit)
+               .ToList();
                 var listDtos = list.MapTo<List<ArticleListDto>>();
-                return new PagedResultDto<ArticleListDto>(
-                    count,
-                    listDtos
-                    );
+                return new BsTableResponseModel<ArticleListDto>()
+                {
+                    rows = listDtos,
+                    total = count
+                };
             }
+
+            //var tgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10);
+            //var stgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToList();
+            //var stssgs = await _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToListAsync();
+
+
             catch (Exception e)
             {
                 var es = e.Message;
             }
-            return new PagedResultDto<ArticleListDto>(
-                      
-                       );
+            return new BsTableResponseModel<ArticleListDto>()
+            {
+               
+            };
+
         }
-       
+
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
@@ -138,7 +145,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 新增文章
         /// </summary>
-        [AbpAuthorize(ArticleAppPermissions.Article_CreateArticle)]
+        //[AbpAuthorize(ArticleAppPermissions.Article_CreateArticle)]
         public virtual async Task<ArticleEditDto> CreateArticleAsync(ArticleEditDto input)
         {
             //TODO:新增前的逻辑判断，是否允许新增
@@ -152,7 +159,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 编辑文章
         /// </summary>
-        [AbpAuthorize(ArticleAppPermissions.Article_EditArticle)]
+        //[AbpAuthorize(ArticleAppPermissions.Article_EditArticle)]
         public virtual async Task UpdateArticleAsync(ArticleEditDto input)
         {
             //TODO:更新前的逻辑判断，是否允许更新
@@ -166,7 +173,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 删除文章
         /// </summary>
-        [AbpAuthorize(ArticleAppPermissions.Article_DeleteArticle)]
+        //[AbpAuthorize(ArticleAppPermissions.Article_DeleteArticle)]
         public async Task DeleteArticleAsync(EntityDto<int> input)
         {
             //TODO:删除前的逻辑判断，是否允许删除
@@ -176,7 +183,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 批量删除文章
         /// </summary>
-        [AbpAuthorize(ArticleAppPermissions.Article_DeleteArticle)]
+        //[AbpAuthorize(ArticleAppPermissions.Article_DeleteArticle)]
         public async Task BatchDeleteArticleAsync(List<long> input)
         {
             //TODO:批量删除前的逻辑判断，是否允许删除
