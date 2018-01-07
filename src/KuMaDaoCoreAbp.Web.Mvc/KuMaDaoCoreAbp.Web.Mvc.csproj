@@ -2968,6 +2968,15 @@
   <Content Include="wwwroot\pugins\bootstrap-table\extensions\toolbar\bootstrap-table-toolbar.min.js" />
   <Content Include="wwwroot\pugins\jquery.validate.js" />
   <Content Include="wwwroot\pugins\jquery.validate.min.js" />
+  <Content Include="wwwroot\pugins\layer\layer.js" />
+  <Content Include="wwwroot\pugins\layer\mobile\layer.js" />
+  <Content Include="wwwroot\pugins\layer\mobile\need\layer.css" />
+  <Content Include="wwwroot\pugins\layer\theme\default\icon-ext.png" />
+  <Content Include="wwwroot\pugins\layer\theme\default\icon.png" />
+  <Content Include="wwwroot\pugins\layer\theme\default\layer.css" />
+  <Content Include="wwwroot\pugins\layer\theme\default\loading-0.gif" />
+  <Content Include="wwwroot\pugins\layer\theme\default\loading-1.gif" />
+  <Content Include="wwwroot\pugins\layer\theme\default\loading-2.gif" />
   <Content Include="wwwroot\swagger\ui\abp.js" />
   <Content Include="wwwroot\swagger\ui\index.html" />
   <Content Include="wwwroot\swagger\ui\on-complete.js" />

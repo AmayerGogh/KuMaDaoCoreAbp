@@ -25,8 +25,8 @@ namespace KuMaDaoCoreAbp.Web.Startup
             Configuration.Navigation.Providers.Add<KuMaDaoCoreAbpNavigationProvider>();
 
             Configuration.Authorization.Providers.Add<ArticleAppAuthorizationProvider>();
-
-
+            //Configuration.
+            
         }
 
         public override void Initialize()

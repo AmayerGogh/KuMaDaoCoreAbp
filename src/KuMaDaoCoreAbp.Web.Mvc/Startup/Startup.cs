@@ -99,8 +99,9 @@ namespace KuMaDaoCoreAbp.Web.Startup
 
             app.UseStaticFiles();
 
-            app.UseAuthentication();
+            app.UseAuthentication( );         
             app.UseJwtTokenMiddleware();
+            
 
 #if FEATURE_SIGNALR
             //Integrate to OWIN

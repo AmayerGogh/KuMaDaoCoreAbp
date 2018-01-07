@@ -235,10 +235,10 @@
         border-bottom-right-radius: 4px;
     }*/
 
-.bootstrap-table .table > thead > tr > th {
+/*.bootstrap-table .table > thead > tr > th {
     vertical-align: bottom;
     border-bottom: 1px solid #ddd;
-}
+}*/
 
 .bootstrap-table .table thead > tr > th {
     padding: 0;
@@ -249,11 +249,11 @@
     padding: 0 !important;
 }
 
-.bootstrap-table .fixed-table-footer .table {
+/*.bootstrap-table .fixed-table-footer .table {
     border-bottom: none;
     border-radius: 0;
     padding: 0 !important;
-}
+}*/
 
 .pull-right .dropdown-menu {
     right: 0;
@@ -276,10 +276,10 @@ div.fixed-table-scroll-outer {
 
 
 
-  #table thead tr {
+  /*#table thead tr {
             background-color: rgb(14, 154, 239);
             color: #fff;
-        }
+        }*/
 
         
 

@@ -1,0 +1,25 @@
+﻿DEBUG 2018-01-07 13:55:05,176 [2    ] Abp.Modules.AbpModuleManager             - Loading Abp modules...
+DEBUG 2018-01-07 13:55:05,844 [2    ] Abp.Modules.AbpModuleManager             - Found 9 ABP modules in total.
+DEBUG 2018-01-07 13:55:07,243 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.Migrator.KuMaDaoCoreAbpMigratorModule, KuMaDaoCoreAbp.Migrator, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,251 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.EntityFrameworkCore.KuMaDaoCoreAbpEntityFrameworkModule, KuMaDaoCoreAbp.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,263 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: KuMaDaoCoreAbp.KuMaDaoCoreAbpCoreModule, KuMaDaoCoreAbp.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,265 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCoreModule, Abp.ZeroCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,265 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.AbpZeroCommonModule, Abp.Zero.Common, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,266 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.AbpKernelModule, Abp, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,267 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.Zero.EntityFrameworkCore.AbpZeroCoreEntityFrameworkCoreModule, Abp.ZeroCore.EntityFrameworkCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,269 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFrameworkCore.AbpEntityFrameworkCoreModule, Abp.EntityFrameworkCore, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,269 [2    ] Abp.Modules.AbpModuleManager             - Loaded module: Abp.EntityFramework.AbpEntityFrameworkCommonModule, Abp.EntityFramework.Common, Version=3.1.1.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:07,278 [2    ] Abp.Modules.AbpModuleManager             - 9 modules loaded.
+DEBUG 2018-01-07 13:55:08,904 [2    ] ameworkCore.AbpEntityFrameworkCoreModule - Registering DbContext: KuMaDaoCoreAbp.EntityFrameworkCore.KuMaDaoCoreAbpDbContext, KuMaDaoCoreAbp.EntityFrameworkCore, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+DEBUG 2018-01-07 13:55:10,886 [2    ] Abp.Localization.LocalizationManager     - Initializing 3 localization sources.
+DEBUG 2018-01-07 13:55:10,907 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: Abp
+DEBUG 2018-01-07 13:55:10,915 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: AbpZero
+DEBUG 2018-01-07 13:55:10,919 [2    ] Abp.Localization.LocalizationManager     - Initialized localization source: KuMaDaoCoreAbp
+INFO  2018-01-07 13:55:11,362 [2    ] KuMaDaoCoreAbp.Migrator.Log              - Host database: server=localhost;port=3306;database=abp;charset=utf8;user=root;password=root;
+INFO  2018-01-07 13:55:11,362 [2    ] KuMaDaoCoreAbp.Migrator.Log              - Continue to migration for this host database and all tenants..? (Y/N): 
+INFO  2018-01-07 13:55:19,047 [2    ] KuMaDaoCoreAbp.Migrator.Log              - HOST database migration started...
+INFO  2018-01-07 13:55:21,509 [2    ] KuMaDaoCoreAbp.Migrator.Log              - HOST database migration completed.
+INFO  2018-01-07 13:55:21,509 [2    ] KuMaDaoCoreAbp.Migrator.Log              - --------------------------------------------------------
+INFO  2018-01-07 13:55:21,675 [2    ] KuMaDaoCoreAbp.Migrator.Log              - All databases have been migrated.
+DEBUG 2018-01-07 13:55:24,051 [2    ] Abp.Modules.AbpModuleManager             - Shutting down has been started
+DEBUG 2018-01-07 13:55:24,052 [2    ] Abp.Modules.AbpModuleManager             - Shutting down completed.

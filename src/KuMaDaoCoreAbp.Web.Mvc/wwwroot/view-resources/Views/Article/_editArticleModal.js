@@ -29,16 +29,17 @@
     });
 
     //Handle enter key
-    _$form.find('input').on('keypress', function (e) {
-        if (e.which === 13) {
-            e.preventDefault();
-            save();
-        }
-    });
+    //_$form.find('input').on('keypress', function (e) {
+    //    if (e.which === 13) {
+    //        e.preventDefault();
+    //        save();
+    //    }
+    //});
 
-    $.AdminBSB.input.activate(_$form);
+    //$.AdminBSB.input.activate(_$form);
 
-    _$modal.on('shown.bs.modal', function () {
-        _$form.find('input[type=text]:first').focus();
-    });
+    //_$modal.on('shown.bs.modal', function () {
+    //    _$form.find('input[type=text]:first').focus();
+    //});
+    
 })(jQuery);

@@ -5,6 +5,7 @@ using KuMaDaoCoreAbp.Authorization.Users;
 using KuMaDaoCoreAbp.MultiTenancy;
 using KuMaDaoCoreAbp.Articles;
 using KuMaDaoCoreAbp.Types;
+using KuMaDaoCoreAbp.Files;
 
 namespace KuMaDaoCoreAbp.EntityFrameworkCore
 {
@@ -22,6 +23,7 @@ namespace KuMaDaoCoreAbp.EntityFrameworkCore
         public virtual DbSet<BaseData> BaseData { get; set; }
         public virtual DbSet<BaseDataType> BaseDataType { get; set; }
 
+        public virtual DbSet<File> File { get; set; }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //表名配置

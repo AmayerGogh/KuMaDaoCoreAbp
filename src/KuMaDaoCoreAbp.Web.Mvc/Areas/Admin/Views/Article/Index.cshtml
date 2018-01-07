@@ -5,11 +5,14 @@
 }
 @section styles{ 
 <link href="~/pugins/bootstrap-table/boorstrap-table.css" rel="stylesheet" />
+<link href="~/pugins/layer/theme/default/layer.css" rel="stylesheet" />
 }
 @section scripts
 {
     <script src="~/pugins/jquery.validate.js"></script>
 <script src="~/pugins/bootstrap-table/bootstrap-table.js"></script>
+<script src="~/pugins/layer/layer.js"></script>
+
     <environment names="Development">
         <script src="~/view-resources/Views/Article/index.js" asp-append-version="true"></script>
     </environment>
@@ -19,10 +22,26 @@
     <script>
          window.operateEvents = {
                 'click .btn_edit': function (e, value, row, index) {
-                    window.location.href = "/article/edit/" + row.id;
+                    layer.open({
+                        type: 1,
+                        //skin: 'layui-layer-rim', //加上边框
+                        area: ['850px', '450px'], //宽高
+                        content: $("#ArticleEditModal").html()
+                    });
+                    $.ajax({
+                        url: "/admin/article/EditArticleModal/"+row.id,
+                        type: 'post',
+                        contentType: 'application/html',
+                        success: function (content) {
+                            $('#ArticleEditModal').html(content);
+                            //$('.layui-layer #ArticleCreateModal button[type="submit"]').trigger("click");
+                        },
+                        error: function (e) { }
+                    });
+                   
                 },
                 'click .btn_del': function (e, value, row, index) {
-                    delThisRow("/article/delete/" + row.id);
+                   // delThisRow("/article/delete/" + row.id);
                 },
                 'click .btn_sign':function(e, value, row, index){
                        var str ="<div class='ibox-content' style='padding:0px;'> <div class='' id='gtd_cm'><div class='sk-spinner sk-spinner-rotating-plane'></div></div></div>";
@@ -46,19 +65,22 @@
                             bsTableReload();
                         }
                     })
-
                 }
             }
             var column = [
-                 // {   checkbox: true},
-                  { title: "Id", field: "id", },
-                  { title: "文章标题", field: "title", width: "40%" },
-                  { title: "分类", field: "categoryId", },
-                //  { title: "查看次数", field: "seeCount", },
+                  {   checkbox: true},
+                { title: "Id", field: "id", },
+                { title: "分类", field: "categoryId", },
+                  { title: "文章标题", field: "title", width: "40%" },                
+                  { title: "查看次数", field: "seeCount", },
                 ////  { title: "排序", events: sortEvents, formatter: sortFormatter, width: "8%" },
                 //  { title: "是否置顶", formatter: statusFormatter },
                 //  { title: "发布日期", field: "createTime", },
-                //  { title: "操作", events: operateEvents, formatter: operateFormatter, },//自定义方法，添加操作按钮
+                  {
+                      title: "操作", events: operateEvents, formatter: function (value, row, index) { 
+                          return ' <div class="btn-group"><button class="btn-white btn btn-xs btn_edit">编辑</button> <button class="btn-white btn btn-xs btn_del">删除</button></div>'
+                      }
+                  },//自定义方法，添加操作按钮
             ];
             var table = $('#table').bootstrapTable({
                 url: '/api/services/app/Article/GetPagedArticlesAsync',
@@ -67,7 +89,7 @@
                 striped: true,
                 pagination: true,
                 uniqueId: "id",                    //每一行的唯一标识，一般为主键列
-                // singleSelect: true,
+                singleSelect: true,
                 pageNumber: 1,                       //初始化加载第一页，默认第一页
                 pageSize: 25,
                 pageList: [10, 15, 25, 50, 100],
@@ -102,11 +124,17 @@
             }
             function operateFormatter(value, row, index) {//赋予的参数
                
-                    return ' <div class="btn-group"><button class="btn-white btn btn-xs btn_edit">编辑</button> <button class="btn-white btn btn-xs btn_del">删除</button></div>'
-                
-
-
+                return ' <div class="btn-group"><button class="btn-white btn btn-xs btn_edit" data-toggle="modal" data-target="#ArticleEditModal">编辑</button>  '+
+                    '<button class="btn-white btn btn-xs btn_del" > 删除</button ></div >'               
             }
+            $("#add").click(function () { 
+                layer.open({
+                    type: 1,
+                    //skin: 'layui-layer-rim', //加上边框
+                    area: ['850px', '450px'], //宽高
+                    content: $("#ArticleCreateModal").html()
+                });
+            })
     </script>
 }
 <div class="row wrapper border-bottom white-bg page-heading">
@@ -151,7 +179,8 @@
                 </div>
                 <div class="ibox-content">
                     <div id="toolbar" class="btn-group">
-                        <a class="btn btn-primary" href="/article/edit/">添加</a>
+
+                        <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
                         <div class="toolbar_item">
                             <label class="control-label">分类</label>
                             
@@ -163,126 +192,64 @@
         </div>
     </div>
 
-    <div class="row clearfix">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-            <div class="card">
-                <div class="header">
-                    <h2>
-                        @L("Roles")
-                    </h2>
-                    <ul class="header-dropdown m-r--5">
-                        <li class="dropdown">
-                            <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                <i class="material-icons">more_vert</i>
-                            </a>
-                            <ul class="dropdown-menu pull-right">
-                                <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>Refresh</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-                <div class="body table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th>@L("Title")</th>
-                                <th>@L("fenlei")</th>
-                                <th>@L("Actions")</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @*@foreach (var item in Model.Articles)
-                            {
-                                <tr>
-                                    <td>@item.Title</td>
-                                    <td>@item.CategoryId</td>
-                                    <td class="dropdown">
-                                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                            <i class="material-icons">menu</i>
-                                        </a>
-                                        <ul class="dropdown-menu pull-right">
-                                            <li><a href="#" class="waves-effect waves-block edit-article" data-article-id="@item.Id" data-toggle="modal" data-target="#ArticleEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
-                                            <li><a href="#" class="waves-effect waves-block delete-article" data-article-id="@item.Id" data-article-name="@item.Title"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
-                                        </ul>
-                                    </td>
-                                </tr>
-                            }*@
-                        </tbody>
-                    </table>
-                    <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#ArticleCreateModal">
-                        <i class="material-icons">add</i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
 </div>
 
 
     <div class="modal fade" id="ArticleCreateModal" tabindex="-1" role="dialog" aria-labelledby="ArticleCreateModalLabel" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">
-                        <span>创建文章</span>
-                    </h4>
-                </div>
-                <div class="modal-body">
-                    <form name="articleCreateForm" role="form" novalidate class="form-validation">
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
 
-                                        <input id="title" type="text" name="Title" required maxlength="32" minlength="2" class="validate form-control">
-                                        <label for="" class="form-label">文章名</label>
-                                    </div>
-                                </div>
+        <div style="margin:10px 20px;">
+            <form name="articleCreateForm" role="form" novalidate class="form-validation">
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label for="" class="form-label">文章名</label>
+                                <input id="title" type="text" name="Title" required maxlength="32" minlength="2" class="validate form-control">
+                                
                             </div>
                         </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input id="body" type="text" name="Body" required maxlength="32" minlength="2" class="validate form-control">
-                                        <label for="displayname" class="form-label">简介</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row clearfix">
-                            <div class="col-sm-12">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <input id="Category" type="text" name="Category" required maxlength="32" minlength="2" class="validate form-control">
-                                        <label for="displayname" class="form-label">分类</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-sm-12">
-                                <div class="form-group form-float">
-                                    <div class="form-line">
-                                        <textarea id="article-description" name="Description" class="validate form-control"></textarea>
-                                        <label for="article-description" class="form-label">Role Description</label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
-                            <button type="submit" class="btn btn-primary waves-effect">@L("Save")</button>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-            </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label for="displayname" class="form-label">简介</label>
+                                <input id="body" type="text" name="Body" required maxlength="32" minlength="2" class="validate form-control">                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label for="displayname" class="form-label">分类</label>
+                                <input id="Category" type="text" name="Category" required maxlength="32" minlength="2" class="validate form-control">                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line">
+                                <label for="article-description" class="form-label">Role Description</label>
+                                <textarea id="article-description" name="Description" class="validate form-control"></textarea>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">@L("Cancel")</button>
+                    <button type="button" id="ArticleCreate_Comfrim" class="btn btn-primary waves-effect">@L("Save")</button>
+                </div>
+            </form>
         </div>
+        
     </div>
     <div class="modal fade" id="ArticleEditModal" tabindex="-1" role="dialog" aria-labelledby="ArticleEditModalLabel" data-backdrop="static">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-            </div>
-        </div>
+       
     </div>
