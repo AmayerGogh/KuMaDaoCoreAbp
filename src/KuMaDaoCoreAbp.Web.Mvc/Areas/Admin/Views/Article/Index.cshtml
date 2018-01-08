@@ -33,7 +33,7 @@
                         type: 'post',
                         contentType: 'application/html',
                         success: function (content) {
-                            $('#ArticleEditModal').html(content);
+                            $('.layui-layer .layui-layer-content').html(content);
                             //$('.layui-layer #ArticleCreateModal button[type="submit"]').trigger("click");
                         },
                         error: function (e) { }
@@ -160,39 +160,21 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="ibox float-e-margins">
-                <div class="ibox-title">
-                    <h5>文章列表</h5>
-                    <div class="ibox-tools">
-                        <a class="collapse-link">
-                            <i class="fa fa-chevron-up"></i>
-                        </a>
-                        <a class="dropdown-toggle " data-toggle="dropdown" href="javascript:void(0);">
-                            <i class="fa fa-wrench"></i>
-                        </a>
-                        <ul class="dropdown-menu dropdown-user">
-                            <li><a href="javascript:void(0);"></a></li>
-                            <li><a href="javascript:void(0);"></a></li>
-                        </ul>
-                        <a class="close-link"><i class="fa fa-times"></i></a>
-                    </div>
-                </div>
-                <div class="ibox-content">
-                    <div id="toolbar" class="btn-group">
+            <div id="toolbar" class="btn-group">
 
-                        <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
-                        <div class="toolbar_item">
-                            <label class="control-label">分类</label>
-                            
-                        </div>
-                    </div>
-                    <table id="table"></table>
+                <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
+                <div class="toolbar_item">
+                    <label class="control-label">分类</label>
+
                 </div>
             </div>
+            <table id="table"></table>
         </div>
     </div>
 
 </div>
+
+
 
 
     <div class="modal fade" id="ArticleCreateModal" tabindex="-1" role="dialog" aria-labelledby="ArticleCreateModalLabel" data-backdrop="static">
