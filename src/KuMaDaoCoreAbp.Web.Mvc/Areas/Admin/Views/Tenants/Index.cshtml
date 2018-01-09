@@ -8,6 +8,7 @@
 }
 @section scripts
 {
+    <script src="~/libs/jquery.validate.js"></script>
     <environment names="Development">
         <script src="~/view-resources/Views/Tenants/Index.js" asp-append-version="true"></script>
     </environment>
@@ -16,60 +17,68 @@
         <script src="~/view-resources/Views/Tenants/Index.min.js" asp-append-version="true"></script>
     </environment>
 }
-<div class="row clearfix">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-        <div class="card">
-            <div class="header">
-                <h2>
-                    @L("Tenants")
-                </h2>
-                <ul class="header-dropdown m-r--5">
-                    <li class="dropdown">
-                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            <i class="material-icons">more_vert</i>
-                        </a>
-                        <ul class="dropdown-menu pull-right">
-                            <li><a id="RefreshButton" href="javascript:void(0);" class="waves-effect waves-block"><i class="material-icons">refresh</i>Refresh</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <div class="body table-responsive">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>@L("TenancyName")</th>
-                            <th>@L("Name")</th>
-                            <th>@L("IsActive")</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var tenant in Model.Items)
-                        {
-                            <tr>
-                                <td>@tenant.TenancyName</td>
-                                <td>@tenant.Name</td>
-                                <td><i class="material-icons" style="color:@(tenant.IsActive ? "green":"red");">@(tenant.IsActive ? "check_box" : "indeterminate_check_box")</i></td>
-                                <td class="dropdown">
-                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                                        <i class="material-icons">menu</i>
-                                    </a>
-                                    <ul class="dropdown-menu pull-right">
-                                        <li><a href="#" class="waves-effect waves-block edit-tenant" data-tenant-id="@tenant.Id" data-toggle="modal" data-target="#TenantEditModal"><i class="material-icons">edit</i>@L("Edit")</a></li>
-                                        <li><a href="#" class="waves-effect waves-block delete-tenant" data-tenant-id="@tenant.Id" data-tenancy-name="@tenant.TenancyName"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
-                                    </ul>
-                                </td>
-                            </tr>
-                        }
-                    </tbody>
-                </table>
-                <button type="button" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" data-toggle="modal" data-target="#TenantCreateModal">
-                    <i class="material-icons">add</i>
-                </button>
-            </div>
-        </div>
+
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <h2>Blog</h2>
+        <ol class="breadcrumb">
+            <li>
+                <a href="index.html">Home</a>
+            </li>
+            <li>
+                <a>Miscellaneous</a>
+            </li>
+            <li class="active">
+                <strong>Blog</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
     </div>
 </div>
+<div class="wrapper wrapper-content  animated fadeInRight">
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div id="toolbar" class="btn-group">
+
+                <button type="button" class="btn btn-primary " data-toggle="modal" data-target="#TenantCreateModal">
+                    <i class="material-icons">添加</i>
+                </button>               
+               
+            </div>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>@L("TenancyName")</th>
+                        <th>@L("Name")</th>
+                        <th>@L("IsActive")</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var tenant in Model.Items)
+                    {
+                        <tr>
+                            <td>@tenant.TenancyName</td>
+                            <td>@tenant.Name</td>
+                            <td><i class="material-icons" style="color:@(tenant.IsActive ? "green":"red");">@(tenant.IsActive ? "check_box" : "indeterminate_check_box")</i></td>
+                            <td class="dropdown">
+                                <a href="#" class="waves-effect waves-block edit-tenant" data-tenant-id="@tenant.Id" data-toggle="modal" data-target="#TenantEditModal">@L("Edit")</a>
+                                <a href="#" class="waves-effect waves-block delete-tenant" data-tenant-id="@tenant.Id" data-tenancy-name="@tenant.TenancyName">@L("Delete")</a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+</div>
+
+
+
 
 <div class="modal fade" id="TenantCreateModal" tabindex="-1" role="dialog" aria-labelledby="TenantCreateModalLabel" data-backdrop="static">
     <div class="modal-dialog" role="document">

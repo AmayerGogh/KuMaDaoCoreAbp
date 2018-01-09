@@ -13,47 +13,59 @@ namespace KuMaDaoCoreAbp.Web.Startup
         {
             context.Manager.MainMenu
                 .AddItem(new MenuItemDefinition(PageNames.Home, L("HomePage"), url: "", icon: "home", requiresAuthentication: true))
-                .AddItem(GuanliNav())
-               // .AddItem(new MenuItemDefinition(PageNames.Tenants, L("Tenants"), url: "Tenants", icon: "business", requiredPermissionName: PermissionNames.Pages_Tenants))
-                //.AddItem(new MenuItemDefinition(PageNames.Users, L("Users"), url: "Users", icon: "people", requiredPermissionName: PermissionNames.Pages_Users))
-              //  .AddItem(new MenuItemDefinition(PageNames.Roles, L("Roles"), url: "Roles", icon: "local_offer", requiredPermissionName: PermissionNames.Pages_Roles))
-               // .AddItem(new MenuItemDefinition(PageNames.About, L("About"), url: "About", icon: "info"))
-                .AddItem(Demonav());
+                .AddItem(Demonav())
+                .AddItem(Wechat())
+                .AddItem(Alimm())
+                .AddItem(Setting());
         }
 
         private static ILocalizableString L(string name)
         {
             return new LocalizableString(name, KuMaDaoCoreAbpConsts.LocalizationSourceName);
         }
-        private static MenuItemDefinition GuanliNav()
+        private static MenuItemDefinition Setting()
         {
-            return new MenuItemDefinition("管理", L("guanli"),url:"", icon: "menu", requiresAuthentication: true)
-                         .AddItem(new MenuItemDefinition(PageNames.Tenants, L("Tenants"), url: "Tenants",  requiredPermissionName: PermissionNames.Pages_Tenants))
-                         .AddItem(new MenuItemDefinition(PageNames.Users, L("Users"), url: "Users",requiredPermissionName: PermissionNames.Pages_Users))
+            return new MenuItemDefinition("管理", L("guanli"), url: "", icon: "menu", requiresAuthentication: true)
+                         .AddItem(new MenuItemDefinition(PageNames.Tenants, L("Tenants"), url: "Tenants", requiredPermissionName: PermissionNames.Pages_Tenants))
+                         .AddItem(new MenuItemDefinition(PageNames.Users, L("Users"), url: "Users", requiredPermissionName: PermissionNames.Pages_Users))
                          .AddItem(new MenuItemDefinition(PageNames.Roles, L("Roles"), url: "Roles", requiredPermissionName: PermissionNames.Pages_Roles))
                          .AddItem(new MenuItemDefinition(PageNames.About, L("About"), url: "About"))
-                         .AddItem(new MenuItemDefinition(PageNames.Article, L("Article"), url: "Article"))
-                         ;
+                         .AddItem(new MenuItemDefinition("常用数据", new FixedLocalizableString("ASP.NET Boilerplate"))
+                          .AddItem(new MenuItemDefinition("json数据", new FixedLocalizableString("Home"), url: "https://aspnetboilerplate.com?ref=abptmpl"))
+
+
+                         );
         }
 
 
         private static MenuItemDefinition Demonav()
         {
-            return new MenuItemDefinition("MultiLevelMenu", L("MultiLevelMenu"), icon: "menu")
-                           .AddItem(new MenuItemDefinition("AspNetBoilerplate", new FixedLocalizableString("ASP.NET Boilerplate"))
-                           .AddItem(new MenuItemDefinition("AspNetBoilerplateHome", new FixedLocalizableString("Home"), url: "https://aspnetboilerplate.com?ref=abptmpl"))
-                           .AddItem(new MenuItemDefinition("AspNetBoilerplateTemplates", new FixedLocalizableString("Templates"), url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"))
-                           .AddItem(new MenuItemDefinition("AspNetBoilerplateSamples", new FixedLocalizableString("Samples"), url: "https://aspnetboilerplate.com/Samples?ref=abptmpl"))
-                           .AddItem(new MenuItemDefinition("AspNetBoilerplateDocuments", new FixedLocalizableString("Documents"), url: "https://aspnetboilerplate.com/Pages/Documents?ref=abptmpl"))
-                           )
-                     .AddItem(new MenuItemDefinition("AspNetZero", new FixedLocalizableString("ASP.NET Zero"))
-                           .AddItem(new MenuItemDefinition("AspNetZeroHome", new FixedLocalizableString("Home"), url: "https://aspnetzero.com?ref=abptmpl"))
-                           .AddItem(new MenuItemDefinition("AspNetZeroDescription", new FixedLocalizableString("Description"), url: "https://aspnetzero.com/?ref=abptmpl#description"))
-                           .AddItem(new MenuItemDefinition("AspNetZeroFeatures", new FixedLocalizableString("Features"), url: "https://aspnetzero.com/?ref=abptmpl#features"))
-                           .AddItem(new MenuItemDefinition("AspNetZeroPricing", new FixedLocalizableString("Pricing"), url: "https://aspnetzero.com/?ref=abptmpl#pricing"))
-                           .AddItem(new MenuItemDefinition("AspNetZeroFaq", new FixedLocalizableString("Faq"), url: "https://aspnetzero.com/Faq?ref=abptmpl"))
-                           .AddItem(new MenuItemDefinition("AspNetZeroDocuments", new FixedLocalizableString("Documents"), url: "https://aspnetzero.com/Documents?ref=abptmpl"))
-                       );
+            return new MenuItemDefinition("内容", L("MultiLevelMenu"), icon: "menu")
+                .AddItem(new MenuItemDefinition("分类", L("Article"), url: "Article"))
+                .AddItem(new MenuItemDefinition(PageNames.Article, L("Article"), url: "Article"))
+                .AddItem(new MenuItemDefinition("媒体库", new FixedLocalizableString("Templates"), url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"))
+               ;
+        }
+
+        private static MenuItemDefinition Wechat()
+        {
+            return new MenuItemDefinition("微信", L("MultiLevelMenu"), icon: "menu")
+                .AddItem(new MenuItemDefinition("菜单栏", L("Article"), url: "Article"))
+                .AddItem(new MenuItemDefinition("用户", L("Article"), url: "Article"))
+                .AddItem(new MenuItemDefinition("消息", new FixedLocalizableString("ASP.NET Boilerplate"))
+                .AddItem(new MenuItemDefinition("json数据", new FixedLocalizableString("Home"), url: "https://aspnetboilerplate.com?ref=abptmpl"))
+                .AddItem(new MenuItemDefinition("媒体库", new FixedLocalizableString("Templates"), url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"))
+                );
+        }
+        private static MenuItemDefinition Alimm()
+        {
+            return new MenuItemDefinition("淘宝客", L("MultiLevelMenu"), icon: "menu")
+                .AddItem(new MenuItemDefinition("菜单栏", L("Article"), url: "Article"))
+                .AddItem(new MenuItemDefinition("用户", L("Article"), url: "Article"))
+                .AddItem(new MenuItemDefinition("消息", new FixedLocalizableString("ASP.NET Boilerplate"))
+                .AddItem(new MenuItemDefinition("json数据", new FixedLocalizableString("Home"), url: "https://aspnetboilerplate.com?ref=abptmpl"))
+                .AddItem(new MenuItemDefinition("媒体库", new FixedLocalizableString("Templates"), url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"))
+                );
         }
     }
 }

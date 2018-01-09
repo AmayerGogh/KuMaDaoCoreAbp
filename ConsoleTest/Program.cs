@@ -10,11 +10,14 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
 
-            var db = CreateDbcontext();
+            var a = 100;
+            var b = 100;
 
-            var cc = db.Article.ToList();
+            // var db = CreateDbcontext();
+
+            //var cc = db.Article.ToList();
             //检查迁移
-           // CheckMigrations();
+            // CheckMigrations();
 
 
             //Test1();
