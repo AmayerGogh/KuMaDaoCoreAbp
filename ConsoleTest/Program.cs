@@ -12,7 +12,7 @@ namespace ConsoleTest
 
             var a = 100;
             var b = 100;
-
+            Console.WriteLine(a +b +1);
             // var db = CreateDbcontext();
 
             //var cc = db.Article.ToList();
@@ -23,14 +23,14 @@ namespace ConsoleTest
             //Test1();
             //Test2();
             //Program.Test3(); Program.Test3();
-            Console.ReadKey();
+           
+           
         }
 
 
         static KuMaDaoCoreAbpDbContext CreateDbcontext()
         {
-            var builder = new DbContextOptionsBuilder<KuMaDaoCoreAbpDbContext>();
-
+            var builder = new DbContextOptionsBuilder<KuMaDaoCoreAbpDbContext>();        
             KuMaDaoCoreAbpDbContextConfigurer.Configure(builder, "Data Source=SJNI5QAZX1FLUPM\\JSQL2008;Initial Catalog=test;User ID=sa;Password=123456;Connect Timeout=30;Encrypt=False;TrustServerCertificate=True;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
             return new KuMaDaoCoreAbpDbContext(builder.Options);
         }
