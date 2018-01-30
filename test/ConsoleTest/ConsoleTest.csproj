@@ -6,7 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\src\KuMaDaoCoreAbp.EntityFrameworkCore\KuMaDaoCoreAbp.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="..\..\src\KuMaDaoCoreAbp.EntityFrameworkCore\KuMaDaoCoreAbp.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
 </Project>

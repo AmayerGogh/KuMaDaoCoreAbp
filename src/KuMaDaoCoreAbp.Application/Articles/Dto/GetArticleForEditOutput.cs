@@ -14,10 +14,10 @@ namespace KuMaDaoCoreAbp.Article.Dto
     {
  
 
-	/// <summary>
-    /// Article编辑状态的DTO
-    /// </summary>
-    public ArticleEditDto Article{get;set;}
+	    /// <summary>
+        /// Article编辑状态的DTO
+        /// </summary>
+        public ArticleEditDto Article{get;set;}
 
 
     }
