@@ -132,7 +132,17 @@
                     type: 1,
                     //skin: 'layui-layer-rim', //加上边框
                     area: ['850px', '450px'], //宽高
-                    content: $("#ArticleCreateModal").html()
+                    content: $("#ArticleEditModal").html()
+                });
+                $.ajax({
+                    url: "/admin/article/EditArticleModal/",
+                    type: 'post',
+                    contentType: 'application/html',
+                    success: function (content) {
+                        $('.layui-layer .layui-layer-content').html(content);
+                        //$('.layui-layer #ArticleCreateModal button[type="submit"]').trigger("click");
+                    },
+                    error: function (e) { }
                 });
             })
     </script>

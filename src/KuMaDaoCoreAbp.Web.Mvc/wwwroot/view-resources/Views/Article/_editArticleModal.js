@@ -8,6 +8,9 @@
    
     function save() {
         var _$form = $('.layui-layer  form[name="ArticleUpdateForm"]');
+        //todo 有没有这个
+        //_$form.validate({
+        //});
         if (!_$form.valid()) {
             return;
         }

@@ -6,7 +6,7 @@ using Abp.AutoMapper;
 using Abp.Runtime.Validation;
 using KuMaDaoCoreAbp.Dto;
 
-namespace KuMaDaoCoreAbp.Article.Dto
+namespace KuMaDaoCoreAbp.Articles.Dto
 {
 	/// <summary>
     /// 文章查询Dto

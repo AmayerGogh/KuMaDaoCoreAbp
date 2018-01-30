@@ -36,21 +36,34 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
             var model = new ArticleListViewModel
             {
              //  Articles = articles,
-                ArticleEditModal =new Article.Dto.ArticleEditDto ()
+                ArticleEditModal =new Articles.Dto.ArticleEditDto ()
             };
             return View(model);
         }
 
-        public async Task<ActionResult> EditArticleModal(long id)
+        public async Task<ActionResult> EditArticleModal(long? id)
         {
+            if (!id.HasValue)
+            {
+                return View("_editArticleModal", new EditArticleModal {  GetArticleForEditOutput =new Articles.Dto.GetArticleForEditOutput {  } });
+            }
            var article = await _articleAppService.GetArticleForEditAsync(new NullableIdDto<long>(id));
             //  var roles = (await _userAppService.GetRoles()).Items;
-            var model = new EditArticleModal
+            var modal = new EditArticleModal
             {
                 GetArticleForEditOutput = article
             };
-            return View("_editArticleModal", model);
+            return View("_editArticleModal", modal);
 
+        }
+
+        public async Task<ActionResult> EditContentModal(long id)
+        {
+            EditArticleDetailModal modal = new EditArticleDetailModal()
+            {
+
+            };
+            return View("_editArticleModal", modal);
         }
        
 

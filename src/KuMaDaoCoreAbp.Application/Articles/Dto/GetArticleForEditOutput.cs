@@ -4,7 +4,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using Abp.AutoMapper;
 
-namespace KuMaDaoCoreAbp.Article.Dto
+namespace KuMaDaoCoreAbp.Articles.Dto
 {
 	/// <summary>
     /// 用于添加或编辑 文章时使用的DTO

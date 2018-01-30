@@ -5,7 +5,7 @@ using System.ComponentModel.DataAnnotations;
 using Abp.AutoMapper;
 using Abp.Application.Services.Dto;
 
-namespace KuMaDaoCoreAbp.Article.Dto
+namespace KuMaDaoCoreAbp.Articles.Dto
 {
 	/// <summary>
     /// 文章列表Dto
