@@ -70,7 +70,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
                     In = "header",
                     Type = "apiKey"
                 });
-                options.IncludeXmlComments("D:/Code_Amayer/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Mvc/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
+               // options.IncludeXmlComments("c:/Code/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Mvc/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });

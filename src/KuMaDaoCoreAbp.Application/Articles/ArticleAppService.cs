@@ -28,12 +28,12 @@ namespace KuMaDaoCoreAbp.Articles
 
         public ArticleAppService(IArticleRepository articleRepository,
                                  IRepository<ArticleDetail, long> articleDetailRepository,
-                                 IRepository<ArticleLabel, long> articleLabelRepository,
+                                // IRepository<ArticleLabel, long> articleLabelRepository,
                                  ArticleManager articleManage)
         {
             _articleRepository = articleRepository;
             _articleDetailRepository = articleDetailRepository;
-            _articleLabelRepository = articleLabelRepository;
+         //   _articleLabelRepository = articleLabelRepository;
             _articleManage = articleManage;
             this.EventBus = NullEventBus.Instance;
         }
@@ -190,7 +190,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<ArticleDetailEditDto> GetArticleContentByArticleIdAsync(EntityDto<long> input)
+        public async Task<ArticleDetailEditDto> GetArticleDetailByArticleIdAsync(EntityDto<long> input)
         {
             ArticleDetail entity;
             var content = await _articleDetailRepository.FirstOrDefaultAsync(m => m.ArticleId == input.Id);
@@ -210,7 +210,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// 编辑文章内容
         /// </summary>
         //[AbpAuthorize(ArticleAppPermissions.Article_EditArticle)]
-        public virtual async Task UpdateArticleAsync(ArticleDetailEditDto input)
+        public virtual async Task CreateOrUpdateArticleDetailAsync(ArticleDetailEditDto input)
         {
 
             var entity = await _articleDetailRepository.GetAsync(input.Id);

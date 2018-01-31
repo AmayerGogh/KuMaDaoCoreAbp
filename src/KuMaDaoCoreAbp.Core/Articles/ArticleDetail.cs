@@ -13,6 +13,10 @@ namespace KuMaDaoCoreAbp.Articles
         public virtual string Body { get; set; }
 
 
+        public ArticleDetail()
+        {
+
+        }
         public ArticleDetail(long _ArticleId)
         {
             ArticleId = _ArticleId;

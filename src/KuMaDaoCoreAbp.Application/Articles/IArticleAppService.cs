@@ -40,10 +40,10 @@ namespace KuMaDaoCoreAbp.Articles
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        Task<ArticleDetailEditDto> GetArticleContentByArticleIdAsync(EntityDto<long> input);
+        Task<ArticleDetailEditDto> GetArticleDetailByArticleIdAsync(EntityDto<long> input);
         /// <summary>
         /// 编辑文章内容
         /// </summary>
-        Task UpdateArticleAsync(ArticleDetailEditDto input);
+        Task CreateOrUpdateArticleDetailAsync(ArticleDetailEditDto input);
     }
 }

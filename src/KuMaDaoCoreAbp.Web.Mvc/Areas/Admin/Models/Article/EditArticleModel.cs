@@ -15,5 +15,6 @@ namespace KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article
     public class EditArticleDetailModal
     {
        public ArticleDetailEditDto ArticleDetailDto { get; set; }
+   
     }
 }

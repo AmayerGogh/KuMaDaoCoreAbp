@@ -32,11 +32,11 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         public async Task<ActionResult> Index()
         {
             //  var users = (await _articleAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
-           // var articles = (await _articleAppService.GetPagedArticlesAsync(new Article.Dto.GetArticleInput { })).Items;
+            // var articles = (await _articleAppService.GetPagedArticlesAsync(new Article.Dto.GetArticleInput { })).Items;
             var model = new ArticleListViewModel
             {
-             //  Articles = articles,
-                ArticleEditModal =new Articles.Dto.ArticleEditDto ()
+                //  Articles = articles,
+                ArticleEditModal = new Articles.Dto.ArticleEditDto()
             };
             return View(model);
         }
@@ -45,9 +45,9 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         {
             if (!id.HasValue)
             {
-                return View("_editArticleModal", new EditArticleModal { GetArticleForEditOutput =new Articles.Dto.ArticleEditDto ()  });
+                return View("_editArticleModal", new EditArticleModal { GetArticleForEditOutput = new Articles.Dto.ArticleEditDto() });
             }
-           var article = await _articleAppService.GetArticleForEditAsync(new NullableIdDto<long>(id));
+            var article = await _articleAppService.GetArticleForEditAsync(new NullableIdDto<long>(id));
             //  var roles = (await _userAppService.GetRoles()).Items;
             var modal = new EditArticleModal
             {
@@ -61,11 +61,12 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         {
             EditArticleDetailModal modal = new EditArticleDetailModal()
             {
-                
+                ArticleDetailDto = await _articleAppService.GetArticleDetailByArticleIdAsync(new EntityDto<long>(id))
             };
-            return View("_editArticleModal", modal);
+
+            return View("_editArticleDetailModal", modal);
         }
-       
+
 
     }
 }
