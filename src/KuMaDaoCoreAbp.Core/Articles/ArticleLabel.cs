@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Articles
 {
-   public class ArticleLabel:Entity<long>
+    public class ArticleLabel:Entity<long>
     {
         public string Name { get; set; }
     }

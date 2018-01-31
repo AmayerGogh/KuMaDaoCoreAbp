@@ -3,9 +3,7 @@ using Abp.Authorization;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Events.Bus;
-using KuMaDaoCoreAbp.Article.Dto;
-using KuMaDaoCoreAbp.Articles.Authorization;
-using KuMaDaoCoreAbp.Dto;
+using KuMaDaoCoreAbp.Articles.Dto;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -13,6 +11,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using KuMaDaoCoreAbp.Web;
 
 namespace KuMaDaoCoreAbp.Articles
 {
@@ -22,12 +21,19 @@ namespace KuMaDaoCoreAbp.Articles
         //private readonly IRepository<Article, long> _articleRepository;
         private readonly IArticleRepository _articleRepository;
         private readonly ArticleManager _articleManage;
-
+        //private readonly IReadOnlyCollection //vArticleLabel
+        private readonly IRepository<ArticleDetail, long> _articleDetailRepository;
+        private readonly IRepository<ArticleLabel, long> _articleLabelRepository;
         private IEventBus EventBus { get; set; }
-        public ArticleAppService(IArticleRepository articleRepository, ArticleManager articleManage
-)
+
+        public ArticleAppService(IArticleRepository articleRepository,
+                                 IRepository<ArticleDetail, long> articleDetailRepository,
+                                 IRepository<ArticleLabel, long> articleLabelRepository,
+                                 ArticleManager articleManage)
         {
             _articleRepository = articleRepository;
+            _articleDetailRepository = articleDetailRepository;
+            _articleLabelRepository = articleLabelRepository;
             _articleManage = articleManage;
             this.EventBus = NullEventBus.Instance;
         }
@@ -46,75 +52,60 @@ namespace KuMaDaoCoreAbp.Articles
         [AbpAllowAnonymous]
         public async Task<BsTableResponseModel<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param)
         {
-            var expressionList = new List<Expression<Func<Article, bool>>>();
-            if (!string.IsNullOrWhiteSpace(param.search))
-            {
-                expressionList.Add(m => m.Title == param.search);
-            }
-            var predicate = Amayer.Express.Express.BulidExpression(expressionList);
-            var query = _articleRepositoryAsNoTrack.Where(predicate);
 
+            var predicate = await _articleManage.GetListAsync(param);
+            var query = _articleRepositoryAsNoTrack.Where(predicate);
             var count = await query.CountAsync();
 
-            try
-            {
-                var list = query
+            var list = query
                .OrderByDescending(m => m.Id)
                .Skip(param.offset)
                .Take(param.limit)
                .ToList();
-                var listDtos = list.MapTo<List<ArticleListDto>>();
-                return new BsTableResponseModel<ArticleListDto>()
-                {
-                    rows = listDtos,
-                    total = count
-                };
-            }
+            var listDtos = list.MapTo<List<ArticleListDto>>();
+            return new BsTableResponseModel<ArticleListDto>()
+            {
+                rows = listDtos,
+                total = count
+            };
+
 
             //var tgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10);
             //var stgs = _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToList();
             //var stssgs = await _articleRepository.GetAll().AsNoTracking().OrderBy(m => m.Id).Skip(param.offset).Take(10).ToListAsync();
 
 
-            catch (Exception e)
-            {
-                var es = e.Message;
-            }
-            return new BsTableResponseModel<ArticleListDto>()
-            {
-               
-            };
+
 
         }
 
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
-        public async Task<GetArticleForEditOutput> GetArticleForEditAsync(NullableIdDto<long> input)
+        public async Task<ArticleEditDto> GetArticleForEditAsync(NullableIdDto<long> input)
         {
-            var output = new GetArticleForEditOutput();
 
             ArticleEditDto articleEditDto;
 
             if (input.Id.HasValue)
             {
                 var entity = await _articleRepository.GetAsync(input.Id.Value);
-                articleEditDto = entity.MapTo<ArticleEditDto>();
+                return articleEditDto = entity.MapTo<ArticleEditDto>();
             }
             else
             {
-                articleEditDto = new ArticleEditDto();
+                return articleEditDto = new ArticleEditDto();
             }
 
-            output.Article = articleEditDto;
-            return output;
+
+
         }
 
 
         /// <summary>
         /// 通过指定id获取文章ListDto信息
         /// </summary>
-        public async Task<ArticleListDto> GetArticleByIdAsync(EntityDto<int> input)
+        public async Task<ArticleListDto> GetArticleByIdAsync(EntityDto<long> input)
         {
             var entity = await _articleRepository.GetAsync(input.Id);
 
@@ -192,11 +183,64 @@ namespace KuMaDaoCoreAbp.Articles
 
         #endregion
 
+
+        #region 文章内容管理
+        /// <summary>
+        /// 获取文章内容
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        public async Task<ArticleDetailEditDto> GetArticleContentByArticleIdAsync(EntityDto<long> input)
+        {
+            ArticleDetail entity;
+            var content = await _articleDetailRepository.FirstOrDefaultAsync(m => m.ArticleId == input.Id);
+
+            if (content == null)
+            {
+                entity = await _articleDetailRepository.InsertAsync(new ArticleDetail(input.Id));
+            }
+            else
+            {
+                entity = content;
+            }
+            return entity.MapTo<ArticleDetailEditDto>();
+        }
+
+        /// <summary>
+        /// 编辑文章内容
+        /// </summary>
+        //[AbpAuthorize(ArticleAppPermissions.Article_EditArticle)]
+        public virtual async Task UpdateArticleAsync(ArticleDetailEditDto input)
+        {
+
+            var entity = await _articleDetailRepository.GetAsync(input.Id);
+            input.MapTo(entity);
+
+            await _articleDetailRepository.UpdateAsync(entity);
+        }
+        #endregion
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         public void TestEvent()
         {
             EventBus.Trigger(new ArticleEventData { Article = new Article { } });
         }
-
 
     }
 }

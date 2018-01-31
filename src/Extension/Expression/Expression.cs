@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace Amayer.Express
 {
@@ -15,14 +16,19 @@ namespace Amayer.Express
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static Expression<Func<T, bool>> BulidExpression<T>(List<Expression<Func<T, bool>>> list)
+        public static async Task<Expression<Func<T, bool>>> BulidExpressionAsync<T>(List<Expression<Func<T, bool>>> list)
         {
-            Expression<Func<T, bool>> lam = null;
-            list.Add(m => 1 == 1); //至少也要有一个条件
-            foreach (var expression in list)
+           Expression<Func<T, bool>> lam = null;
+           await Task.Run(() =>
             {
-                lam = lam == null ? expression : lam.And(expression);
-            }
+                
+                list.Add(m => 1 == 1); //至少也要有一个条件
+                foreach (var expression in list)
+                {
+                    lam = lam == null ? expression : lam.And(expression);
+                }
+              
+            });
             return lam;
         }
     }

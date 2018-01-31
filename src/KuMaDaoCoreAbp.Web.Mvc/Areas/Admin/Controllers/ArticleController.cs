@@ -45,7 +45,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         {
             if (!id.HasValue)
             {
-                return View("_editArticleModal", new EditArticleModal {  GetArticleForEditOutput =new Articles.Dto.GetArticleForEditOutput {  } });
+                return View("_editArticleModal", new EditArticleModal { GetArticleForEditOutput =new Articles.Dto.ArticleEditDto ()  });
             }
            var article = await _articleAppService.GetArticleForEditAsync(new NullableIdDto<long>(id));
             //  var roles = (await _userAppService.GetRoles()).Items;
@@ -61,7 +61,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         {
             EditArticleDetailModal modal = new EditArticleDetailModal()
             {
-
+                
             };
             return View("_editArticleModal", modal);
         }

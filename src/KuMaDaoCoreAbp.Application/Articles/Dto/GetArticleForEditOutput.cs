@@ -6,19 +6,18 @@ using Abp.AutoMapper;
 
 namespace KuMaDaoCoreAbp.Articles.Dto
 {
-	/// <summary>
-    /// 用于添加或编辑 文章时使用的DTO
-    /// </summary>
+	///// <summary>
+ //   /// 用于添加或编辑 文章时使用的DTO
+ //   /// </summary>
   
-    public class GetArticleForEditOutput 
-    {
+ //   public class GetArticleForEditOutput 
+ //   {
  
 
-	    /// <summary>
-        /// Article编辑状态的DTO
-        /// </summary>
-        public ArticleEditDto Article{get;set;}
+	//    /// <summary>
+ //       /// Article编辑状态的DTO
+ //       /// </summary>
+ //       public ArticleEditDto Article{get;set;}
 
-
-    }
+ //   }
 }

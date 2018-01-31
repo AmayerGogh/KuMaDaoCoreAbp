@@ -1,7 +1,8 @@
 ﻿using Abp.Application.Services;
 using Abp.Application.Services.Dto;
 using KuMaDaoCoreAbp.Articles.Dto;
-using KuMaDaoCoreAbp.Dto;
+
+using KuMaDaoCoreAbp.Web;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -21,14 +22,28 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
-        Task<GetArticleForEditOutput> GetArticleForEditAsync(NullableIdDto<long> input);
+        Task<ArticleEditDto> GetArticleForEditAsync(NullableIdDto<long> input);
 
         /// <summary>
         /// 通过指定id获取文章ListDto信息
         /// </summary>
-        Task<ArticleListDto> GetArticleByIdAsync(EntityDto<int> input);
+        Task<ArticleListDto> GetArticleByIdAsync(EntityDto<long> input);
 
 
         // object PostTest(object input);
+
+
+
+
+        /// <summary>
+        /// 获取文章内容
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<ArticleDetailEditDto> GetArticleContentByArticleIdAsync(EntityDto<long> input);
+        /// <summary>
+        /// 编辑文章内容
+        /// </summary>
+        Task UpdateArticleAsync(ArticleDetailEditDto input);
     }
 }

@@ -41,7 +41,6 @@ namespace KuMaDaoCoreAbp.Web
             {
                 return webHostFolder;
             }
-
             throw new Exception("Could not find root folder of the web project!");
         }
 

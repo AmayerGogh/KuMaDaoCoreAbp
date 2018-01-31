@@ -8,12 +8,12 @@ namespace KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article
 {
     public class EditArticleModal
     {
-      public   GetArticleForEditOutput GetArticleForEditOutput { get; set; }
+      public ArticleEditDto GetArticleForEditOutput { get; set; }
     }
 
 
     public class EditArticleDetailModal
     {
-       public ArticleDetailDto ArticleDetailDto { get; set; }
+       public ArticleDetailEditDto ArticleDetailDto { get; set; }
     }
 }
