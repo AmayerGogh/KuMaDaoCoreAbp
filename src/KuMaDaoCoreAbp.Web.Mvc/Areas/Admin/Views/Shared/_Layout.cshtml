@@ -17,8 +17,10 @@
 @inject ISettingManager SettingManager;
 @{
     Layout = null;
+
     AbpAntiForgeryManager.SetCookie(Context);
-    var uiTheme = await SettingManager.GetSettingValueAsync(AppSettingNames.UiTheme);
+
+    //var uiTheme = await SettingManager.GetSettingValueAsync(AppSettingNames.UiTheme);
 
 }
 <!DOCTYPE html>
@@ -106,7 +108,7 @@
             </div>
         </nav>
         <div id="page-wrapper" class="gray-bg dashbard-1">
-            <div class="row border-bottom">
+            <div class="border-bottom">
                 <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
                     <div class="navbar-header">
                         <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
@@ -228,13 +230,13 @@
                             </a>
                         </li>
                     </ul>
-
                 </nav>
             </div>
-            @RenderBody()
-    
-
+            <iframe id="frame" frameborder="0"  src="/admin/article" style="width:100%;    height: 891px">
+               
+            </iframe>
         </div>
+   </div>
         <div class="small-chat-box fadeInRight animated">
 
             <div class="heading" draggable="true">
@@ -427,7 +429,7 @@
 
 
     <!-- Top Bar -->
-    <nav class="navbar">
+    @*<nav class="navbar">
         <div class="container-fluid">
             <div class="navbar-header">
                 <a href="javascript:void(0);" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="false"></a>
@@ -444,14 +446,14 @@
                 </ul>
             </div>
         </div>
-    </nav>
+    </nav>*@
     <!-- #Top Bar -->
 
-    <section class="content">
+    @*<section class="content">
         <div class="container-fluid">
             @RenderBody()
         </div>
-    </section>
+    </section>*@
     <environment names="Development">
         <script src="~/lib/json2/json2.js" asp-append-version="true"></script>
         <script src="~/inspinia/js/jquery-2.1.1.js"></script>

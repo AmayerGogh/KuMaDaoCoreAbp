@@ -10,9 +10,13 @@ namespace ConsoleTest
         static void Main(string[] args)
         {
 
-            var a = 100;
-            var b = 100;
-            Console.WriteLine(a +b +1);
+
+
+
+            var c = "Http://ylapi.runtoweb.com/upload/images/201802/016365307819756221514195323.docx";
+            //c.StartsWith("/upload");
+
+
             // var db = CreateDbcontext();
 
             //var cc = db.Article.ToList();
@@ -23,11 +27,11 @@ namespace ConsoleTest
             //Test1();
             //Test2();
             //Program.Test3(); Program.Test3();
-           
-           
+            Console.ReadKey();
+
         }
 
-
+       
         static KuMaDaoCoreAbpDbContext CreateDbcontext()
         {
             var builder = new DbContextOptionsBuilder<KuMaDaoCoreAbpDbContext>();        

@@ -3373,9 +3373,9 @@ video {
   padding: 20px 10px 40px;
 }
 #page-wrapper {
-  padding: 0 15px;
-  min-height: 568px;
-  position: relative !important;
+    /*min-height: 568px;*/
+    min-height: calc(100%) !important;
+    position: relative !important;
 }
 @media (min-width: 768px) {
   #page-wrapper {
