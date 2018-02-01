@@ -16,6 +16,14 @@ namespace KuMaDaoCoreAbp.Web.Startup
                 .AddItem(Demonav())
                 .AddItem(Wechat())
                 .AddItem(Alimm())
+                .AddItem(Setting())
+                 .AddItem(Demonav())
+                .AddItem(Wechat())
+                .AddItem(Alimm())
+                .AddItem(Setting())
+                 .AddItem(Demonav())
+                .AddItem(Wechat())
+                .AddItem(Alimm())
                 .AddItem(Setting());
         }
 
