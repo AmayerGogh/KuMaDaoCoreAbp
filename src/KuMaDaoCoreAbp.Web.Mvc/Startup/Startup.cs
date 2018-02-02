@@ -16,6 +16,8 @@ using Swashbuckle.AspNetCore.Swagger;
 using System.Linq;
 using KuMaDaoCoreAbp.Web.Startup._pingins;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using UEditorNetCore;
 
 
 #if FEATURE_SIGNALR
@@ -74,14 +76,20 @@ namespace KuMaDaoCoreAbp.Web.Startup
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 options.OperationFilter<SecurityRequirementsOperationFilter>();
             });
+            //see https://github.com/aspnet/Security/issues/1310
+            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+                .AddCookie(o => o.LoginPath = new Microsoft.AspNetCore.Http.PathString("/admin/account/login"));
             //Configure Abp and Dependency Injection
+
+            services.AddUEditorService();
             return services.AddAbp<KuMaDaoCoreAbpWebMvcModule>(options =>
             {
                 //Configure Log4Net logging
                 options.IocManager.IocContainer.AddFacility<LoggingFacility>(
                     f => f.UseAbpLog4Net().WithConfig("log4net.config")
-                );
+                );               
             });
+        
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
@@ -96,10 +104,15 @@ namespace KuMaDaoCoreAbp.Web.Startup
             {
                 app.UseExceptionHandler("/Error");
             }
-
+            //app.UseCookieAuthentication
+            //app.UseCookieAuthentication(new Microsoft.AspNetCore.Authentication.Cookies.CookieAuthenticationOptions
+            //{
+               
+            //    LoginPath = new Microsoft.AspNetCore.Http.PathString("/Account/Login")
+            //});
             app.UseStaticFiles();
-
-            app.UseAuthentication( );         
+            
+            app.UseAuthentication( );
             app.UseJwtTokenMiddleware();
             
 
@@ -110,6 +123,9 @@ namespace KuMaDaoCoreAbp.Web.Startup
 
             app.UseMvc(routes =>
             {
+              //  routes.MapRoute(
+              //name: "other",
+              //template: "{Apis}/{controller=Home}/{action=Index}/{id?}");
                 routes.MapRoute(
                     name: "defaultWithArea",
                     template: "{area:exists}/{controller=Home}/{action=Index}/{id?}");

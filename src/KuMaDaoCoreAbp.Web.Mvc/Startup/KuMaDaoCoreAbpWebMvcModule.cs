@@ -18,6 +18,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
         {
             _env = env;
             _appConfiguration = env.GetAppConfiguration();
+            
         }
 
         public override void PreInitialize()
@@ -26,7 +27,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
 
             Configuration.Authorization.Providers.Add<ArticleAppAuthorizationProvider>();
             //Configuration.
-            
+            //Configuration.Authorization.
         }
 
         public override void Initialize()

@@ -1,5 +1,8 @@
 ﻿(function ($) {
 
+
+   
+            
     var _articleService = abp.services.app.article;
 
     var _$form = $('form[name=ArticleDetailUpdateForm]');

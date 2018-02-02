@@ -25,6 +25,7 @@
                 'click .btn_edit': function (e, value, row, index) {
                     layer.open({
                         type: 1,
+                        zIndex :5,
                         //skin: 'layui-layer-rim', //加上边框
                         area: ['850px', '450px'], //宽高
                         content: $("#ArticleEditModal").html()
@@ -141,11 +142,13 @@
             $("#add").click(function () { 
                 layer.open({
                     type: 1,
+                    zIndex: 5,
                     //skin: 'layui-layer-rim', //加上边框
                     area: ['850px', '450px'], //宽高
                     content: $("#ArticleEditModal").html()
                 });
                 $.ajax({
+                    zIndex: 5,
                     url: "/admin/article/EditArticleModal/",
                     type: 'post',
                     contentType: 'application/html',
