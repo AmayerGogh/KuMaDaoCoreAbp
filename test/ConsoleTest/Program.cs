@@ -13,7 +13,7 @@ namespace ConsoleTest
 
 
 
-            var c = "Http://ylapi.runtoweb.com/upload/images/201802/016365307819756221514195323.docx";
+            // var c = "Http://ylapi.runtoweb.com/upload/images/201802/016365307819756221514195323.docx";
             //c.StartsWith("/upload");
 
 
@@ -27,6 +27,8 @@ namespace ConsoleTest
             //Test1();
             //Test2();
             //Program.Test3(); Program.Test3();
+
+            ThreadTest t = new ThreadTest();
             Console.ReadKey();
 
         }
@@ -77,7 +79,7 @@ namespace ConsoleTest
         {
             a += "6";
             Console.WriteLine(a);
-        }
+        }   
 
 
     }

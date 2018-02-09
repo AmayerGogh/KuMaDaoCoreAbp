@@ -63,7 +63,6 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
             {
                 ArticleDetailDto = await _articleAppService.GetArticleDetailByArticleIdAsync(new EntityDto<long>(id))
             };
-
             return View("_editArticleDetailModal", modal);
         }
 

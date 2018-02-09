@@ -17,7 +17,8 @@ using System.Linq;
 using KuMaDaoCoreAbp.Web.Startup._pingins;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using UEditorNetCore;
+using Amayer.Modules.Ueditor;
+
 
 
 #if FEATURE_SIGNALR
