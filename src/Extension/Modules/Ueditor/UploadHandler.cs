@@ -19,6 +19,9 @@ namespace Amayer.Modules.Ueditor
                 this.Result = new UploadResult() { State = UploadState.Unknown };
             }
 
+            /// <summary>
+            /// 本地上传
+            /// </summary>
             public override void Process()
             {
                 byte[] uploadFileBytes = null;
@@ -70,7 +73,7 @@ namespace Amayer.Modules.Ueditor
                         Directory.CreateDirectory(Path.GetDirectoryName(localPath));
                     }
                     File.WriteAllBytes(localPath, uploadFileBytes);
-                    Result.Url = savePath;
+                    Result.Url ="/"+ savePath;
                     Result.State = UploadState.Success;
                 }
                 catch (Exception e)

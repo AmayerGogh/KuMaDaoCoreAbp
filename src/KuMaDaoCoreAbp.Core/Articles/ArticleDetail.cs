@@ -12,6 +12,7 @@ namespace KuMaDaoCoreAbp.Articles
         public virtual long ArticleId {get;set;}
         public virtual string Body { get; set; }
 
+        public virtual int Type { get; set; }
 
         public ArticleDetail()
         {
@@ -20,7 +21,16 @@ namespace KuMaDaoCoreAbp.Articles
         public ArticleDetail(long _ArticleId)
         {
             ArticleId = _ArticleId;
+            Type = (int)ArticleDetailType.html;
         }
 
+
+
+    }
+
+    public enum ArticleDetailType
+    {
+        html=1,
+        md =2
     }
 }

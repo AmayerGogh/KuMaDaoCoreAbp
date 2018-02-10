@@ -925,4 +925,15 @@
         return !settings.crossDomain;
     };
 
+
+
+    //layer
+    abp.layer = abp.layer || {};
+    //销毁时取消事件
+    abp.layer.removeConfrimEvent = function (_update_confrim) {
+        alert("abp.layer.remove")
+        $(document).off("click", _update_confrim)
+    }
+
+
 })(jQuery);

@@ -123,14 +123,23 @@ namespace KuMaDaoCoreAbp.Articles
         /// </summary>
         public async Task CreateOrUpdateArticleAsync(ArticleEditDto input)
         {
-            if (input.Id.HasValue)
+            try
             {
-                await UpdateArticleAsync(input);
+                if (input.Id.HasValue)
+                {
+                    await UpdateArticleAsync(input);
+                }
+                else
+                {
+                    await CreateArticleAsync(input);
+                }
             }
-            else
+            catch (Exception e)
             {
-                await CreateArticleAsync(input);
+                var c = e;
+                throw;
             }
+          
         }
 
         /// <summary>
@@ -192,17 +201,14 @@ namespace KuMaDaoCoreAbp.Articles
         /// <returns></returns>
         public async Task<ArticleDetailEditDto> GetArticleDetailByArticleIdAsync(EntityDto<long> input)
         {
-            ArticleDetail entity;
-            var content = await _articleDetailRepository.FirstOrDefaultAsync(m => m.ArticleId == input.Id);
+           
+            var entity = await _articleDetailRepository.FirstOrDefaultAsync(m => m.ArticleId == input.Id);
 
-            if (content == null)
+            if (entity == null)
             {
-                entity = await _articleDetailRepository.InsertAsync(new ArticleDetail(input.Id));
-            }
-            else
-            {
-                entity = content;
-            }
+                entity = new ArticleDetail(input.Id);
+                entity.Id  = await _articleDetailRepository.InsertAndGetIdAsync(entity);
+            }         
             return entity.MapTo<ArticleDetailEditDto>();
         }
 
@@ -214,8 +220,9 @@ namespace KuMaDaoCoreAbp.Articles
         {
 
             var entity = await _articleDetailRepository.GetAsync(input.Id);
-            input.MapTo(entity);
-
+            //input.MapTo(entity);
+            entity.ArticleId = input.ArticleId;
+            entity.Body = input.Body;
             await _articleDetailRepository.UpdateAsync(entity);
         }
         #endregion

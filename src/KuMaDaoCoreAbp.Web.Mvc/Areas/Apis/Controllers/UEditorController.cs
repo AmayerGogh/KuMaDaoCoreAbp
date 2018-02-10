@@ -20,6 +20,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
     [DontWrapResult]
     [DisableValidation]
     [DisableAuditing]
+    [IgnoreAntiforgeryToken]   
     public class UEditorController : KuMaDaoCoreAbpControllerBase
     {
         private UEditorService ue;

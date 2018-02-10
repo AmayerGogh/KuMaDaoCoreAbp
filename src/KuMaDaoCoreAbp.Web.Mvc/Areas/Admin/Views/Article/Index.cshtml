@@ -25,10 +25,11 @@
                 'click .btn_edit': function (e, value, row, index) {
                     layer.open({
                         type: 1,
-                        zIndex :5,
+                        //zIndex :5,
                         //skin: 'layui-layer-rim', //加上边框
-                        area: ['850px', '450px'], //宽高
+                        area: ['750px', '550px'], //宽高
                         content: $("#ArticleEditModal").html()
+                        
                     });
                     $.ajax({
                         url: "/admin/article/EditArticleModal/"+row.id,
@@ -50,8 +51,11 @@
                         type: 1,
                         maxmin: true,
                         //skin: 'layui-layer-rim', //加上边框
-                        area: ['850px', '450px'], //宽高
-                        content: $("#ArticleEditModal").html()
+                        area: ['750px', '550px'], //宽高
+                        content: $("#ArticleEditModal").html(),
+                        end: function () {
+                            abp.layer.removeConfrimEvent("#ArticleDetailUpdate_Confrim")
+                        }//
                     });
                     $.ajax({
                         url: "/admin/article/EditContentModal/" + row.id,
@@ -65,18 +69,18 @@
                 }
             }
             window.sortEvents = {
-                'change .bs_row_sort': function (e, value, row, index) {
-                    var sort = $(this).val();
-                    if (isNaN(sort)) {
-                        return false;
-                    }
-                    $.post("/article/updateSort", { id: row.id, sort: sort }, function (data) {
-                        alertMsg(data.message)
-                        if (data.status >= 0) {
-                            bsTableReload();
-                        }
-                    })
-                }
+                //'change .bs_row_sort': function (e, value, row, index) {
+                //    var sort = $(this).val();
+                //    if (isNaN(sort)) {
+                //        return false;
+                //    }
+                //    $.post("/article/updateSort", { id: row.id, sort: sort }, function (data) {
+                //        alertMsg(data.message)
+                //        if (data.status >= 0) {
+                //            bsTableReload();
+                //        }
+                //    })
+                //}
             }
             var column = [
                   {   checkbox: true},
@@ -143,13 +147,14 @@
             $("#add").click(function () { 
                 layer.open({
                     type: 1,
-                    zIndex: 5,
                     //skin: 'layui-layer-rim', //加上边框
                     area: ['850px', '450px'], //宽高
-                    content: $("#ArticleEditModal").html()
+                    content: $("#ArticleEditModal").html(),                   
+                    end: function () {                       
+                        abp.layer.removeConfrimEvent("#ArticleUpdate_Confrim")
+                     }//
                 });
                 $.ajax({
-                    zIndex: 5,
                     url: "/admin/article/EditArticleModal/",
                     type: 'post',
                     contentType: 'application/html',

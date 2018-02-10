@@ -15,13 +15,13 @@ namespace KuMaDaoCoreAbp.Files
 
         public long CategoryId { get; set; }
         public int Type { get; set; }
-
         /// <summary>
-        /// 预览id
+        /// 根据 FileStatus 隶属哪个分类  ArticleId
         /// </summary>
-        public long  PreviewFileId { get; set; }
-
+        public long? ParamId { get; set; }
         public int Status { get; set; }
+        public int FileLocation { get; set; }
+        public DateTime CreationTime { get; set; }
     }
 
     public enum FileType
@@ -29,14 +29,21 @@ namespace KuMaDaoCoreAbp.Files
 
         image=1,
         video=2,
-        docu=3,
+        doc=3,
         other=4,
-        preview=5
     }
     public enum FileStatus
     {
         未显示=0,
-        默认 =1,
-        Detail内部=2
+        文件 =1,
+        文件预览 =2,
+        文章内容=3,
+        文章封面 =4,
+        文章附件 =5
+    }
+    public enum FileLocation
+    {
+        local=1,
+        qiniu =2
     }
 }
