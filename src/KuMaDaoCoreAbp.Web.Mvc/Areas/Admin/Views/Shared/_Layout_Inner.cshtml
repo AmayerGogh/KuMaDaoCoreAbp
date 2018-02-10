@@ -46,6 +46,12 @@
         <link href="~/inspinia/font-awesome/css/font-awesome.css" rel="stylesheet" />
         <link href="~/inspinia/css/plugins/toastr/toastr.min.css" rel="stylesheet" />
         <link href="~/inspinia/css/animate.css" rel="stylesheet" />
+
+
+        <link href="~/lib/toastr/toastr.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/lib/sweetalert/dist/sweetalert.css" rel="stylesheet" asp-append-version="true" />
+        <link href="~/lib/Waves/dist/waves.css" rel="stylesheet" asp-append-version="true" />
+
         <link href="~/inspinia/css/style.css" rel="stylesheet" />
         <link href="~/libs/admin_inner.css" rel="stylesheet" />
     </environment>
@@ -68,8 +74,8 @@
         <script src="~/lib/json2/json2.js" asp-append-version="true"></script>
         <script src="~/inspinia/js/jquery-2.1.1.js"></script>
         <script src="~/inspinia/js/bootstrap.js"></script>
-        <script src="~/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-        <script src="~/inspinia/js/plugins/slimscroll/jquery.slimscroll.js"></script>
+        @*<script src="~/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="~/inspinia/js/plugins/slimscroll/jquery.slimscroll.js"></script>*@
 
         @*<script src="~/inspinia/js/inspinia.js"></script>*@
         @*<script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>*@
@@ -77,28 +83,34 @@
         @*zh-CN*@
         <script src="~/lib/moment/min/moment-with-locales.js" asp-append-version="true"></script>
         @*<script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>*@
-        @*<script src="~/lib/blockUI/jquery.blockUI.js" asp-append-version="true"></script>*@
-        <script src="~/inspinia/js/plugins/toastr/toastr.min.js"></script>
+        @*遮罩*@
+        <script src="~/lib/blockUI/jquery.blockUI.js" asp-append-version="true"></script>
+        @*消息提示*@
+        @*<script src="~/inspinia/js/plugins/toastr/toastr.min.js"></script>*@
+        <script src="~/lib/toastr/toastr.js" asp-append-version="true"></script>
+        @*弹框*@
         <script src="~/inspinia/js/plugins/sweetalert/sweetalert.min.js"></script>
-        @*<script src="~/lib/toastr/toastr.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/sweetalert/dist/sweetalert-dev.js" asp-append-version="true"></script>*@
-        @*<script src="~/lib/spin.js/spin.js" asp-append-version="true"></script>
-            <script src="~/lib/spin.js/jquery.spin.js" asp-append-version="true"></script>*@
-        @*<script src="~/lib/bootstrap-select/dist/js/bootstrap-select.js" asp-append-version="true"></script>*@
+        @*等待*@
+        <script src="~/lib/spin.js/spin.js" asp-append-version="true"></script>
+        <script src="~/lib/spin.js/jquery.spin.js" asp-append-version="true"></script>
+
         @*scroll*@
         @*<script src="~/lib/jquery-slimscroll/jquery.slimscroll.js" asp-append-version="true"></script>*@
-        <script src="~/lib/Waves/dist/waves.js" asp-append-version="true"></script>
+        @*水波纹*@
+        @*<script src="~/lib/Waves/dist/waves.js" asp-append-version="true"></script>*@
+        @*生命周期*@
         <script src="~/lib/push.js/push.js" asp-append-version="true"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/abp.js" asp-append-version="true"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js" asp-append-version="true"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js" asp-append-version="true"></script>
-        @*<script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js" asp-append-version="true"></script>*@
-        @*<script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js" asp-append-version="true"></script>*@
+        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js" asp-append-version="true"></script>
+        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js" asp-append-version="true"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js" asp-append-version="true"></script>
         @*<script src="~/js/admin.js"></script>*@
         @*//编辑提交的时候需要*@
         <script src="~/js/main.js" asp-append-version="true"></script>
-        <script src="~/view-resources/Views/Shared/_Layout.js" asp-append-version="true"></script>
+        @*<script src="~/view-resources/Views/Shared/_Layout.js" asp-append-version="true"></script>*@
 
 
     </environment>

@@ -5,12 +5,12 @@
             
     var _articleService = abp.services.app.article;
 
-    var _$form = $('form[name=ArticleDetailUpdateForm]');
-    var _$modal = $('.layui-layer #ArticleDetailUpateModal');
+    var _$form = $('.layui-layer  form[name="ArticleDetailUpdateForm"]');
+    var _$modal = $(".layui-layer .layui-layer-content"); //$('.layui-layer #ArticleDetailUpateModal'); //vvar _$modal = $(".layui-layer .layui-layer-content")
     var _update_confrim = "#ArticleDetailUpdate_Confrim";
 
     function save() {
-        var _$form = $('.layui-layer  form[name="ArticleUpdateForm"]');
+      
         //todo 有没有这个
         //_$form.validate({
         //});

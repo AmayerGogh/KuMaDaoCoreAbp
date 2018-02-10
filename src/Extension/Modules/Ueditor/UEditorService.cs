@@ -41,7 +41,6 @@ namespace Amayer.Modules.Ueditor
             var actions = new UEditorActionCollection();
             services.AddSingleton(actions);
             services.AddSingleton<UEditorService>();
-
             return actions;
         }
     }

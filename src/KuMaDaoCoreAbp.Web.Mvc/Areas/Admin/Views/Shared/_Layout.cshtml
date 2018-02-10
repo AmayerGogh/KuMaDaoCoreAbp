@@ -59,11 +59,11 @@
     </environment>
     <!-- View specific styles -->
     @RenderSection("styles", required: false)
-    <script type="text/javascript">
+    @*<script type="text/javascript">
         //This is used to get the application's root path from javascript. It's useful if you're running application in a virtual directory under IIS.
         var abp = abp || {};
         abp.appPath = '@ApplicationPath';
-    </script>
+    </script>*@
 </head>
 <body  class="pace-done fixed-sidebar fixed-nav-basic">
     <!-- Page Loader -->
@@ -455,12 +455,11 @@
         </div>
     </section>*@
     <environment names="Development">
-        <script src="~/lib/json2/json2.js" asp-append-version="true"></script>
+        @*<script src="~/lib/json2/json2.js" asp-append-version="true"></script>*@
         <script src="~/inspinia/js/jquery-2.1.1.js"></script>
         <script src="~/inspinia/js/bootstrap.js"></script>
         <script src="~/inspinia/js/plugins/metisMenu/jquery.metisMenu.js"></script>
         <script src="~/inspinia/js/plugins/slimscroll/jquery.slimscroll.js"></script>
-
         <script src="~/inspinia/js/inspinia.js"></script>
         @*<script src="~/lib/jquery/dist/jquery.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/bootstrap/dist/js/bootstrap.js" asp-append-version="true"></script>*@
@@ -469,7 +468,7 @@
         @*<script src="~/lib/jquery-validation/dist/jquery.validate.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/blockUI/jquery.blockUI.js" asp-append-version="true"></script>*@
         <script src="~/inspinia/js/plugins/toastr/toastr.min.js"></script>
-        <script src="~/inspinia/js/plugins/sweetalert/sweetalert.min.js"></script>
+        @*<script src="~/inspinia/js/plugins/sweetalert/sweetalert.min.js"></script>*@
         @*<script src="~/lib/toastr/toastr.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/sweetalert/dist/sweetalert-dev.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/spin.js/spin.js" asp-append-version="true"></script>
@@ -477,18 +476,18 @@
         @*<script src="~/lib/bootstrap-select/dist/js/bootstrap-select.js" asp-append-version="true"></script>*@
         @*scroll*@
         @*<script src="~/lib/jquery-slimscroll/jquery.slimscroll.js" asp-append-version="true"></script>*@
-        <script src="~/lib/Waves/dist/waves.js" asp-append-version="true"></script>
+        @*<script src="~/lib/Waves/dist/waves.js" asp-append-version="true"></script>
         <script src="~/lib/push.js/push.js" asp-append-version="true"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/abp.js" asp-append-version="true"></script>
         <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.jquery.js" asp-append-version="true"></script>
-        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js" asp-append-version="true"></script>
+        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.toastr.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.blockUI.js" asp-append-version="true"></script>*@
         @*<script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.spin.js" asp-append-version="true"></script>*@
-        <script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js" asp-append-version="true"></script>
+        @*<script src="~/lib/abp-web-resources/Abp/Framework/scripts/libs/abp.sweet-alert.js" asp-append-version="true"></script>*@
         @*<script src="~/js/admin.js"></script>*@
         @*//编辑提交的时候需要*@
-        <script src="~/js/main.js" asp-append-version="true"></script>
-        <script src="~/view-resources/Views/Shared/_Layout.js" asp-append-version="true"></script>
+        @*<script src="~/js/main.js" asp-append-version="true"></script>*@
+        @*<script src="~/view-resources/Views/Shared/_Layout.js" asp-append-version="true"></script>*@
 
         @if (SignalRFeature.IsAvailable)
         {
@@ -503,8 +502,8 @@
     moment.locale('@CultureInfo.CurrentUICulture.Name');
     </script>
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
-    <script src="~/AbpServiceProxies/GetAll?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
-    <script src="~/AbpScripts/GetScripts?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
+    @*<script src="~/AbpServiceProxies/GetAll?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>
+    <script src="~/AbpScripts/GetScripts?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>*@
     @if (SignalRFeature.IsAvailable)
     {
         <!-- SignalR scripts -->

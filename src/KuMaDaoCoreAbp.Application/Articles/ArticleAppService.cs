@@ -214,8 +214,9 @@ namespace KuMaDaoCoreAbp.Articles
         {
 
             var entity = await _articleDetailRepository.GetAsync(input.Id);
-            input.MapTo(entity);
-
+            //input.MapTo(entity);
+            entity.ArticleId = input.ArticleId;
+            entity.Body = input.Body;
             await _articleDetailRepository.UpdateAsync(entity);
         }
         #endregion

@@ -8,7 +8,7 @@
 <div class="modal-body">
     <form name="ArticleDetailUpdateForm" role="form" novalidate class="form-validation">
         <input type="hidden" name="Id" value="@temp.Id" />
-        <input type="hidden" name="Id" value="@temp.ArticleId" />
+        <input type="hidden" name="ArticleId" value="@temp.ArticleId" />
         <div class="row clearfix">
 
         </div>
@@ -19,7 +19,7 @@
                     <div class="form-line">
                         <label for="article-description" class="form-label">Role Description</label>
                         @*<textarea id="article-description" name="Description" class="validate form-control"></textarea>*@
-                        <script id="editor" name="Contents" type="text/plain" style="width:100%;height:500px;">
+                        <script id="editor" name="Body" type="text/plain" style="width:100%;height:500px;">
                             @Html.Raw(temp.Body)
                         </script>
                     </div>
