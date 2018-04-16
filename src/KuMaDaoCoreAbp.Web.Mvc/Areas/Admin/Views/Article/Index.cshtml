@@ -46,7 +46,7 @@
                 'click .btn_del': function (e, value, row, index) {
                    // delThisRow("/article/delete/" + row.id);
                 },
-                'click .btn_detail':function(e, value, row, index){
+                'click .btn_detail_add':function(e, value, row, index){
                     layer.open({
                         type: 1,
                         maxmin: true,
@@ -67,7 +67,32 @@
                         error: function (e) { }
                     });
                 }
+        }
+        window.articleDetailEvents = {
+            'click .btn_detail_add': function (e, value, row, index) {
+                layer.open({
+                    type: 1,
+                    maxmin: true,
+                    //skin: 'layui-layer-rim', //加上边框
+                    area: ['750px', '550px'], //宽高
+                    content: $("#ArticleEditModal").html(),
+                    end: function () {
+                        abp.layer.removeConfrimEvent("#ArticleDetailUpdate_Confrim")
+                    }//
+                });
+                $.ajax({
+                    url: "/admin/article/EditContentModal/" + row.id,
+                    type: 'post',
+                    contentType: 'application/html',
+                    success: function (content) {
+                        $('.layui-layer .layui-layer-content').html(content);
+                    },
+                    error: function (e) { }
+                });
+
             }
+
+        }
             window.sortEvents = {
                 //'change .bs_row_sort': function (e, value, row, index) {
                 //    var sort = $(this).val();
@@ -84,17 +109,26 @@
             }
             var column = [
                   {   checkbox: true},
-                { title: "Id", field: "id", },
-                { title: "分类", field: "categoryId", },
+                  { title: "Id", field: "id", },
+                  { title: "分类", field: "categoryName", },
                   { title: "文章标题", field: "title", width: "40%" },                
                   { title: "查看次数", field: "seeCount", },
-                ////  { title: "排序", events: sortEvents, formatter: sortFormatter, width: "8%" },
-                //  { title: "是否置顶", formatter: statusFormatter },
-                //  { title: "发布日期", field: "createTime", },
+                  { title: "评论", field: "seeCount", },
+                  {
+                      title: "内容分支", events: articleDetailEvents, formatter: function (value, row, index) { 
+                          var con = "";
+                          for (var i = 0; i < row.articleDetail.length; i++) {
+                             con+= '<span class="badge badge-primary btn_detail_update" > ' + row.articleDetail[i].id+'</span>'
+                          }
+                          if (row.articleDetail.length<3) {
+                              con += '<span class="badge badge-primary btn_detail_add" > 添加</span>';
+                          }
+                          return con;
+                  }},
                   {
                       title: "操作", events: operateEvents, formatter: function (value, row, index) { 
                           return ' <div class="btn-group"><button class="btn-white btn btn-xs btn_edit">编辑</button> \
-                                  <button class="btn-white btn btn-xs btn_detail" > 内容</button ></div > \
+                                                          <button class="btn-white btn btn-xs btn_edit">附件管理</button> \
                                   <button class="btn-white btn btn-xs btn_del" > 删除</button ></div > '
                       }
                   },//自定义方法，添加操作按钮
@@ -128,22 +162,7 @@
                 }
             });
 
-            function sortFormatter(value, row, index) {
-                return '<input type="text" value="' + row.sort + '" class="form-select bs_row_sort" />'
-            }
-
-            function statusFormatter(value, row, index) {
-                if (row.isTop) {
-                    return '<span class="label label-primary">置顶</span>'
-                } else {
-                    return '<span>-</span>'
-                }
-            }
-            function operateFormatter(value, row, index) {//赋予的参数
-               
-                return ' <div class="btn-group"><button class="btn-white btn btn-xs btn_edit" data-toggle="modal" data-target="#ArticleEditModal">编辑</button>  '+
-                    '<button class="btn-white btn btn-xs btn_del" > 删除</button ></div >'               
-            }
+          
             $("#add").click(function () { 
                 layer.open({
                     type: 1,
@@ -169,10 +188,10 @@
 }
 <div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
-        <h2>Blog</h2>
+        <h2>文章管理</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">Home</a>
+                <a href="index.html">仪表板</a>
             </li>
             <li>
                 <a>Miscellaneous</a>
@@ -195,7 +214,7 @@
                 <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
                 <div class="toolbar_item">
                     <label class="control-label">分类</label>
-
+                    这里是个分类列表
                 </div>
             </div>
             <table id="table"></table>

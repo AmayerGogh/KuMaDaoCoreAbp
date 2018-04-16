@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KuMaDaoCoreAbp.Articles.Dto;
 
 namespace KuMaDaoCoreAbp.Articles.Mapper
 {
@@ -16,7 +17,7 @@ namespace KuMaDaoCoreAbp.Articles.Mapper
         /// <summary>
         /// 初始化映射
         /// </summary>
-        public void CreateMappings(IMapperConfigurationExpression configuration)
+        public static void CreateMappings(IMapperConfigurationExpression configuration)
         {
 
             lock (SyncObj)
@@ -31,6 +32,12 @@ namespace KuMaDaoCoreAbp.Articles.Mapper
                 _mappedBefore = true;
             }
 
+            configuration.CreateMap<Article, ArticleEditDto>();
+            configuration.CreateMap<Article, ArticleListDto>();
+
+            configuration.CreateMap<ArticleEditDto, Article>();
+            configuration.CreateMap<Article, ArticleListDto>()
+                .ForMember(artd => artd.CategoryName, o => o.Ignore());
         }
 
 
@@ -44,17 +51,6 @@ namespace KuMaDaoCoreAbp.Articles.Mapper
         /// </summary>       
         private static void CreateMappingsInternal(IMapperConfigurationExpression configuration)
         {
-
-            //默认ABP功能已经实现了，如果你要单独对DTO进行拓展，可以在此处放开注释文件。
-
-            // Configuration.Modules.AbpAutoMapper().Configurators.Add(ArticleDtoMapper.CreateMappings);
-
-            //    Mapper.CreateMap<Article,ArticleEditDto>();
-            //     Mapper.CreateMap<Article, ArticleListDto>();
-
-            //       Mapper.CreateMap<ArticleEditDto, Article>();
-            //        Mapper.CreateMap<ArticleListDto,Article>();
-
 
 
 

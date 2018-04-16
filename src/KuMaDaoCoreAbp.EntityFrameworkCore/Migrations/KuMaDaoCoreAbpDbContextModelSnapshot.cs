@@ -737,7 +737,7 @@ namespace KuMaDaoCoreAbp.Migrations
 
                     b.Property<long>("CategoryId");
 
-                    b.Property<string>("Cover");
+                    b.Property<long>("Cover");
 
                     b.Property<DateTime>("CreationTime");
 
@@ -759,6 +759,8 @@ namespace KuMaDaoCoreAbp.Migrations
                         .IsRequired()
                         .HasMaxLength(20);
 
+                    b.Property<int>("Type");
+
                     b.HasKey("Id");
 
                     b.ToTable("Article");
@@ -772,6 +774,10 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.Property<long>("ArticleId");
 
                     b.Property<string>("Body");
+
+                    b.Property<bool>("IsDefault");
+
+                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 
@@ -947,9 +953,39 @@ namespace KuMaDaoCoreAbp.Migrations
 
                     b.Property<int>("Status");
 
+                    b.Property<int>("Type");
+
                     b.HasKey("Id");
 
                     b.ToTable("Category");
+                });
+
+            modelBuilder.Entity("KuMaDaoCoreAbp.Files.File", b =>
+                {
+                    b.Property<long>("Id")
+                        .ValueGeneratedOnAdd();
+
+                    b.Property<long>("CategoryId");
+
+                    b.Property<DateTime>("CreationTime");
+
+                    b.Property<decimal>("Extension");
+
+                    b.Property<int>("FileLocation");
+
+                    b.Property<string>("Name");
+
+                    b.Property<long?>("ParamId");
+
+                    b.Property<decimal>("Size");
+
+                    b.Property<int>("Status");
+
+                    b.Property<int>("Type");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("File");
                 });
 
             modelBuilder.Entity("KuMaDaoCoreAbp.MultiTenancy.Tenant", b =>

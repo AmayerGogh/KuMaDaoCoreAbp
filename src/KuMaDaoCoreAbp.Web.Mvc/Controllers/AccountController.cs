@@ -11,6 +11,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Controllers
     {
         public IActionResult Login()
         {
+           
             return Redirect("/admin/account/login");
         }
     }

@@ -21,7 +21,7 @@ namespace KuMaDaoCoreAbp.Articles
         //private readonly IRepository<Article, long> _articleRepository;
         private readonly IArticleRepository _articleRepository;
         private readonly ArticleManager _articleManage;
-        //private readonly IReadOnlyCollection //vArticleLabel
+        private readonly IRepository<Categories.Category,long> _categoryRespository;
         private readonly IRepository<ArticleDetail, long> _articleDetailRepository;
         private readonly IRepository<ArticleLabel, long> _articleLabelRepository;
         private IEventBus EventBus { get; set; }
@@ -29,10 +29,12 @@ namespace KuMaDaoCoreAbp.Articles
         public ArticleAppService(IArticleRepository articleRepository,
                                  IRepository<ArticleDetail, long> articleDetailRepository,
                                 // IRepository<ArticleLabel, long> articleLabelRepository,
+                                IRepository<Categories.Category, long> categoryRepository,
                                  ArticleManager articleManage)
         {
             _articleRepository = articleRepository;
             _articleDetailRepository = articleDetailRepository;
+            _categoryRespository = categoryRepository;
          //   _articleLabelRepository = articleLabelRepository;
             _articleManage = articleManage;
             this.EventBus = NullEventBus.Instance;
@@ -63,6 +65,20 @@ namespace KuMaDaoCoreAbp.Articles
                .Take(param.limit)
                .ToList();
             var listDtos = list.MapTo<List<ArticleListDto>>();
+
+            var cateIds = listDtos.Select(m => m.CategoryId).ToList();
+            var cateList = _categoryRespository.GetAllList(m => cateIds.Contains(m.Id));
+
+            var ids = listDtos.Select(m => m.Id).ToList();
+            var articleDetailList =_articleDetailRepository.GetAllList(m => ids.Contains(m.ArticleId));
+            foreach (var item in listDtos)
+            {
+                item.CategoryName = cateList.FirstOrDefault(m => m.Id == item.CategoryId)?.Name;
+                item.ArticleDetail = articleDetailList.Where(m => m.ArticleId == item.Id).Select(m=> new ArticleListDto_Detail {
+                    Id =m.Id,
+                    IsDefault=m.IsDefault
+                }).ToList();
+            }
             return new BsTableResponseModel<ArticleListDto>()
             {
                 rows = listDtos,

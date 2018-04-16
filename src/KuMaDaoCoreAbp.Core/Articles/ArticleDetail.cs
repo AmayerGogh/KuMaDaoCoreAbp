@@ -9,9 +9,11 @@ namespace KuMaDaoCoreAbp.Articles
 {
     public class ArticleDetail : Entity<long>
     {
+
+        //public virtual string Name { get; set; } ="detail"
         public virtual long ArticleId {get;set;}
         public virtual string Body { get; set; }
-
+        public virtual bool IsDefault { get; set; }
         public virtual int Type { get; set; }
 
         public ArticleDetail()
@@ -22,6 +24,7 @@ namespace KuMaDaoCoreAbp.Articles
         {
             ArticleId = _ArticleId;
             Type = (int)ArticleDetailType.html;
+            IsDefault = true;
         }
 
 

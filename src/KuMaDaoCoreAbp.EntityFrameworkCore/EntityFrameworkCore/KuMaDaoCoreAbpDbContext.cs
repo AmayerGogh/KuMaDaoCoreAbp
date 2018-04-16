@@ -6,6 +6,7 @@ using KuMaDaoCoreAbp.MultiTenancy;
 using KuMaDaoCoreAbp.Articles;
 using KuMaDaoCoreAbp.Types;
 using KuMaDaoCoreAbp.Files;
+using KuMaDaoCoreAbp.Categories;
 
 namespace KuMaDaoCoreAbp.EntityFrameworkCore
 {
@@ -19,7 +20,7 @@ namespace KuMaDaoCoreAbp.EntityFrameworkCore
         }
         public virtual DbSet<Article> Article { get; set; }
         public virtual DbSet<ArticleDetail> ArticleDetail { get; set; }
-        public virtual DbSet<Category.Category> Category { get; set; }
+        public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<BaseData> BaseData { get; set; }
         public virtual DbSet<BaseDataType> BaseDataType { get; set; }
 
