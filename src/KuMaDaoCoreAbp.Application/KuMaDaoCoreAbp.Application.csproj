@@ -1,17 +1,32 @@
-<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><VersionPrefix>1.0.0.0</VersionPrefix><TargetFramework>netcoreapp2.0</TargetFramework><AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback><AssemblyName>KuMaDaoCoreAbp.Application</AssemblyName><PackageId>KuMaDaoCoreAbp.Application</PackageId><GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute><GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute><GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute><RootNamespace>KuMaDaoCoreAbp</RootNamespace></PropertyGroup><PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-  <DocumentationFile>bin\Debug\netcoreapp2.0\KuMaDaoCoreAbp.Application.xml</DocumentationFile>
-</PropertyGroup><ItemGroup>
-  <Compile Remove="Categories\CategoryService.cs" />
-  <Compile Remove="Categories\ICategoryService.cs" />
-</ItemGroup><ItemGroup><ProjectReference Include="..\Extension\Amayer.Common.csproj" /><ProjectReference Include="..\KuMaDaoCoreAbp.Core\KuMaDaoCoreAbp.Core.csproj" /></ItemGroup><ItemGroup Condition=" '$(TargetFramework)' == 'net461' "><Reference Include="System" /><Reference Include="Microsoft.CSharp" /></ItemGroup><ItemGroup>
-  <Reference Include="Microsoft.AspNetCore.Mvc.Core">
-    <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.core\2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
-  </Reference>
-</ItemGroup></Project>  <DocumentationFile>bin\Debug\netcoreapp2.0\KuMaDaoCoreAbp.Application.xml</DocumentationFile>
-</PropertyGroup><ItemGroup>
-  <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
-</ItemGroup><ItemGroup><ProjectReference Include="..\Extension\Amayer.Common.csproj" /><ProjectReference Include="..\KuMaDaoCoreAbp.Core\KuMaDaoCoreAbp.Core.csproj" /></ItemGroup><ItemGroup Condition=" '$(TargetFramework)' == 'net461' "><Reference Include="System" /><Reference Include="Microsoft.CSharp" /></ItemGroup><ItemGroup>
-  <Reference Include="Microsoft.AspNetCore.Mvc.Core">
-    <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.core\2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
-  </Reference>
-</ItemGroup></Project>
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+    <AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback>
+    <AssemblyName>KuMaDaoCoreAbp.Application</AssemblyName>
+    <PackageId>KuMaDaoCoreAbp.Application</PackageId>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <RootNamespace>KuMaDaoCoreAbp</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netcoreapp2.0\KuMaDaoCoreAbp.Application.xml</DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Extension\Amayer.Common.csproj" />
+    <ProjectReference Include="..\KuMaDaoCoreAbp.Core\KuMaDaoCoreAbp.Core.csproj" />
+  </ItemGroup>
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AspNetCore.Mvc.Core">
+      <HintPath>..\..\..\..\Program Files\dotnet\sdk\NuGetFallbackFolder\microsoft.aspnetcore.mvc.core\2.0.0\lib\netstandard2.0\Microsoft.AspNetCore.Mvc.Core.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+</Project>
