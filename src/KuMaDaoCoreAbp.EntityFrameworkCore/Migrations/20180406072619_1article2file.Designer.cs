@@ -15,9 +15,10 @@ using System;
 namespace KuMaDaoCoreAbp.Migrations
 {
     [DbContext(typeof(KuMaDaoCoreAbpDbContext))]
-    partial class KuMaDaoCoreAbpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20180406072619_1article2file")]
+    partial class _1article2file
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -952,8 +953,6 @@ namespace KuMaDaoCoreAbp.Migrations
                     b.Property<int>("Sort");
 
                     b.Property<int>("Status");
-
-                    b.Property<int>("Type");
 
                     b.HasKey("Id");
 

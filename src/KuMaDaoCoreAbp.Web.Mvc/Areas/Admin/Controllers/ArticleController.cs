@@ -67,5 +67,14 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
         }
 
 
+        public async Task<ActionResult> EditDetailSingle(long id)
+        {
+            EditArticleDetailModal modal = new EditArticleDetailModal()
+            {
+                ArticleDetailDto = await _articleAppService.GetArticleDetailByArticleIdAsync(new EntityDto<long>(id))
+            };
+            return View("_editArticleDetailSingle", modal);
+        }
+
     }
 }

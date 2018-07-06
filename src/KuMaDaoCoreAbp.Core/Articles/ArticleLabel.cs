@@ -7,6 +7,7 @@ namespace KuMaDaoCoreAbp.Articles
 {
     public class ArticleLabel:Entity<long>
     {
+        public long ArticleId { get; set; }
         public string Name { get; set; }
     }
 }

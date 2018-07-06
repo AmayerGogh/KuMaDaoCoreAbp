@@ -1,7 +1,9 @@
 ﻿using Abp.AutoMapper;
 using Abp.Modules;
 using Abp.Reflection.Extensions;
+using KuMaDaoCoreAbp.Articles.Mapper;
 using KuMaDaoCoreAbp.Authorization;
+using KuMaDaoCoreAbp.Categories.Mapper;
 
 namespace KuMaDaoCoreAbp
 {
@@ -13,6 +15,10 @@ namespace KuMaDaoCoreAbp
         public override void PreInitialize()
         {
             Configuration.Authorization.Providers.Add<KuMaDaoCoreAbpAuthorizationProvider>();
+
+
+            Configuration.Modules.AbpAutoMapper().Configurators.Add(ArticleDtoMapper.CreateMappings);
+            Configuration.Modules.AbpAutoMapper().Configurators.Add(CustomerCategoryMapper.CreateMappings);
         }
 
         public override void Initialize()
@@ -27,7 +33,7 @@ namespace KuMaDaoCoreAbp
                 cfg.AddProfiles(thisAssembly);
             });
             //Configuration.Modules.AbpConfiguration
-         
+            
         }
     }
 }

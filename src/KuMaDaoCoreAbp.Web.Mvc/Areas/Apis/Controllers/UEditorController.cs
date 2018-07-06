@@ -15,22 +15,23 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
 {
     [Area("Apis")]
     [Route("apis/[controller]")]
-    
+
     [AbpAllowAnonymous]
     [DontWrapResult]
     [DisableValidation]
     [DisableAuditing]
-    [IgnoreAntiforgeryToken]   
+    [IgnoreAntiforgeryToken]
     public class UEditorController : KuMaDaoCoreAbpControllerBase
     {
         private UEditorService ue;
 
         public UEditorController(UEditorService ue)
         {
-            this.ue = ue;          
+            this.ue = ue;
             this.UnitOfWorkManager = null;
         }
 
+        [Obsolete]//为了让swaager忽略扫描
         public void Do()
         {
 

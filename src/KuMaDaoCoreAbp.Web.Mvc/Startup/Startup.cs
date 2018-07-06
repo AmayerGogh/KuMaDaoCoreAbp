@@ -64,7 +64,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
             {
                 options.SwaggerDoc("v1", new Info { Title = "KuMaDaoCoreAbp API", Version = "v1" });
                 options.DocInclusionPredicate((docName, description) => true);
-
+                options.DocumentFilter<HiddenApiFilter>();
                 // Define the BearerAuth scheme that's in use
                 options.AddSecurityDefinition("bearerAuth", new ApiKeyScheme()
                 {
@@ -73,6 +73,9 @@ namespace KuMaDaoCoreAbp.Web.Startup
                     In = "header",
                     Type = "apiKey"
                 });
+                    
+                options.IgnoreObsoleteActions();
+               
                // options.IncludeXmlComments("c:/Code/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Mvc/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 options.OperationFilter<SecurityRequirementsOperationFilter>();

@@ -21,6 +21,8 @@ namespace KuMaDaoCoreAbp.Articles
         [DisplayName("封面")]
         public virtual long Cover { get; set; }
         public virtual int Type { get; set; }
+
+        //public virtual long SeeCount { get; set; }
     }
 
     public  enum ArticleType
