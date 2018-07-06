@@ -39,10 +39,6 @@ namespace KuMaDaoCoreAbp.Articles
         }
 
         private IQueryable<Article> _articleRepositoryAsNoTrack => _articleRepository.GetAll().AsNoTracking();
-
-
-
-
         #region 文章管理
 
         /// <summary>
@@ -191,8 +187,6 @@ namespace KuMaDaoCoreAbp.Articles
         }
 
         #endregion
-
-
         #region 文章内容管理
         /// <summary>
         /// 获取文章内容
@@ -226,23 +220,6 @@ namespace KuMaDaoCoreAbp.Articles
             await _articleDetailRepository.UpdateAsync(entity);
         }
         #endregion
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         public void TestEvent()
         {
