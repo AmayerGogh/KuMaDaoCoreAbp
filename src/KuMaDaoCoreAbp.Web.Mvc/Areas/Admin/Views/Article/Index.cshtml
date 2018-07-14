@@ -1,5 +1,5 @@
 ﻿@using KuMaDaoCoreAbp.Web.Startup
-@model KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article.ArticleListViewModel
+@model KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article.ArticleIndexViewModel
 @{
     Layout = "~/Areas/Admin/Views/Shared/_Layout_Inner.cshtml";
     ViewBag.CurrentPageName = PageNames.Roles; //The menu item will be active for this page.
@@ -7,6 +7,12 @@
 @section styles{ 
 <link href="~/libs/bootstrap-table/boorstrap-table.css" rel="stylesheet" />
 <link href="~/libs/layer/theme/default/layer.css" rel="stylesheet" />
+<style>
+    .btn_detail_update{
+        cursor:pointer
+    }
+</style>
+
 }
 @section scripts
 {
@@ -66,10 +72,31 @@
                         },
                         error: function (e) { }
                     });
+                },
+                'click .btn_detail_add': function (e, value, row, index) {
+                    layer.open({
+                        type: 1,
+                        maxmin: true,
+                        //skin: 'layui-layer-rim', //加上边框
+                        area: ['750px', '550px'], //宽高
+                        content: $("#ArticleEditModal").html(),
+                        end: function () {
+                            abp.layer.removeConfrimEvent("#ArticleDetailUpdate_Confrim")
+                        }//
+                    });
+                    $.ajax({
+                        url: "/admin/article/EditContentModal/" + row.id,
+                        type: 'post',
+                        contentType: 'application/html',
+                        success: function (content) {
+                            $('.layui-layer .layui-layer-content').html(content);
+                        },
+                        error: function (e) { }
+                    });
                 }
         }
         window.articleDetailEvents = {
-            'click .btn_detail_add': function (e, value, row, index) {
+            'click .btn_detail_update': function (e, value, row, index) {
                 layer.open({
                     type: 1,
                     maxmin: true,
@@ -108,7 +135,7 @@
                 //}
             }
             var column = [
-                  {   checkbox: true},
+                  { checkbox: true},
                   { title: "Id", field: "id", },
                   { title: "分类", field: "categoryName", },
                   { title: "文章标题", field: "title", width: "40%" },                
@@ -118,7 +145,7 @@
                       title: "内容分支", events: articleDetailEvents, formatter: function (value, row, index) { 
                           var con = "";
                           for (var i = 0; i < row.articleDetail.length; i++) {
-                             con+= '<span class="badge badge-primary btn_detail_update" > ' + row.articleDetail[i].id+'</span>'
+                              con += '<span class="badge badge-primary btn_detail_update" data-id=' + row.articleDetail[i].id+'> ' + row.articleDetail[i].id+'</span>'
                           }
                           if (row.articleDetail.length<3) {
                               con += '<span class="badge badge-primary btn_detail_add" > 添加</span>';
@@ -214,13 +241,18 @@
                 <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
                 <div class="toolbar_item">
                     <label class="control-label">分类</label>
-                    这里是个分类列表
+                    <select class="form-control" name="">
+                        <options value="-1">请选择</options>
+                       @foreach (var item in Model.ArticleTypeList)
+                       {
+                           <options value="@item.Value">@item.Text</options>
+                       }
+                    </select>
                 </div>
             </div>
             <table id="table"></table>
         </div>
     </div>
-
 </div>
 
 

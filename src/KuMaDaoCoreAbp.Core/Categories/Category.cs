@@ -17,7 +17,7 @@ namespace KuMaDaoCoreAbp.Categories
         public int Type { get; set; }
     }
 
-    public enum CategoryType
+    public enum EnumCategoryType
     {
         文章=1
     }

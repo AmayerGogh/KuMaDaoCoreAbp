@@ -22,6 +22,7 @@ namespace KuMaDaoCoreAbp.EntityFrameworkCore
             {
                 Configuration.Modules.AbpEfCore().AddDbContext<KuMaDaoCoreAbpDbContext>(options =>
                 {
+                    //临时
                     if (options.ExistingConnection != null)
                     {
                         KuMaDaoCoreAbpDbContextConfigurer.Configure(options.DbContextOptions, options.ExistingConnection);

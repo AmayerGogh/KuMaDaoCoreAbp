@@ -78,9 +78,10 @@ namespace KuMaDaoCoreAbp.Categories
         /// </summary>
         /// <param name="input"></param>
         /// <returns></returns>
-        public async Task<object> GetCategoryByType2KVAsync(int input)
+        public async Task<List<CategorySelectListItem>> GetCategoryByType2KVAsync(EnumCategoryType input)
         {
-            return _categoryRepository.GetAllListAsync(m => m.Type == input).MapTo<CategorySelectListItem>();
+             var entity = await _categoryRepository.GetAllListAsync(m => m.Type == (int)input);
+             return entity.MapTo<List<CategorySelectListItem>>();
         }
         /// <summary>
         /// MPA版本才会用到的方法

@@ -1,4 +1,5 @@
 ﻿using KuMaDaoCoreAbp.Articles.Dto;
+using KuMaDaoCoreAbp.Categories.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,8 @@ namespace KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article
 {
     public class EditArticleModal
     {
-      public ArticleEditDto GetArticleForEditOutput { get; set; }
+         public ArticleEditDto GetArticleForEditOutput { get; set; }
+       
     }
 
 

@@ -21,9 +21,8 @@ namespace KuMaDaoCoreAbp.Web
     }
 
     public class BsTableResponseModel<T>
-    {
-      
+    {      
         public List<T> rows { get; set; }
-        public int total { get; set; }
+        public int total { get; set; }       
     }
 }

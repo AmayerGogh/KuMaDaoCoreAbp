@@ -12,6 +12,7 @@ using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 using KuMaDaoCoreAbp.Web;
+using KuMaDaoCoreAbp.Categories;
 
 namespace KuMaDaoCoreAbp.Articles
 {
@@ -63,7 +64,7 @@ namespace KuMaDaoCoreAbp.Articles
             var listDtos = list.MapTo<List<ArticleListDto>>();
 
             var cateIds = listDtos.Select(m => m.CategoryId).ToList();
-            var cateList = _categoryRespository.GetAllList(m => cateIds.Contains(m.Id));
+            var cateList = _categoryRespository.GetAllList(m => m.Type ==(int)EnumCategoryType.文章);
 
             var ids = listDtos.Select(m => m.Id).ToList();
             var articleDetailList =_articleDetailRepository.GetAllList(m => ids.Contains(m.ArticleId));

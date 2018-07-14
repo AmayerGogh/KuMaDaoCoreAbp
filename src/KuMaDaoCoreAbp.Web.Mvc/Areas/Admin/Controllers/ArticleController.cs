@@ -11,6 +11,7 @@ using KuMaDaoCoreAbp.Articles;
 using Abp.Application.Services.Dto;
 using KuMaDaoCoreAbp.Web.Areas.Admin.Models.Users;
 using KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article;
+using KuMaDaoCoreAbp.Categories;
 
 namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
 {
@@ -23,20 +24,22 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
     public class ArticleController : KuMaDaoCoreAbpControllerBase
     {
         //   private readonly IUserAppService _userAppService;
-        private readonly IArticleAppService _articleAppService;
-        public ArticleController(IArticleAppService articleAppService)
+        readonly IArticleAppService _articleAppService;
+        readonly ICategoryAppService _categoryAppService;
+        public ArticleController(IArticleAppService articleAppService, ICategoryAppService categoryAppService)
         {
             _articleAppService = articleAppService;
+            _categoryAppService = categoryAppService;
         }
 
         public async Task<ActionResult> Index()
         {
             //  var users = (await _articleAppService.GetAll(new PagedResultRequestDto { MaxResultCount = int.MaxValue })).Items; //Paging not implemented yet
             // var articles = (await _articleAppService.GetPagedArticlesAsync(new Article.Dto.GetArticleInput { })).Items;
-            var model = new ArticleListViewModel
+            var articleCategoryList = await _categoryAppService.GetCategoryByType2KVAsync(EnumCategoryType.文章);
+            var model = new ArticleIndexViewModel
             {
-                //  Articles = articles,
-                ArticleEditModal = new Articles.Dto.ArticleEditDto()
+                ArticleTypeList =articleCategoryList
             };
             return View(model);
         }
@@ -48,10 +51,11 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
                 return View("_editArticleModal", new EditArticleModal { GetArticleForEditOutput = new Articles.Dto.ArticleEditDto() });
             }
             var article = await _articleAppService.GetArticleForEditAsync(new NullableIdDto<long>(id));
+            
             //  var roles = (await _userAppService.GetRoles()).Items;
             var modal = new EditArticleModal
             {
-                GetArticleForEditOutput = article
+                GetArticleForEditOutput = article,               
             };
             return View("_editArticleModal", modal);
 

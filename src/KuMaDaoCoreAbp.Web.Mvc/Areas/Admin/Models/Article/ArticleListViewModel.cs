@@ -1,4 +1,5 @@
 ﻿using KuMaDaoCoreAbp.Articles.Dto;
+using KuMaDaoCoreAbp.Categories.Dto;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -6,10 +7,10 @@ using System.Threading.Tasks;
 
 namespace KuMaDaoCoreAbp.Web.Areas.Admin.Models.Article
 {
-    public class ArticleListViewModel
+    public class ArticleIndexViewModel
     {
-        public IReadOnlyList<ArticleListDto> Articles { get; set; }
+        public List<CategorySelectListItem> ArticleTypeList { get; set; }
 
-        public ArticleEditDto ArticleEditModal { get; set; }
+        
     }
 }
