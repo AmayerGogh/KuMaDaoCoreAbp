@@ -2,7 +2,7 @@ export class Menu{
    public  id: number;
    public  name: string;
    public  isOpen: boolean;
-    public icon:string;
+   public icon:string;
    public  children:Array<MenuDetail>;
    constructor(id:number,name:string,isOpen:boolean,icon:string,children:MenuDetail[] ){
         this.id=id,

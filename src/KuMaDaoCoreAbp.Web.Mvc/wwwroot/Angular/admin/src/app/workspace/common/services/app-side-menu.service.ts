@@ -20,21 +20,14 @@ export class AppSideMenuService {
      
     }
 
-    public menu1:Menu[] = [
-        {
-            id: 1,
-            name: "首页",
-            isOpen: false,
-            icon:'fa-home',  
-            children:[]        
-        },     
+    public menu1:Menu[] = [       
         {
             id: 4,
             name: "控制面板",
             isOpen: false,
             icon:'fa-wrench',
             children: [
-                { name: "Colors",icon:'fa-male',route:'org/orgmng'},
+                { name: "org",icon:'fa-male',route:'org/orgmng'},
                 { name: "Icons",icon:'fa-bug',route:'user/usertable/page/1' },
                 { name: "Animation",icon:'fa-bus',route:'role/roletable/page/1' },
                 { name: "Acrylic",icon:'fa-send',route:'permission/permissiontable/page/1' },

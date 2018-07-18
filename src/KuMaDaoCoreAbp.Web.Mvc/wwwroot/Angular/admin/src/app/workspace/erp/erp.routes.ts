@@ -7,7 +7,7 @@ export const erpRoutes = [
 		path: '',
 		component: ErpComponent,
 		children: [
-			{ path: '', redirectTo: 'org', pathMatch: 'full' },
+			{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 			{ path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
 			{ path: 'org', loadChildren: './org/org.module#OrgModule' },
 			// { path: 'post', loadChildren: '../post/post.module#PostModule' },

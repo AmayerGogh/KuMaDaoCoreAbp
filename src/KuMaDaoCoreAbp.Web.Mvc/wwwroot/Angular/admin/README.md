@@ -16,5 +16,37 @@
 
 # 其他还安装了
 
-npm install electron --save-dev --save-exact
-运行electron  npm run electron
+- npm install electron --save-dev --save-exact
+- 运行electron  npm run electron
+
+文件夹
+
+```
+app  
+    common
+        models
+        services
+    login
+        login.comp
+    workspace
+        common
+            models
+            services
+        component(组件)
+            left-nav.comp
+                left-side-menu.comp
+            top-menu.comp
+        erp
+            dashboard
+                dashboard.comp
+            org
+                org.comp
+            erp.comp
+        fluent
+            home
+                home.comp
+            org
+                org.comp
+        workspace.comp
+    app.comp
+```
