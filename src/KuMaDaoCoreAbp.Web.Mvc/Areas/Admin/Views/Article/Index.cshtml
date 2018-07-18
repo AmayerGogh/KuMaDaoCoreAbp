@@ -242,10 +242,10 @@
                 <div class="toolbar_item">
                     <label class="control-label">分类</label>
                     <select class="form-control" name="">
-                        <options value="-1">请选择</options>
+                        <option value="-1">请选择</option>
                        @foreach (var item in Model.ArticleTypeList)
                        {
-                           <options value="@item.Value">@item.Text</options>
+                           <option value="@item.Value">@item.Text</option>
                        }
                     </select>
                 </div>
