@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {NgLayer, NgLayerRef, NgLayerComponent} from "angular2-layer";
+//import {NgLayer, NgLayerRef, NgLayerComponent} from "angular2-layer";
 import {TopMenuComponent} from "../../component/top-menu/top-menu.component"
 @Component({
   selector: 'org',
@@ -8,7 +8,7 @@ import {TopMenuComponent} from "../../component/top-menu/top-menu.component"
 })
 export class OrgComponent implements OnInit {
 
-  constructor(private ly:NgLayer) {}
+ // constructor(private ly:NgLayer) {}
   
   config:any = {
       inSelector:"fallDown",
@@ -23,25 +23,25 @@ export class OrgComponent implements OnInit {
     
   }
   dialog(){
-      this.ly.dialog(this.config);
+      //this.ly.dialog(this.config);
   }
   
   alert(){
-      this.ly.alert(this.config);
+     // this.ly.alert(this.config);
   }
   
   confirm(){
-      this.ly.confirm(this.config);
+     // this.ly.confirm(this.config);
   }
   
   loading(){
-      let tip = this.ly.loading(this.config);
+     // let tip = this.ly.loading(this.config);
       
-      setTimeout(()=>{tip.close();}, 2000)
+     // setTimeout(()=>{tip.close();}, 2000)
   }
   
   tip(){
-      this.ly.tip(this.config);
+     // this.ly.tip(this.config);
   }
 
 }
