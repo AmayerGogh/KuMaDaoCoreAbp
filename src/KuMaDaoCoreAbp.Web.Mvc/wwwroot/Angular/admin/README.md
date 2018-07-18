@@ -11,3 +11,10 @@
 
 
 -   https://ng-bootstrap.github.io/#/home
+
+
+
+# 其他还安装了
+
+npm install electron --save-dev --save-exact
+运行electron  npm run electron
