@@ -46,21 +46,7 @@ namespace KuMaDaoCoreAbp.Web.Host.Startup
 
             IdentityRegistrar.Register(services);
             AuthConfigurer.Configure(services, _appConfiguration);
-
-            // Configure CORS for angular2 UI
-            services.AddCors(options =>
-            {
-                options.AddPolicy(DefaultCorsPolicyName, builder =>
-                {
-                    // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
-                    builder
-                        .WithOrigins(_appConfiguration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries)
-                                                                         .Select(o => o.RemovePostFix("/"))
-                                                                         .ToArray())
-                        .AllowAnyHeader()
-                        .AllowAnyMethod();
-                });
-            });
+           
 
             // Swagger - Enable this line and the related lines in Configure method to enable swagger UI
             services.AddSwaggerGen(options =>
@@ -76,9 +62,24 @@ namespace KuMaDaoCoreAbp.Web.Host.Startup
                     In = "header",
                     Type = "apiKey"
                 });
-                options.IncludeXmlComments("C:/Code/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Host/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
+                //options.IncludeXmlComments("C:/Code/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Host/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
+                options.IncludeXmlComments(@"D:\Amayer\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\bin\Debug\netcoreapp2.0\KuMaDaoCoreAbp.Application.xml");
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 //options.OperationFilter<SecurityRequirementsOperationFilter>();
+            });
+            //允许跨域
+            services.AddCors(options =>
+            {
+                options.AddPolicy(DefaultCorsPolicyName, builder =>
+                {
+                    // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
+                    builder
+                    .WithOrigins(_appConfiguration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(o => o.RemovePostFix("/"))
+                    .ToArray())
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
             });
 
             // Configure Abp and Dependency Injection

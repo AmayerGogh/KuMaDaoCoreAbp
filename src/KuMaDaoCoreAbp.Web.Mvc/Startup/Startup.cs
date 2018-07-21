@@ -18,6 +18,8 @@ using KuMaDaoCoreAbp.Web.Startup._pingins;
 using Microsoft.AspNetCore.Mvc.Razor.Compilation;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Amayer.Modules.Ueditor;
+using Abp.Extensions;
+using Microsoft.AspNetCore.Mvc.Cors.Internal;
 
 
 
@@ -31,6 +33,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
 {
     public class Startup
     {
+        private const string DefaultCorsPolicyName = "localhost";
         private readonly IConfigurationRoot _appConfiguration;
 
         public Startup(IHostingEnvironment env)
@@ -45,7 +48,8 @@ namespace KuMaDaoCoreAbp.Web.Startup
             //MVC
             services.AddMvc(options =>
             {
-                options.Filters.Add(new AutoValidateAntiforgeryTokenAttribute());
+                //abp带 可以为所有的POST、PUT、PATCH和DLETE actions自动进行防伪造校验。
+                options.Filters.Add(new CorsAuthorizationFilterFactory(DefaultCorsPolicyName));
             });
             // 为了兼容sqlserver 2008
             //.ConfigureApplicationPartManager(manager =>
@@ -84,7 +88,20 @@ namespace KuMaDaoCoreAbp.Web.Startup
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie(o => o.LoginPath = new Microsoft.AspNetCore.Http.PathString("/admin/account/login"));
             //Configure Abp and Dependency Injection
-
+            //允许跨域
+            services.AddCors(options =>
+            {
+                options.AddPolicy(DefaultCorsPolicyName, builder =>
+                {
+                    // App:CorsOrigins in appsettings.json can contain more than one address separated by comma.
+                    builder
+                    .WithOrigins(_appConfiguration["App:CorsOrigins"].Split(",", StringSplitOptions.RemoveEmptyEntries)
+                    .Select(o => o.RemovePostFix("/"))
+                    .ToArray())
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+                });
+            });
             services.AddUEditorService();
             return services.AddAbp<KuMaDaoCoreAbpWebMvcModule>(options =>
             {
@@ -99,7 +116,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             app.UseAbp(); //Initializes ABP framework.
-
+            app.UseCors(DefaultCorsPolicyName); // Enable CORS!
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

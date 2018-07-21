@@ -10,6 +10,7 @@ export const erpRoutes = [
 			{ path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 			{ path: 'dashboard', loadChildren: './dashboard/dashboard.module#DashboardModule' },
 			{ path: 'org', loadChildren: './org/org.module#OrgModule' },
+			{ path: 'blog', loadChildren: './blog/blog.module#BlogModule' },
 			// { path: 'post', loadChildren: '../post/post.module#PostModule' },
 			// { path: 'comment', loadChildren: '../comment/comment.module#CommentModule' },
 		
