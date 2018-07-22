@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KuMaDaoCoreAbp.Web.Mvc</name>
+    </assembly>
+    <members>
+        <member name="M:KuMaDaoCoreAbp.Web.Areas.Admin.Controllers.AccountController.TestNotification(System.String)">
+            <summary>
+            This is a demo code to demonstrate sending notification to default tenant admin and host admin uers.
+            Don't use this code in production !!!
+            </summary>
+            <param name="message"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KuMaDaoCoreAbp.Web.Startup.KuMaDaoCoreAbpNavigationProvider">
+            <summary>
+            This class defines menus for the application.
+            </summary>
+        </member>
+    </members>
+</doc>

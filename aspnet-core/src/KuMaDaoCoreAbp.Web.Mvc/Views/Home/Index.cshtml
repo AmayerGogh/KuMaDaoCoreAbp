@@ -1,0 +1,1314 @@
+﻿@using KuMaDaoCoreAbp.Web.Startup
+@{
+    Layout = null;
+
+}
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>酷码岛--创意赋予代码灵魂</title>
+    <link rel="stylesheet" href="~/libs/swiper/css/swiper.min.css">
+    <link href="~/libs/swiper/css/animate.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="/libs/IsometricGrids/normalize.css" />
+    <link href="~/lib/famfamfam-flags/dist/sprite/famfamfam-flags.css" rel="stylesheet" />
+    @*<link href="~/libs/metro/jquery.gridster.min.css" rel="stylesheet" />*@
+    @*<link href="~/libs/waves/waves.css" rel="stylesheet" />*@
+    @*<link href="~/libs/metro/metro.css" rel="stylesheet" />*@
+
+    <!--[if IE]>
+        <script src="http://libs.baidu.com/html5shiv/3.7/html5shiv.min.js"></script>
+    <![endif]-->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/font-awesome.css" rel="stylesheet" />
+    <style>
+        /*亚克力效果*/
+        .acrylic {
+            position: relative;
+            background: hsla(0,0%,0%,.3);
+            overflow: hidden;
+        }
+
+            .acrylic::before {
+                content: '';
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                z-index: -1;
+                -moz-filter: blur(10px);
+                -ms-filter: blur(10px);
+                -webkit-filter: blur(20px);
+                filter: blur(20px);
+                margin: -30px;
+                filter: progid:DXImageTransform.Microsoft.Blur(PixelRadius=10, MakeShadow=false); /* IE6~IE9 */
+                /*background: rgba(255,0,0,.5);*/
+            }
+
+            .acrylic:hover {
+                background: hsla(0,0%,100%,.4);
+                text-shadow: 0 1px 1px hsla(0,0%,0%,.3);
+            }
+
+            .acrylic:active {
+                background: hsla(0,0%,100%,.6);
+                text-shadow: 0 1px 1px hsla(0,0%,0%,.3);
+            }
+
+            body, .acrylic::before {
+                background: url("/img/bg.jpg") fixed 0 center;
+            }
+    </style>
+    <style>
+        html, body {
+            position: relative;
+            height: 100%;
+        }
+
+        body {
+            color: #8c8a8c;
+        }
+
+        img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+        /*首页的nav样式*/
+        .nav_style {
+            position: fixed !important;
+        }
+
+        i.famfamfam-flags {
+            display: inline-block;
+        }
+
+
+
+        /*body {
+            /*background-color: #1A1A1A;
+            background: url("http://cn.bing.com/az/hprichbg/rb/Rapadalen_ZH-CN11779950174_1920x1080.jpg") fixed 0 center;
+        }*/
+
+        .font_center {
+            text-align: center;
+        }
+
+
+
+
+        .metro_four {
+            height: 227px;
+        }
+
+        .item-box {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+            margin-bottom: 20px;
+            background-color: #fff;
+            border: 1px solid #c5d8db;
+            height: 230px;
+            box-sizing: border-box;
+        }
+
+        .img-area img {
+            -webkit-transition: all 0.5s ease;
+            -moz-transition: all 0.5s ease;
+            -o-transition: all 0.5s ease;
+            transition: all 0.5s ease;
+            width: 100%;
+        }
+
+        .img-area {
+            width: 100%;
+            overflow: hidden;
+            height: 170px;
+        }
+
+        .box-header {
+            padding: 18px 25px;
+            font-size: 14px;
+            color: #373d41;
+            box-sizing: border-box;
+        }
+
+        .item-appendix {
+            font-size: 14px;
+            padding-left: 0;
+            line-height: 2;
+            box-sizing: border-box;
+            margin-bottom: 100px;
+        }
+
+        .tab {
+            position: relative;
+            height: 36px;
+            line-height: 36px;
+        }
+
+        .tab-nav {
+            position: relative;
+            height: 36px;
+        }
+
+        .match-tab li {
+            width: 130px;
+        }
+
+        .tab-nav li {
+            float: left;
+            height: 36px;
+            line-height: 36px;
+            overflow: hidden;
+            cursor: pointer;
+            color: #939393;
+            font-size: 16px;
+            text-align: center;
+        }
+
+        .tab-nav .current {
+            color: white;
+            font-weight: bold;
+            border-bottom: 2px solid #00ab88;
+        }
+
+        .match-tab li {
+            width: 130px;
+        }
+
+        .home-match-content {
+            padding: 20px 0;
+            overflow: hidden;
+            zoom: 1;
+        }
+
+        .home-match-side {
+            float: left;
+            width: 180px;
+            margin-right: 20px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .home-match-side img {
+            display: block;
+            width: 180px;
+            height: 225px;
+            border: 0;
+        }
+
+
+
+        .aliyun-index-defence {
+            position: relative;
+            z-index: 1;
+            text-align: center;
+            text-decoration: none;
+            font-size: 24px;
+            color: #fff;
+        }
+
+        .Jevent_n1_act p {
+            color: #EBECEC;
+        }
+
+        .txtlist-nape:hover {
+            background-color: #2F2F2F;
+        }
+
+        .gridster .gs_w {
+            z-index: 2;
+            position: absolute;
+            background-color: #00a986;
+        }
+    </style>
+
+
+    @*<link href="~/lib/Material/bootstrap-material-design.css" rel="stylesheet" />
+        <link href="~/lib/Material/ripples.css" rel="stylesheet" />
+        <link href="~/lib/Material/jquery.dropdown.css" rel="stylesheet" />*@
+    <link href="~/libs/main.css" rel="stylesheet" />
+    <link href="~/libs/front_main.css" rel="stylesheet" />
+
+
+</head>
+<body class="grid-loaded">
+    @Html.Partial("_navigation")
+    @*@Html.Partial("~/Views/Shared/_navigation.cshtml")*@
+    @*<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="/img/banner/wi1.jpg" alt="...">
+                    <div class="carousel-caption">
+                        你好
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/img/banner/wi2.jpg" alt="...">
+                    <div class="carousel-caption">
+                        你好
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/img/banner/w3.jpg" alt="...">
+                    <div class="carousel-caption">
+                        你好
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="/img/banner/wi4.jpg" alt="...">
+                    <div class="carousel-caption">
+                        你好
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-example-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-example-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>*@
+    <div class="swiper-banner">
+        <style>
+            .swiper-banner {
+                width: 100%;
+                height: 700px;
+                position: relative;
+                overflow: hidden;
+            }
+
+            .swiper-slide {
+                background-position: center;
+                background-size: cover;
+                line-height: 60px;
+                color: #fff;
+                font-size: 36px;
+                text-align: center;
+            }
+        </style>
+
+
+        <div class="swiper-wrapper">
+
+            <div class="swiper-slide" style="background-image:url(http://file.runtoinfo.com/upload/image/201609/276361059365640415404147591.jpg)">
+                @*<p class="ani" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">内容</p>*@
+                @*<div class=""><h1>WELCOME TO SORTO</h1></div>
+                    <div class=""><h2>THE BEST MULTI-PAGE TEMPLATE FOR YOUR BUSINESS</h2></div>
+                    <div class=""><h3>WELCOME TO SORTO</h3></div>*@
+                <div style="position: absolute;left: 8%;top:25%;z-index:10;    text-align: left">
+
+
+                    <div class="ani" style=" margin: 10px 0;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+
+                        <span>WELCOME TO SORTO</span>
+                    </div>
+                    <div class="ani" style="    margin: 30px 0;background-color:hsla(0,0%,100%,.4);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.7s" swiper-animate-delay="0.5s">
+                        <span style="padding: 12px;">THE BEST MULTI-PAGE TEMPLATE FOR YOUR BUSINESS</span>
+                    </div>
+                    <div class="ani" style="    margin: 10px 0;background-color:hsl(168, 100%, 33%);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                        <span style="padding:12px;">Important: When you first run the sample that you'll download at the end of this quick start, you might see this error when you sign in:
+                            SSL certificate problem: unable to get local issuer certificate</span>
+                    </div>
+
+
+                </div>
+
+
+            </div>
+
+            <div class="swiper-slide" style="background-image:url(/img/banner/wi1.jpg)">
+
+                <div style="    position: absolute;
+    left: 12%;
+    top: 25%;
+    width: 75%;
+    z-index: 10;
+    text-align: center;">
+
+
+                    <div class="ani" style=" margin: 10px 0;" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.5s" swiper-animate-delay="0.3s">
+
+                        <span>WELCOME TO SORTO</span>
+                    </div>
+                    <div class="ani" style="    margin: 30px 0;background-color:hsla(0,0%,100%,.4);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.7s" swiper-animate-delay="0.5s">
+                        <span style="padding: 12px;">THE BEST MULTI-PAGE TEMPLATE FOR YOUR BUSINESS</span>
+                    </div>
+                    <div class="ani" style="    margin: 10px 0;background-color:hsl(168, 100%, 33%);" swiper-animate-effect="fadeInUp" swiper-animate-duration="0.9s" swiper-animate-delay="0.9s">
+                        <span style="padding:12px;">
+                            Important: When you first run the sample that you'll download at the end of this quick start, you might see this error when you sign in:
+                            SSL certificate problem: unable to get local issuer certificate
+                        </span>
+                    </div>
+
+
+                </div>
+
+            </div>
+            <div class="swiper-slide" style="background-image:url(/img/banner/wi2.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(/img/banner/w3.jpg)"></div>
+            <div class="swiper-slide" style="background-image:url(/img/banner/wi4.jpg)"></div>
+
+
+        </div>
+        <!-- 如果需要分页器 -->
+        <div class="swiper-pagination"></div>
+
+        <!-- 如果需要导航按钮 -->
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+
+        <!-- 滚动条 -->
+        <div class="swiper-scrollbar"></div>
+    </div>
+    <div class="bgcolor_metro2" id="area1" style="padding: 30px 0px;">
+        <style>
+            .metro_four .metro-icon-box span {
+                font-size: 64px;
+            }
+
+            .metro_four {
+                padding: 2px;
+                color: #fff;
+                /*color: #fff;*/
+                /*background: url("http://cn.bing.com/az/hprichbg/rb/Rapadalen_ZH-CN11779950174_1920x1080.jpg") fixed 0 center;*/
+            }
+
+                .metro_four .inner-box {
+                    /*background: url(http://cn.bing.com/az/hprichbg/rb/Rapadalen_ZH-CN11779950174_1920x1080.jpg) fixed 0 center;*/
+                    height: 100%;
+                    padding: 10px;
+                }
+
+                .metro_four .metro-content {
+                    padding-bottom: 21px;
+                }
+
+                .metro_four .metro-icon-box {
+                    padding-top: 40px;
+                    padding-bottom: 15px;
+                }
+
+                .metro_four .metro-content h4 {
+                    margin: 10px auto;
+                }
+
+            .metro_four_bg {
+                background: url(https://static2.sharepointonline.com/files/fabric/fabric-website/images/home-background.svg) fixed 0 center
+            }
+
+            #metro_f1 {
+                background-color: rgba(247,78,30,0.34);
+            }
+
+            #metro_f2 {
+                background-color: rgba(127,186,0,0.34);
+            }
+
+            #metro_f3 {
+                background-color: rgba(0,164,239,0.34);
+            }
+
+            #metro_f4 {
+                background-color: rgba(255,185,0,0.34);
+            }
+
+            #metro_f1:hover {
+                background-color: rgba(247,78,30,1);
+                box-shadow: 0 0 5px rgba(247,78,30,1), 0 0 10px rgba(247,78,30,1), 0 0 20px rgba(247,78,30,1), 0 0 30px;
+            }
+
+            #metro_f2:hover {
+                background-color: rgba(127,186,0,1);
+                box-shadow: 0 0 5px rgba(127,186,0,1), 0 0 10px rgba(127,186,0,1), 0 0 20px rgba(127,186,0,1), 0 0 30px;
+            }
+
+            #metro_f3:hover {
+                background-color: rgba(0,164,239,1);
+                box-shadow: 0 0 5px rgba(0,164,239,1), 0 0 10px rgba(0,164,239,1), 0 0 20px rgba(0,164,239,1), 0 0 30px;
+            }
+
+            #metro_f4:hover {
+                background-color: rgba(255,185,0,1);
+                box-shadow: 0 0 5px rgba(255,185,0,1), 0 0 10px rgba(255,185,0,1), 0 0 20px rgba(255,185,0,1), 0 0 30px;
+            }
+        </style>
+
+        <div class="container font_center ">
+            <div class="" style="margin-top:100px;">
+                <h2 class="color_main">Welcome &nbsp; CCode Studio</h2>
+            </div>
+            <div class="" style="margin-top:15px;margin-bottom:75px;">
+                <div style="margin: 0 auto;width: 77%;">
+                    <span class="font-secTitle" style="font-size: 16px;line-height: 28px;"><strong>创意赋予代码灵魂</strong>创意赋予代码灵魂创意赋予代码灵魂创意赋予代码灵魂创意赋予代码灵魂创意赋予代码灵魂创意赋予代码灵魂创意赋予代码灵魂创意赋予代码灵魂</span>
+                </div>
+            </div>
+
+            <div class="page" style="margin-bottom: 206px;">
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 metro_four ">
+                    <div class="metro_four_bg">
+                        <div id="metro_f1" class="inner-box" style="">
+                            <div class="metro-icon-box">
+                                <span class="glyphicon glyphicon-tasks" aria-hidden="true"></span>
+                            </div>
+                            <div class="metro-content">
+                                <h4>Professional Design</h4>
+                                <div>
+                                    You have finished building your own website. You have your company.
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 metro_four ">
+                    <div class="metro_four_bg">
+                        <div id="metro_f2" class="inner-box" style="">
+                            <div class="metro-icon-box">
+                                <span class="glyphicon glyphicon-phone" aria-hidden="true"></span>
+                            </div>
+                            <div class="metro-content">
+                                <h4>Incredible Gradient</h4>
+                                <div>
+                                    Ever wondered how some graphic designers always manage to produce.
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 metro_four ">
+                    <div class="metro_four_bg">
+                        <div id="metro_f3" class="inner-box" style="">
+                            <div class="metro-icon-box">
+                                <span class="glyphicon glyphicon-object-align-bottom" aria-hidden="true"></span>
+                            </div>
+                            <div class="metro-content">
+                                <h4>Nice Color</h4>
+                                <div>
+                                    In efforts to expand our horizons, we welcome every investment.
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12 col-sm-6 col-md-6 col-lg-3 metro_four ">
+                    <div class="metro_four_bg">
+                        <div id="metro_f4" class=" inner-box" style="">
+                            <div class="metro-icon-box">
+                                <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
+                            </div>
+                            <div class="metro-content">
+                                <h4>Easy To Customise</h4>
+                                <div>
+                                    A successful marketing plan relies heavily on the pulling-power.
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div style="height:100px;">
+
+        </div>
+    </div>
+    <div class=" " id="area2" style="padding: 30px 0;">
+        <style>
+            #area2 {
+                /*background-color: #2f2f2f*/
+            }
+
+            .no-margin {
+                margin: 0 !important;
+            }
+
+            .no-padding {
+                padding: 0 !important;
+            }
+
+            .red-border {
+                /*border: 1px solid red;*/
+            }
+
+            .metro-out {
+                height: 160px;
+                margin: 0;
+                padding: 2px;
+            }
+
+            .article_leftblock {
+                height: 165px;
+                border: 1px solid yellow;
+                color: #0f9393;
+                padding: 8px;
+                /* margin: 2px; */
+                background-color: red;
+            }
+
+            .metro {
+                /*background: url("http://cn.bing.com/az/hprichbg/rb/Rapadalen_ZH-CN11779950174_1920x1080.jpg") fixed 0 center;*/
+                height: 100%;
+            }
+
+            #carousel-blog, #carousel-blog img {
+                height: 316px;
+                width: 100%;
+            }
+
+            .metro-onlyfont {
+                font-size: 20px;
+                padding: 25px 25px;
+            }
+        </style>
+        <div class="container">
+            <div class="hd">
+                <h2 class="color_main"><i class="icon-match"></i>博客&专栏 </h2>
+            </div>
+            <div style="height:20px;"></div>
+            <div class="col-md-9 no-padding">
+                <div class="col-md-12 metro-out red-border" style="height:320px;">
+                    <div class="metro">
+                        <div id="carousel-blog" class="carousel slide" data-ride="carousel">
+                            <!-- Indicators -->
+                            <ol class="carousel-indicators">
+                                <li data-target="#carousel-blog" data-slide-to="0" class="active"></li>
+                                <li data-target="#carousel-blog" data-slide-to="1"></li>
+                                <li data-target="#carousel-blog" data-slide-to="2"></li>
+                            </ol>
+
+                            <!-- Wrapper for slides -->
+                            <div class="carousel-inner" role="listbox">
+                                <div class="item active">
+                                    <img src="/img/game/game1.jpg" alt="...">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                <div class="item">
+                                    <img src="/img/game/game2.jpg" alt="...">
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+                                <div class="item">
+
+                                    <img src="~/img/Dribbble1/4.jpg" alt="Alternate Text" />
+                                    <div class="carousel-caption">
+
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <!-- Controls -->
+                            <a class="left carousel-control" href="#carousel-blog" role="button" data-slide="prev">
+                                @*<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                                    <span class="sr-only">Previous</span>*@
+                                @*<img src="~/img/left.png" alt="Alternate Text" />*@
+                                <div class="swiper-button-prev"></div>
+                            </a>
+                            <a class="right carousel-control" href="#carousel-blog" role="button" data-slide="next">
+                                @*<span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                                    <span class="sr-only">Next</span>*@
+                                <div class="swiper-button-next"></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 no-padding">
+                <div class="col-md-12 metro-out red-border">
+                    <div class="metro acrylic">
+                        <div style="background: url(/img/game/game1.jpg) center;height: 156px;background-size: 100%;">
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="col-md-12 metro-out red-border">
+                    <div class="metro acrylic">
+                        <div style="background: url(/img/game/game2.jpg) center;height: 156px;background-size: 100%;">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3 no-padding">
+                <div class="metro-out red-border" style="height:80px;">
+                    <div class="metro acrylic metro-onlyfont">
+                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                        <span>热门应用</span>
+                    </div>
+                </div>
+                <div class=" metro-out red-border" style="height:80px;">
+                    <div class="metro acrylic metro-onlyfont">
+                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                        <span>热门应用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 no-padding">
+                <div class="metro-out red-border" style="height:80px;">
+                    <div class="metro acrylic metro-onlyfont">
+                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                        <span>热门应用</span>
+                    </div>
+                </div>
+                <div class=" metro-out red-border" style="height:80px;">
+                    <div class="metro acrylic metro-onlyfont">
+                        <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
+                        <span>热门应用</span>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 metro-out red-border">
+                <div class="metro acrylic"></div>
+            </div>
+            <div class="col-md-3 metro-out red-border">
+                <div class="metro acrylic">
+                    <h1>Come On ...</h1>
+                </div>
+            </div>
+            <div style="height:50px;">
+
+            </div>
+
+        </div>
+
+    </div>
+
+    @*<div class="ali-main-defence"
+             id="ali-main-defence" style="background-image: url(/img/ali-main-defence-wrapper.png);height:100px;">
+
+        </div>*@
+
+
+
+    <div id="area3" class="bgcolor_metro2">
+        <style>
+            #area3 {
+                padding: 30px 0;
+            }
+
+            ul.c-list {
+                font-size: 18px;
+                line-height: 20px;
+            }
+
+                ul.c-list li {
+                    padding: 10px;
+                }
+
+            #area3 ul.c-list li a, #area3 span {
+                color: #f1f1f1
+            }
+
+            #area3 a.sa23d2 {
+                color: #5f6065;
+            }
+        </style>
+        <div class="container">
+            <div class="hd" style="padding: 30px 0;">
+                <h2 class="color_main"><i class="icon-match"></i>资源&Demo </h2>
+            </div>
+            <div style="margin-left: -15px;margin-right: -15px;">
+                <div class="col-md-3">
+                    <div class="theme-dark f-background-accent x-hidden-focus" style="height: 380px;background-color: #00a986;">
+                        <div style="padding: 10px 9px;">
+                            <span class="c-heading" style="font-size:24px;">Shop categories</span>
+                        </div>
+
+                        <ul class="c-list f-bare">
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/office?icid=Homepage_LeftNav_01_Office_en_US" data-m="{&quot;cN&quot;:&quot;Office&quot;,&quot;id&quot;:&quot;n1m1r2a2&quot;,&quot;sN&quot;:1,&quot;aN&quot;:&quot;m1r2a2&quot;}">Office</a>
+                            </li>
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/windows?icid=Homepage_LeftNav_02_Windows_en_US" data-m="{&quot;cN&quot;:&quot;Windows&quot;,&quot;id&quot;:&quot;n2m1r2a2&quot;,&quot;sN&quot;:2,&quot;aN&quot;:&quot;m1r2a2&quot;}">Windows</a>
+                            </li>
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/surface?icid=Homepage_LeftNav_03_Surface_en_US" data-m="{&quot;cN&quot;:&quot;Microsoft Surface&quot;,&quot;id&quot;:&quot;n3m1r2a2&quot;,&quot;sN&quot;:3,&quot;aN&quot;:&quot;m1r2a2&quot;}">Microsoft Surface</a>
+                            </li>
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/pc?icid=Homepage_LeftNav_04_PC_en_US" data-m="{&quot;cN&quot;:&quot;PCs \u0026 tablets&quot;,&quot;id&quot;:&quot;n4m1r2a2&quot;,&quot;sN&quot;:4,&quot;aN&quot;:&quot;m1r2a2&quot;}">PCs &amp; tablets</a>
+                            </li>
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/xbox?icid=Homepage_LeftNav_05_Xbox_en_US" data-m="{&quot;cN&quot;:&quot;Xbox&quot;,&quot;id&quot;:&quot;n5m1r2a2&quot;,&quot;sN&quot;:5,&quot;aN&quot;:&quot;m1r2a2&quot;}">Xbox</a>
+                            </li>
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/virtualreality?icid=Homepage_LeftNav_06_VirtualReality_en_US" data-m="{&quot;cN&quot;:&quot;Virtual and mixed reality&quot;,&quot;id&quot;:&quot;n6m1r2a2&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;m1r2a2&quot;}">Virtual and mixed reality</a>
+                            </li>
+                            <li>
+                                <a class="c-hyperlink" href="https://www.microsoft.com/en-us/store/b/student?icid=Homepage_LeftNav_07_Education_en_US" data-m="{&quot;cN&quot;:&quot;Student deals&quot;,&quot;id&quot;:&quot;n7m1r2a2&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;m1r2a2&quot;}">Student deals</a>
+                            </li>
+                        </ul>
+
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="sa23d2">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RW9uwm?ver=1944&q=90&m=6&h=276&w=491&b=%23FFFFFFFF&l=f&o=t" />
+                        <h3 class="c-heading">Introducing Xbox One</h3>
+                        <div>It's the world's most powerful console, with 40% more power than any other gaming system.</div>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="sa23d2">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RW9uwm?ver=1944&q=90&m=6&h=276&w=491&b=%23FFFFFFFF&l=f&o=t" />
+                        <h3 class="c-heading">Introducing Xbox One</h3>
+                        <div>It's the world's most powerful console, with 40% more power than any other gaming system.</div>
+                    </a>
+                </div>
+                <div class="col-md-3">
+                    <a href="#" class="sa23d2">
+                        <img src="https://img-prod-cms-rt-microsoft-com.akamaized.net/cms/api/am/imageFileData/RW9uwm?ver=1944&q=90&m=6&h=276&w=491&b=%23FFFFFFFF&l=f&o=t" />
+                        <h3 class="c-heading">Introducing Xbox One</h3>
+                        <div>It's the world's most powerful console, with 40% more power than any other gaming system.</div>
+                    </a>
+                </div>
+            </div>
+
+
+
+        </div>
+        <div style="height:50px;    height: 50px;">
+            <div style="display: inline-block;
+        position: relative;
+        left: 47%;
+        padding: 10px 28px;
+        background-color: #5f6065;">查看更多</div>
+        </div>
+    </div>
+
+
+
+    <div style="height:500px;background: url('/img/1920x1080.jpg')  no-repeat center fixed"
+         data-paroller-factor="-0.3">
+        <style>
+            .swiper-ad-next, .swiper-ad-prev {
+                border-radius: 50%;
+                width: 44px;
+                height: 44px;
+                background-size: 44px 44px;
+            }
+
+            #carousel-ad .carousel-caption-ad {
+                height: 400px;
+                color: #fff;
+                text-align: center;
+                padding: 40px 10px;
+            }
+
+            .ad-sy {
+                padding: 70px 50px 45px;
+            }
+
+                .ad-sy p {
+                    font-size: 35px
+                }
+
+            .ad-syer {
+                padding: 10px 50px;
+            }
+
+                .ad-syer p {
+                    float: right;
+                    font-size: 32px;
+                }
+        </style>
+        <div class="container">
+
+
+            <div id="carousel-ad" class="carousel slide" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#carousel-blog" data-slide-to="0" class="active"></li>
+                    <li data-target="#carousel-blog" data-slide-to="1"></li>
+                    <li data-target="#carousel-blog" data-slide-to="2"></li>
+                </ol>
+
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" style="height:400px;margin:50px auto" role="listbox">
+                    <div class="item active">
+
+                        <div class="carousel-caption-ad">
+                            <div class="ad-sy">
+                                <p>不知疲倦的翻越,每一个山丘</p>
+                            </div>
+                            <div class="ad-syer">
+                                <p> < 山丘 > -- 李宗盛</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="item">
+
+                        <div class="carousel-caption-ad">
+                            <div class="ad-sy">
+                                <p>UNIX很简单。但需要有一定天赋的人才能理解这种简单。</p>
+                            </div>
+                            <div class="ad-syer">
+                                <p> inter</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="item">
+                        <div class="carousel-caption-ad">
+                            <div class="ad-sy">
+                                <p>IF（BOOL学习==FALSE）BOOL落后=TRUE；不断的学习，我们才能不断的前进。</p>
+
+                            </div>
+                            <div class="ad-syer">
+                                <p> 程序员励志名言</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left " href="#carousel-ad" role="button" data-slide="prev">
+
+                    <div class="swiper-button-prev swiper-ad-prev"></div>
+                </a>
+                <a class="right " href="#carousel-ad" role="button" data-slide="next">
+                    <div class="swiper-button-next swiper-ad-next"></div>
+                </a>
+            </div>
+
+
+        </div>
+    </div>
+
+    <div id="" class="grid-loaded">
+        <div style="height: 150px;
+    margin-top: 100px;
+    width: 30%;
+    background-color: #5f6065;
+    z-index: 1;
+    position: absolute;">
+
+            <span> 案例</span>
+            <div style="    height: 90px;
+    width: 163px;
+    background-color: #00a986;
+    position: relative;
+    float: right;
+    bottom: 35px;
+    left: 40px;
+    text-align:center;    color: #f3f1e9;
+    ">
+                <h3 style="margin-top:30px;">-- 更多 --</h3>
+            </div>
+
+        </div>
+        <section class="section section--intro">
+            <div class="isolayer isolayer--deco1 isolayer--shadow" style="transform-style: preserve-3d; transform: translateX(33vw) translateY(-340px) rotateX(45deg) rotateZ(45deg);">
+                <ul class="grid grid--loaded" style="position: relative; width: 1200px; height: 2100px;">
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;">
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div>
+                            <div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div>
+                            <img class="grid__img layer" src="/img/Dribbble/1.png" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);">
+                        </a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/2.png" alt="02" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 0px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/3.png" alt="03" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 300px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/4.png" alt="04" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 300px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/5.png" alt="05" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 450px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/6.png" alt="06" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 600px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/7.png" alt="07" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 600px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="/img/Dribbble/8.png" alt="08"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 750px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/9.png" alt="09" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 900px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/10.png" alt="10" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 900px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/1.png" alt="01" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 1050px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/2.png" alt="02" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1200px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/3.png" alt="03" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 1200px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/4.png" alt="04" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 1350px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/5.png" alt="05" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1500px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/6.png" alt="06" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 1500px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="/img/Dribbble/7.png" alt="07"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 400px; top: 1650px; z-index: 1;">
+                        <a class="grid__link" href="#" style="z-index: 1;"><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><div class="layer" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></div><img class="grid__img layer" src="/img/Dribbble/8.png" alt="08" style="transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 0px; top: 1800px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="/img/Dribbble/9.png" alt="09"></a>
+                    </li>
+                    <li class="grid__item" style="position: absolute; left: 800px; top: 1800px;">
+                        <a class="grid__link" href="#"><div class="layer"></div><div class="layer"></div><div class="layer"></div><img class="grid__img layer" src="/img/Dribbble/10.png" alt="10"></a>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </div>
+    <div id="area5" style="height:600px;padding:100px 0">
+        <style>
+            #area5 .container div {
+                padding: 0;
+                margin: 0;
+            }
+        </style>
+        <div class="container">
+            <div class="col-md-6">
+                <img src="~/img/lzs.jpg" style="width:100%;height:400px;" />
+            </div>
+            <div class="col-md-6">
+                <div class="acrylic" style="height:300px;margin:50px 0;color:#fff">
+                    <div style="text-align:center">
+                        <h2>-- 关于 --</h2>
+                    </div>
+                    <div style="padding: 32px 30px;">
+                        <span>Please tell your friends about website. Thank you for supporting us. Donec et augue quis quam porttitor consectetur ut nec sem. Integer sagittis viverra quam quis ultricies. Aenean risus nisl, consequat at nunc id, tincidunt tristique mauris.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    @*<div style="background-color:black">
+            <img src="~/img/lzs.jpg" style="float:right" />
+        </div>*@
+
+    <div id="area9" class="bgcolor_metro2" style="height:400px;">
+        <style>
+            .swiper-alimm .swiper-slide {
+                width: 172px;
+                border: 1px solid #656361;
+                line-height: 17px;
+                font-size: 12px;
+            }
+
+            .swiper-alimm-prev, swiper-alimm-next {
+                height: 260px;
+                margin-top: 0;
+                top: 0;
+            }
+
+            .product-img img {
+                height: 100%;
+                width: 100%
+            }
+
+            .product-desc {
+                padding: 10px;
+            }
+        </style>
+        <div class="container">
+            <div class="hd" style="padding:30px 0">
+                <h2 class="color_main"><i class="icon-match"></i>推广</h2>
+            </div>
+
+            <div class="swiper-alimm" style="height: 250px;    position: relative;overflow: hidden;">
+                <div class="swiper-wrapper" style="transform: translate3d(-1066.67px, 0px, 0px); transition-duration: 0ms;">
+                    <div class="swiper-slide blue-slide">
+                        slider1
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="product-img">
+                            <img src="//img.lapin365.com/productpictures/gitem/2017/10/12/234314421.jpg@s_0,w_170,h_170" alt="Alternate Text" />
+                        </div>
+                        <div class="product-desc">
+                            <a href="/item/170622215744265391.htm" class="title" target="_blank" title="送爽肤水，马丁男士控油补水护肤洗面奶150ml装">送爽肤水，马丁男士控油补水护肤洗面奶150ml装</a>
+                        </div>
+                        <p>券后 $10</p>
+                    </div>
+                    <div class="swiper-slide ">
+                        slider3
+                    </div>
+                    <div class="swiper-slide">
+                        slider4
+                    </div>
+                    <div class="swiper-slide ">
+                        slider5
+                    </div>
+                    <div class="swiper-slide ">
+                        slider6
+                    </div>
+                    <div class="swiper-slide">
+                        slider7
+                    </div>
+                    <div class="swiper-slide ">
+                        slider8
+                    </div>
+                </div>
+                <div class="swiper-button-prev swiper-alimm-prev"></div>
+                <div class="swiper-button-next swiper-alimm-next"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <div id="area10" class="bgcolor_metro2">
+        <style>
+            #area10 section {
+                margin: 0 auto;
+                max-width: calc(1600px + 10%);
+                padding: 30px 5% 16px;
+            }
+
+            #area10 a.c-hyperlink.c-glyph {
+                font-size: 11px;
+                line-height: 16px;
+                display: inline-block;
+                color: #616161;
+                float: left;
+            }
+
+            #area10 section ul.c-list {
+                font-size: 11px;
+                line-height: 16px;
+                float: right;
+                margin: 3px 0;
+            }
+
+                #area10 section ul.c-list li {
+                    padding: 0 24px 4px 0;
+                    color: #616161;
+                    display: inline-block;
+                }
+
+            #area10 .top-footer {
+                margin-top: 60px;
+            }
+        </style>
+        <div style="height:100px;background-color:#00a986;color:#fff">
+            <div class="container">
+                <div class="col-md-4">
+                    <h1>    12323</h1>
+                    <h2>次访问</h2>
+
+                </div>
+                <div class="col-md-4">
+                    123篇文章
+                </div>
+                <div class="col-md-4">
+                    123123次留言
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="top-footer row">
+                <div class="col-md-3 col-sm-5 footer-logo">
+                    <div style="text-align:center;">
+                        <a href="index.html"><img src="~/img/logo.png" width="100" alt="Logo"></a>
+                    </div>
+
+                    <p>Lorem ipsum dolor  amet natum latine copiosa at quo, suas labore saperet  has there any quote for write lorem percit latineu suas dummy.</p>
+                </div> <!-- /.footer-logo -->
+
+                <div class="col-md-2 col-sm-3 footer-list">
+                    <h4>链接</h4>
+                    <ul>
+                        <li><a href="about-us.html" class="tran3s">About us</a></li>
+                        <li><a href="#" class="tran3s">Customer</a></li>
+                        <li><a href="service.html" class="tran3s">Service</a></li>
+                        <li><a href="#" class="tran3s">Collection</a></li>
+                        <li><a href="#" class="tran3s">Blog</a></li>
+                    </ul>
+                </div> <!-- /.footer-list -->
+                <div class="col-md-3 col-sm-4 footer-latest-news">
+                    <h4>Latest News</h4>
+                    <div class="single-news">
+                        <h5><a href="#" class="tran3s">How can be successfull in market place..</a></h5>
+                        <span>13 Feb, 2017  /  Business</span>
+                    </div> <!-- /.single-news -->
+                    <div class="single-news">
+                        <h5><a href="#" class="tran3s">How can be successfull in market place..</a></h5>
+                        <span>13 Feb, 2017  /  Business</span>
+                    </div> <!-- /.single-news -->
+                </div> <!-- /.footer-latest-news -->
+
+                <div class="col-md-4 col-xs-12 footer-subscribe">
+                    <h4>联系我</h4>
+
+
+                </div> <!-- /.footer-subscribe -->
+            </div>
+
+            <section class="x-hidden-focus">
+                <a id="locale-picker-link" class="c-hyperlink c-glyph glyph-world" href="https://www.microsoft.com/en-us/locale.aspx?absoluteReturnUrl=https%3a%2f%2fwww.microsoft.com%2fzh-cn%2f" data-m="{&quot;cN&quot;:&quot;locale_picker(CN)_nav&quot;,&quot;id&quot;:&quot;n7c1c1m1r1a3&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c1c1m1r1a3&quot;}">中文(中国)</a>
+
+                <ul role="contentinfo" class="c-list f-bare" data-m="{&quot;cN&quot;:&quot;Corp links_cont&quot;,&quot;cT&quot;:&quot;Container&quot;,&quot;id&quot;:&quot;c8c1c1m1r1a3&quot;,&quot;sN&quot;:8,&quot;aN&quot;:&quot;c1c1m1r1a3&quot;}">
+
+                    <li>
+                        <a class="c-hyperlink" href="#" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_Special_nav&quot;,&quot;id&quot;:&quot;n6c8c1c1m1r1a3&quot;,&quot;sN&quot;:6,&quot;aN&quot;:&quot;c8c1c1m1r1a3&quot;}">京ICP备123123号-6</a>
+                    </li>
+                    <li>
+                        <a class="c-hyperlink" href="#" data-mscc-ic="false" data-m="{&quot;cN&quot;:&quot;Footer_Special_nav&quot;,&quot;id&quot;:&quot;n7c8c1c1m1r1a3&quot;,&quot;sN&quot;:7,&quot;aN&quot;:&quot;c8c1c1m1r1a3&quot;}">京公网安备 12312312312</a>
+                    </li>
+
+                    <li>© CCode Studio 2017</li>
+
+                </ul>
+            </section>
+        </div>
+    </div>
+
+    <script src="~/Scripts/jquery-1.12.4.js"></script>
+
+    <script src="~/libs/swiper/swiper-3.4.1.jquery.min.js"></script>
+    <script src="~/libs/swiper/js/swiper.animate1.0.2.min.js"></script>
+    <script src="~/libs/paroller/jquery.paroller.js"></script>
+    <script type="text/javascript">
+
+        var mySwiper1 = new Swiper('.swiper-banner', {
+            //direction: 'vertical',全部展开
+            loop: true,
+            //autoplay: 8000, //自动滑动
+            speed: 2000,
+            calculateHeight: true,
+            //  height: 500,
+            //effect: 'fade',
+            // 如果需要分页器
+            //pagination: '.swiper-pagination',
+            //paginationClickable: '.swiper-pagination',
+            // 如果需要前进后退按钮
+            nextButton: '.swiper-button-next',
+            prevButton: '.swiper-button-prev',
+            //keyybaoard
+            // keyboardControl: true,
+            //
+            // mousewheelControl : true,
+
+            //// 如果需要滚动条
+            //scrollbar: '.swiper-scrollbar',
+            //动画
+            onInit: function (swiper) { //Swiper2.x的初始化是onFirstInit
+                swiperAnimateCache(swiper); //隐藏动画元素
+                swiperAnimate(swiper); //初始化完成开始动画
+            },
+            onSlideChangeEnd: function (swiper) {
+                swiperAnimate(swiper); //每个slide切换结束时也运行当前slide动画
+            }
+        })
+
+        var mySwiper2 = new Swiper('.swiper-alimm', {
+
+            slidesPerView: 'auto',
+            spaceBetween: 20,
+            initialSlide: 2,
+            nextButton: '.swiper-alimm-next',
+            prevButton: '.swiper-alimm-prev',
+
+            // 如果需要前进后退按钮
+            centeredSlides: true,
+
+        })
+
+        $(window).paroller();
+    </script>
+
+
+    <script src="/libs/IsometricGrids/modernizr.custom.js"></script>
+    <script src="/libs/IsometricGrids/imagesloaded.pkgd.min.js"></script>
+    <script src="/libs/IsometricGrids/masonry.pkgd.min.js"></script>
+    <script src="/libs/IsometricGrids/dynamics.min.js"></script>
+    <script src="/libs/IsometricGrids/main.js"></script>
+    <script src="/libs/IsometricGrids/classie.js"></script>
+    <script>
+        (function () {
+            function getRandomInt(min, max) {
+                return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            new IsoGrid(document.querySelector('.isolayer--deco1'), {
+                transform: 'translateX(33vw) translateY(-340px) rotateX(45deg) rotateZ(45deg)',
+                stackItemsAnimation: {
+                    properties: function (pos) {
+                        return {
+                            translateZ: (pos + 1) * 30,
+                            rotateZ: getRandomInt(-4, 4)
+                        };
+                    },
+                    options: function (pos, itemstotal) {
+                        return {
+                            type: dynamics.bezier,
+                            duration: 500,
+                            points: [{ "x": 0, "y": 0, "cp": [{ "x": 0.2, "y": 1 }] }, { "x": 1, "y": 1, "cp": [{ "x": 0.3, "y": 1 }] }],
+                            delay: (itemstotal - pos - 1) * 40
+                        };
+                    }
+                }
+            });
+        })();
+    </script>
+    <script src="~/Scripts/bootstrap.js"></script>
+
+    @*<script src="~/lib/Material/material.js"></script>
+        <script src="~/lib/Material/ripples.js"></script>
+        <script src="~/lib/Material/jquery.dropdown.js"></script>
+        <script src="~/lib/Material/jquery.nouislider.min.js"></script>*@
+
+    <script src="~/libs/main.js"></script>
+    <script>
+
+        $(function () {
+            $("#bar1").xq_navbar({
+                "type": "underline",
+                "liwidth": "avg",
+                "bgcolor": "#000",
+                "hcolor": "#009688"
+            });
+
+        });
+    </script>
+
+
+
+</body>
+</html>
