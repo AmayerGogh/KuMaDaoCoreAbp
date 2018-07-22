@@ -13,6 +13,8 @@ using KuMaDaoCoreAbp.Authorization.Users;
 using KuMaDaoCoreAbp.Authorization.Roles;
 using KuMaDaoCoreAbp.Users.Dto;
 using KuMaDaoCoreAbp.Roles.Dto;
+using Abp.Runtime.Session;
+using Abp.Localization;
 
 namespace KuMaDaoCoreAbp.Users
 {
@@ -129,6 +131,14 @@ namespace KuMaDaoCoreAbp.Users
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+        public async Task ChangeLanguage(ChangeUserLanguageDto input)
+        {
+            await SettingManager.ChangeSettingForUserAsync(
+                AbpSession.ToUserIdentifier(),
+                LocalizationSettingNames.DefaultLanguage,
+                input.LanguageName
+            );
         }
     }
 }
