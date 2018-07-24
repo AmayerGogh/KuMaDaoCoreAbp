@@ -28,3 +28,11 @@ callViewAction
 		execComponentViewsAction
 			callViewAction
 
+
+
+
+static readonly localization = {
+    defaultLocalizationSourceName: 'KuMaDaoCoreAbp',
+  };
+ 
+这里一定要与一样  否则会有本地化问题

@@ -8,7 +8,7 @@
     };
 
     static readonly localization = {
-        defaultLocalizationSourceName: 'TestTemplate'
+        defaultLocalizationSourceName: 'KuMaDaoCoreAbp'
     };
 
     static readonly authorization = {
