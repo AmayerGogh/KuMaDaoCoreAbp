@@ -36,28 +36,35 @@ export class AppComponent extends AppComponentBase
   // 全局的菜单
   Menums = [
     // 首页
-    new MenuItem(this.l('HomePage'), '', 'anticon anticon-home', '/app/default/home'),
-    // 租户
     new MenuItem(
-      this.l('Tenants'),
-      'Pages.Tenants',
-      'anticon anticon-team',
-      '/app/default/tenants',
-    ),
-    // 角色
-    new MenuItem(
-      this.l('Roles'),
-      'Pages.Roles',
-      'anticon anticon-safety',
-      '/app/default/roles',
-    ),
-    // 用户
-    new MenuItem(
-      this.l('Users'),
-      'Pages.Users',
-      'anticon anticon-user',
-      '/app/default/users',
-    ),
+      this.l('HomePage'),
+      '',
+      'anticon anticon-home',
+      '/app/default/home'),
+    new MenuItem("默认", '', "anticon anticon-home", "#", [
+      // 租户
+      new MenuItem(
+        this.l('Tenants'),
+        'Pages.Tenants',
+        'anticon anticon-team',
+        '/app/default/tenants',
+      ),
+      // 角色
+      new MenuItem(
+        this.l('Roles'),
+        'Pages.Roles',
+        'anticon anticon-safety',
+        '/app/default/roles',
+      ),
+      // 用户
+      new MenuItem(
+        this.l('Users'),
+        'Pages.Users',
+        'anticon anticon-user',
+        '/app/default/users',
+      ),]),
+
+
   ];
 
   constructor(

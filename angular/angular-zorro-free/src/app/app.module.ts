@@ -26,9 +26,8 @@ import { AppRoutes } from 'app/app-routing.module'
 @NgModule({
   imports: [
     CommonModule,
-    //BrowserModule,
-    //BrowserAnimationsModule,
-    HttpClientModule,
+
+    //HttpClientModule,
 
     LayoutModule,
     SharedModule,

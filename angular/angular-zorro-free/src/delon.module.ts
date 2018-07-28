@@ -60,18 +60,18 @@ export class DelonModule {
     @Optional()
     @SkipSelf()
     parentModule: DelonModule,
-  ) {}
+  ) { }
 
   static forRoot(): ModuleWithProviders {
     return {
       ngModule: DelonModule,
       providers: [
         // TIPS：若不需要路由复用需要移除以下代码及模板`<reuse-tab></reuse-tab>`
-        {
-          provide: RouteReuseStrategy,
-          useClass: ReuseTabStrategy,
-          deps: [ReuseTabService],
-        },
+        // {
+        //   provide: RouteReuseStrategy,
+        //   useClass: ReuseTabStrategy,
+        //   deps: [ReuseTabService],
+        // },
         // TIPS：@delon/abc 有大量的全局配置信息，例如设置所有 `simple-table` 的页码默认为 `20` 行
         // { provide: SimpleTableConfig, useFactory: simpleTableConfig }
         { provide: AdPageHeaderConfig, useFactory: pageHeaderConfig },
