@@ -9,7 +9,7 @@ import { SharedModule } from '@shared/shared.module';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
-import { AboutComponent } from '@app/about/about.component';
+//import { AboutComponent } from '@app/about/about.component';
 // import { TenantsComponent } from '@app/tenants/tenants.component';
 // import { UsersComponent } from '@app/users/users.component';
 // import { RolesComponent } from '@app/roles/roles.component';

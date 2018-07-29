@@ -41,6 +41,7 @@ export class AppComponent extends AppComponentBase
       '',
       'anticon anticon-home',
       '/app/default/home'),
+
     new MenuItem("默认", '', "anticon anticon-home", "#", [
       // 租户
       new MenuItem(
@@ -63,6 +64,27 @@ export class AppComponent extends AppComponentBase
         'anticon anticon-user',
         '/app/default/users',
       ),]),
+
+    new MenuItem("博客", '', "anticon anticon-home", "#", [
+      new MenuItem(
+        '文章',
+        'Pages.Roles',
+        'anticon anticon-team',
+        '/app/blog/article',
+      ),
+      new MenuItem(
+        'Frame测',
+        'Pages.Roles',
+        'anticon anticon-team',
+        '/app/blog/frames',
+      ),
+      new MenuItem(
+        '文章分类',
+        'Pages.Roles',
+        'anticon anticon-team',
+        '/app/blog/articleCategory',
+      ),
+    ])
 
 
   ];
