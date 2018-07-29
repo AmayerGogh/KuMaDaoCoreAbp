@@ -8,10 +8,10 @@ import { AppComponent } from '@app/app.component';
 
 export const AppRoutes: Routes = [
   {
-    path: 'app',
+    path: '',
     component: AppComponent,
-    canActivate: [AppRouteGuard],
-    canActivateChild: [AppRouteGuard],
+    //canActivate: [AppRouteGuard],
+    //canActivateChild: [AppRouteGuard],
     children: [
       {
         path: 'default', loadChildren: "../app/default/default.module#DefaultModule"
