@@ -252,3 +252,4 @@ paket-files/
 *.sln.iml
 /src/KuMaDaoCoreAbp.Web.Mvc/App_Data/Logs
 /src/KuMaDaoCoreAbp.Web.Host/App_Data/Logs
+/aspnet-core/src/KuMaDaoCoreAbp.Web.Mvc/App_Data/Logs
