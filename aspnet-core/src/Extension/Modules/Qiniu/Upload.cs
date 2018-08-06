@@ -8,14 +8,14 @@ using System.Text;
 
 namespace Amayer.Modules.Qiniu
 {
-    /// <summary>
-    /// https://developer.qiniu.com/kodo/sdk/4056/c-sdk-v7-2-15#4
-    /// </summary>
-    public static   class Upload
+    // <summary>
+    // https://developer.qiniu.com/kodo/sdk/4056/c-sdk-v7-2-15#4
+    // </summary>
+    public static class Upload
     {
-        static string AccessKey = "";
-        static string SecretKey = "";
-        public  static HttpResult UploadFile()
+        static string AccessKey = "YjDHsgJaWptKG-b-deOi4miu-azbGk0uJ6jaPXjj";
+        static string SecretKey = "WNJIIhoXW5XxLNniorm2TKsZayPoFRafE-iJt83o";
+        public static HttpResult UploadFile()
         {
             // 生成(上传)凭证时需要使用此Mac
             // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
@@ -39,7 +39,7 @@ namespace Amayer.Modules.Qiniu
             string jstr = putPolicy.ToJsonString();
             string token = Auth.CreateUploadToken(mac, jstr);
             UploadManager um = new UploadManager();
-             return um.UploadFile(localFile, saveKey, token);
+            return um.UploadFile(localFile, saveKey, token);
         }
         /// <summary>
         /// 上传（来自网络回复的）数据流
@@ -182,6 +182,28 @@ namespace Amayer.Modules.Qiniu
             {
                 return UPTS.Activated;
             }
+        }
+
+        public static void GetToken()
+        {
+            // 生成(上传)凭证时需要使用此Mac
+            // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
+            // 实际应用中，请自行设置您的AccessKey和SecretKey
+            Mac mac = new Mac(AccessKey, SecretKey);
+            string bucket = "amayercdn";
+            // 上传策略，参见 
+            // https://developer.qiniu.com/kodo/manual/put-policy
+            PutPolicy putPolicy = new PutPolicy();
+            // 如果需要设置为"覆盖"上传(如果云端已有同名文件则覆盖)，请使用 SCOPE = "BUCKET:KEY"
+            // putPolicy.Scope = bucket + ":" + saveKey;
+            putPolicy.Scope = bucket;
+            // 上传策略有效期(对应于生成的凭证的有效期)          
+            putPolicy.SetExpires(3600);
+            // 上传到云端多少天后自动删除该文件，如果不设置（即保持默认默认）则不删除           
+            // 生成上传凭证，参见
+            // https://developer.qiniu.com/kodo/manual/upload-token            
+            string jstr = putPolicy.ToJsonString();
+            string token = Auth.CreateUploadToken(mac, jstr);
         }
     }
 }

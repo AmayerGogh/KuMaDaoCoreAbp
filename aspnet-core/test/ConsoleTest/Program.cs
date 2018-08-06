@@ -1,5 +1,6 @@
 ﻿using KuMaDaoCoreAbp.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+//using Qiniu.Util;
 using System;
 using System.Linq;
 
@@ -28,7 +29,9 @@ namespace ConsoleTest
             //Test2();
             //Program.Test3(); Program.Test3();
 
-            ThreadTest t = new ThreadTest();
+            //ThreadTest t = new ThreadTest();
+
+            //Amayer.Modules.Qiniu.Upload.GetToken();
             Console.ReadKey();
 
         }
@@ -82,5 +85,11 @@ namespace ConsoleTest
         }   
 
 
+    }
+
+
+    class TiNiuSetting
+    {
+        //Mac mac = new Mac("", "");
     }
 }
