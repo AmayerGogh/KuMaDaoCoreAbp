@@ -21,11 +21,12 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
     [IgnoreAntiforgeryToken]  //跨站伪造 控制toekn验证
     public class QiniuController : KuMaDaoCoreAbpControllerBase
     {
+        [Obsolete]
         public IActionResult Index()
         {
             return Json(new { test="1"} );
         }
-
+        [Obsolete]
         public IActionResult GetToken(string bucket)
         {
             return Json(new { test = "1" });

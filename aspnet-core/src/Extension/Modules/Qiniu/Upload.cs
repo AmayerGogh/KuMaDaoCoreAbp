@@ -13,59 +13,22 @@ namespace Amayer.Modules.Qiniu
     // </summary>
     public static class Upload
     {
-        static string AccessKey = "YjDHsgJaWptKG-b-deOi4miu-azbGk0uJ6jaPXjj";
-        static string SecretKey = "WNJIIhoXW5XxLNniorm2TKsZayPoFRafE-iJt83o";
+
         public static HttpResult UploadFile()
         {
-            // 生成(上传)凭证时需要使用此Mac
-            // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
-            // 实际应用中，请自行设置您的AccessKey和SecretKey
-            Mac mac = new Mac(AccessKey, SecretKey);
-            string bucket = "test";
+            var token = QiNiuHelper.GetToken();
+
             string saveKey = "1.png";
             string localFile = "D:\\QFL\\1.png";
-            // 上传策略，参见 
-            // https://developer.qiniu.com/kodo/manual/put-policy
-            PutPolicy putPolicy = new PutPolicy();
-            // 如果需要设置为"覆盖"上传(如果云端已有同名文件则覆盖)，请使用 SCOPE = "BUCKET:KEY"
-            // putPolicy.Scope = bucket + ":" + saveKey;
-            putPolicy.Scope = bucket;
-            // 上传策略有效期(对应于生成的凭证的有效期)          
-            putPolicy.SetExpires(3600);
-            // 上传到云端多少天后自动删除该文件，如果不设置（即保持默认默认）则不删除
-            putPolicy.DeleteAfterDays = 1;
-            // 生成上传凭证，参见
-            // https://developer.qiniu.com/kodo/manual/upload-token            
-            string jstr = putPolicy.ToJsonString();
-            string token = Auth.CreateUploadToken(mac, jstr);
-            UploadManager um = new UploadManager();
-            return um.UploadFile(localFile, saveKey, token);
+
+            return new UploadManager().UploadFile(localFile, saveKey, token);
         }
         /// <summary>
         /// 上传（来自网络回复的）数据流
         /// </summary>
         public static void UploadStream()
         {
-            // 生成(上传)凭证时需要使用此Mac
-            // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
-            // 实际应用中，请自行设置您的AccessKey和SecretKey
-            Mac mac = new Mac(AccessKey, SecretKey);
-            string bucket = "test";
-            string saveKey = "1.jpg";
-            // 上传策略，参见 
-            // https://developer.qiniu.com/kodo/manual/put-policy
-            PutPolicy putPolicy = new PutPolicy();
-            // 如果需要设置为"覆盖"上传(如果云端已有同名文件则覆盖)，请使用 SCOPE = "BUCKET:KEY"
-            // putPolicy.Scope = bucket + ":" + saveKey;
-            putPolicy.Scope = bucket;
-            // 上传策略有效期(对应于生成的凭证的有效期)          
-            putPolicy.SetExpires(3600);
-            // 上传到云端多少天后自动删除该文件，如果不设置（即保持默认默认）则不删除
-            putPolicy.DeleteAfterDays = 1;
-            // 生成上传凭证，参见
-            // https://developer.qiniu.com/kodo/manual/upload-token            
-            string jstr = putPolicy.ToJsonString();
-            string token = Auth.CreateUploadToken(mac, jstr);
+            var token = QiNiuHelper.GetToken();
             try
             {
                 string url = "http://img.ivsky.com/img/tupian/pre/201610/09/beifang_shanlin_xuejing-001.jpg";
@@ -74,9 +37,8 @@ namespace Amayer.Modules.Qiniu
                 using (var stream = resp.GetResponseStream())
                 {
                     // 请不要使用UploadManager的UploadStream方法，因为此流不支持查找(无法获取Stream.Length)
-                    // 请使用FormUploader或者ResumableUploader的UploadStream方法
-                    FormUploader fu = new FormUploader();
-                    var result = fu.UploadStream(stream, "xuejing-001.jpg", token);
+                    // 请使用FormUploader或者ResumableUploader的UploadStream方法                 
+                    var result = new FormUploader().UploadStream(stream, "xuejing-001.jpg", token);
                     Console.WriteLine(result);
                 }
             }
@@ -87,30 +49,14 @@ namespace Amayer.Modules.Qiniu
         }
         public static void UploadData()
         {
-            // 生成(上传)凭证时需要使用此Mac
-            // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
-            // 实际应用中，请自行设置您的AccessKey和SecretKey
-            Mac mac = new Mac(AccessKey, SecretKey);
-            string bucket = "test";
+            var token = QiNiuHelper.GetToken();
+
             string saveKey = "myfile";
             byte[] data = System.IO.File.ReadAllBytes("D:/QFL/1.mp3");
-            //byte[] data = System.Text.Encoding.UTF8.GetBytes("Hello World!");
-            // 上传策略，参见 
-            // https://developer.qiniu.com/kodo/manual/put-policy
-            PutPolicy putPolicy = new PutPolicy();
-            // 如果需要设置为"覆盖"上传(如果云端已有同名文件则覆盖)，请使用 SCOPE = "BUCKET:KEY"
-            // putPolicy.Scope = bucket + ":" + saveKey;
-            putPolicy.Scope = bucket;
-            // 上传策略有效期(对应于生成的凭证的有效期)          
-            putPolicy.SetExpires(3600);
-            // 上传到云端多少天后自动删除该文件，如果不设置（即保持默认默认）则不删除
-            putPolicy.DeleteAfterDays = 1;
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
-            string jstr = putPolicy.ToJsonString();
-            string token = Auth.CreateUploadToken(mac, jstr);
-            FormUploader fu = new FormUploader();
-            HttpResult result = fu.UploadData(data, saveKey, token);
+
+            HttpResult result = new FormUploader().UploadData(data, saveKey, token);
 
         }
 
@@ -119,19 +65,15 @@ namespace Amayer.Modules.Qiniu
         /// </summary>
         public static void UploadBigFile()
         {
-            // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
-            // 实际应用中，请自行设置您的AccessKey和SecretKey
-            Mac mac = new Mac(AccessKey, SecretKey);
-            string bucket = "test";
+            var token = QiNiuHelper.GetToken();
+
+
             string saveKey = "1.mp4";
             string localFile = "D:\\QFL\\1.mp4";
             // 断点记录文件，可以不用设置，让SDK自动生成，如果出现续上传的情况，SDK会尝试从该文件载入断点记录
             // 对于不同的上传任务，请使用不同的recordFile
             string recordFile = "D:\\QFL\\resume.12345";
-            PutPolicy putPolicy = new PutPolicy();
-            putPolicy.Scope = bucket;
-            putPolicy.SetExpires(3600);
-            string token = Auth.CreateUploadToken(mac, putPolicy.ToJsonString());
+
             // 包含两个参数，并且都有默认值
             // 参数1(bool): uploadFromCDN是否从CDN加速上传，默认否
             // 参数2(enum): chunkUnit上传分片大小，可选值128KB,256KB,512KB,1024KB,2048KB,4096KB
@@ -139,7 +81,7 @@ namespace Amayer.Modules.Qiniu
             // ResumableUploader.UploadFile有多种形式，您可以根据需要来选择
             //
             // 最简模式，使用默认recordFile和默认uploadProgressHandler
-            // UploadFile(localFile,saveKey,token)
+            //UploadFile(localFile,saveKey,token)
             // 
             // 基本模式，使用默认uploadProgressHandler
             // UploadFile(localFile,saveKey,token,recordFile)
@@ -184,13 +126,21 @@ namespace Amayer.Modules.Qiniu
             }
         }
 
-        public static void GetToken()
+
+    }
+
+
+    static class QiNiuHelper
+    {
+        static string AccessKey = "YjDHsgJaWptKG-b-deOi4miu-azbGk0uJ6jaPXjj";
+        static string SecretKey = "WNJIIhoXW5XxLNniorm2TKsZayPoFRafE-iJt83o";
+
+        public static string GetToken(string bucket = "amayercdn")
         {
             // 生成(上传)凭证时需要使用此Mac
             // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
             // 实际应用中，请自行设置您的AccessKey和SecretKey
             Mac mac = new Mac(AccessKey, SecretKey);
-            string bucket = "amayercdn";
             // 上传策略，参见 
             // https://developer.qiniu.com/kodo/manual/put-policy
             PutPolicy putPolicy = new PutPolicy();
@@ -199,11 +149,13 @@ namespace Amayer.Modules.Qiniu
             putPolicy.Scope = bucket;
             // 上传策略有效期(对应于生成的凭证的有效期)          
             putPolicy.SetExpires(3600);
+            // 上传到云端多少天后自动删除该文件，如果不设置（即保持默认默认）则不删除
+            putPolicy.DeleteAfterDays = 1;
             // 上传到云端多少天后自动删除该文件，如果不设置（即保持默认默认）则不删除           
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
             string jstr = putPolicy.ToJsonString();
-            string token = Auth.CreateUploadToken(mac, jstr);
+            return Auth.CreateUploadToken(mac, jstr);
         }
     }
 }
