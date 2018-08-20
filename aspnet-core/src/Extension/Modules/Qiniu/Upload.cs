@@ -1,4 +1,5 @@
-﻿using Qiniu.Http;
+﻿using Qiniu.Common;
+using Qiniu.Http;
 using Qiniu.IO;
 using Qiniu.IO.Model;
 using Qiniu.Util;
@@ -52,9 +53,12 @@ namespace Amayer.Modules.Qiniu
             var token = QiNiuHelper.GetToken();
 
             string saveKey = "myfile";
-            
+
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
+
+
+            Config.ZONE = Zone.ZONE_US_North(false);
 
             HttpResult result = new FormUploader().UploadData(data, saveKey, token);
             return QiNiuHelper.UploadResult(result);
