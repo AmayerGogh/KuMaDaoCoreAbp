@@ -11,7 +11,7 @@ namespace Amayer.Modules.Qiniu
     // <summary>
     // https://developer.qiniu.com/kodo/sdk/4056/c-sdk-v7-2-15#4
     // </summary>
-    public static class Upload
+    public  class Upload
     {
 
         public static HttpResult UploadFile()
@@ -26,7 +26,7 @@ namespace Amayer.Modules.Qiniu
         /// <summary>
         /// 上传（来自网络回复的）数据流
         /// </summary>
-        public static void UploadStream()
+        public  void UploadStream()
         {
             var token = QiNiuHelper.GetToken();
             try
@@ -47,23 +47,23 @@ namespace Amayer.Modules.Qiniu
                 Console.WriteLine(ex);
             }
         }
-        public static void UploadData()
+        public HttpResult UploadData(byte[] data)
         {
             var token = QiNiuHelper.GetToken();
 
             string saveKey = "myfile";
-            byte[] data = System.IO.File.ReadAllBytes("D:/QFL/1.mp3");
+            
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
 
             HttpResult result = new FormUploader().UploadData(data, saveKey, token);
-
+            return QiNiuHelper.UploadResult(result);
         }
 
         /// <summary>
         /// 上传大文件，可以从上次的断点位置继续上传
         /// </summary>
-        public static void UploadBigFile()
+        public  void UploadBigFile()
         {
             var token = QiNiuHelper.GetToken();
 
@@ -106,12 +106,12 @@ namespace Amayer.Modules.Qiniu
             Console.WriteLine(result);
         }
         // 内部变量，仅作演示
-        private static bool paused = false;
+        private  bool paused = false;
         /// <summary>
         /// 上传控制
         /// </summary>
         /// <returns></returns>
-        private static UPTS uploadControl()
+        private  UPTS uploadControl()
         {
             // 这个函数只是作为一个演示，实际当中请根据需要来设置
             // 这个演示的实际效果是“走走停停”，也就是停一下又继续，如此重复直至上传结束
@@ -157,5 +157,15 @@ namespace Amayer.Modules.Qiniu
             string jstr = putPolicy.ToJsonString();
             return Auth.CreateUploadToken(mac, jstr);
         }
+
+        public static HttpResult UploadResult(HttpResult res)
+        {
+            return res;
+        }
     }
+    //public  class UploadFileResult
+    //{
+
+    //}
+
 }

@@ -6,13 +6,15 @@ using Abp.Auditing;
 using Abp.Authorization;
 using Abp.Runtime.Validation;
 using Abp.Web.Models;
+using Amayer.Modules.Qiniu;
 using KuMaDaoCoreAbp.Controllers;
+using KuMaDaoCoreAbp.Web.Areas.Apis.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
 {
     [Area("Apis")]
-    [Route("apis/[controller]")]
+    [Route("apis/[controller]/[action]/{id?}")]
 
     [AbpAllowAnonymous] //禁用授权
     [DontWrapResult] //不要响应结果的包装
@@ -27,9 +29,28 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
             return Json(new { test="1"} );
         }
         [Obsolete]
+       
         public IActionResult GetToken(string bucket)
         {
             return Json(new { test = "1" });
+        }
+        [Obsolete]
+        public IActionResult UploadBase64([FromBody]UoloadModel model)
+        {
+            try
+            {             
+                model.msg = model.msg.Replace("data:image/png;base64,", string.Empty);
+                var array = Convert.FromBase64String(model.msg);
+                Upload upload = new Upload();
+                var res =  upload.UploadData(array);
+                return Json(res);
+            }
+            catch (Exception ex)
+            {
+
+                return Json(new ApiBaseCommon { Code = ApiCode.未知异常,ErrMsg=ex.ToString() });
+            }
+            //return Json(new ApiBaseCommon { Code = ApiCode.正确 });
         }
     }
 }
