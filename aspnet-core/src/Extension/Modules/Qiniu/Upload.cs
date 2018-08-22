@@ -56,10 +56,7 @@ namespace Amayer.Modules.Qiniu
 
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
-
-
-            Config.ZONE = Zone.ZONE_US_North(false);
-
+          
             HttpResult result = new FormUploader().UploadData(data, saveKey, token);
             return QiNiuHelper.UploadResult(result);
         }
@@ -138,9 +135,13 @@ namespace Amayer.Modules.Qiniu
     {
         static string AccessKey = "YjDHsgJaWptKG-b-deOi4miu-azbGk0uJ6jaPXjj";
         static string SecretKey = "WNJIIhoXW5XxLNniorm2TKsZayPoFRafE-iJt83o";
-
-        public static string GetToken(string bucket = "amayercdn")
+        static string bucket = "amayercdn";
+        static QiNiuHelper()
         {
+            Config.AutoZone(AccessKey, bucket, false);
+        }
+        public static string GetToken()
+        {           
             // 生成(上传)凭证时需要使用此Mac
             // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
             // 实际应用中，请自行设置您的AccessKey和SecretKey
@@ -159,13 +160,26 @@ namespace Amayer.Modules.Qiniu
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
             string jstr = putPolicy.ToJsonString();
+            AudoSetZone();
             return Auth.CreateUploadToken(mac, jstr);
         }
-
         public static HttpResult UploadResult(HttpResult res)
         {
             return res;
         }
+
+        public static void  GetNextFileName()
+        {
+
+        }
+
+
+
+        static void AudoSetZone(string bucket = "amayercdn")
+        {
+            Config.AutoZone(AccessKey, bucket, false);
+        }
+        
     }
     //public  class UploadFileResult
     //{
