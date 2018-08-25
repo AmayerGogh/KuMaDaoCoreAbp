@@ -15,8 +15,9 @@ namespace KuMaDaoCoreAbp.Web.Areas.Apis.Models
     public enum ApiCode
     {
         正确=200,
-        未知异常=10000
-
+        未知异常=10000,
+        上传失败 =10001
 
     }
 }
+ 

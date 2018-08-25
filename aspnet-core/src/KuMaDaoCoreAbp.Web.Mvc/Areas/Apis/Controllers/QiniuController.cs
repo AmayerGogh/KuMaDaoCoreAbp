@@ -42,13 +42,37 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
                 model.msg = model.msg.Replace("data:image/png;base64,", string.Empty);
                 var array = Convert.FromBase64String(model.msg);
                 Upload upload = new Upload();
-                var res =  upload.UploadData(array);
-                return Json(res);
+                string fileName = string.Empty;
+                var res =  upload.UploadData(array,ref fileName);
+                ApiBaseCommon result = new ApiBaseCommon();
+                if (res.Code==200)
+                {
+                    result.Code = ApiCode.正确;
+                    result.Data = new string[] { fileName };
+                }
+                else
+                {
+                    result.Code = ApiCode.上传失败;
+                }
+                return Json(result);
             }
             catch (Exception ex)
             {
-
                 return Json(new ApiBaseCommon { Code = ApiCode.未知异常,ErrMsg=ex.ToString() });
+            }
+            //return Json(new ApiBaseCommon { Code = ApiCode.正确 });
+        }
+        [Obsolete]
+        public IActionResult UploadFile([FromBody]object o)
+        {
+            try
+            {
+
+                return Json(new ApiBaseCommon { Code = ApiCode.未知异常 });
+            }
+            catch (Exception ex)
+            {
+                return Json(new ApiBaseCommon { Code = ApiCode.未知异常, ErrMsg = ex.ToString() });
             }
             //return Json(new ApiBaseCommon { Code = ApiCode.正确 });
         }

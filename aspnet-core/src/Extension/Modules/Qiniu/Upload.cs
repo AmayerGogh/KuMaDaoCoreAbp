@@ -1,4 +1,5 @@
-﻿using Qiniu.Common;
+﻿using Amayer.Express;
+using Qiniu.Common;
 using Qiniu.Http;
 using Qiniu.IO;
 using Qiniu.IO.Model;
@@ -12,7 +13,7 @@ namespace Amayer.Modules.Qiniu
     // <summary>
     // https://developer.qiniu.com/kodo/sdk/4056/c-sdk-v7-2-15#4
     // </summary>
-    public  class Upload
+    public class Upload
     {
 
         public static HttpResult UploadFile()
@@ -27,7 +28,7 @@ namespace Amayer.Modules.Qiniu
         /// <summary>
         /// 上传（来自网络回复的）数据流
         /// </summary>
-        public  void UploadStream()
+        public void UploadStream()
         {
             var token = QiNiuHelper.GetToken();
             try
@@ -48,23 +49,22 @@ namespace Amayer.Modules.Qiniu
                 Console.WriteLine(ex);
             }
         }
-        public HttpResult UploadData(byte[] data)
+        public HttpResult UploadData(byte[] data, ref string url)
         {
             var token = QiNiuHelper.GetToken();
-
-            string saveKey = "myfile";
-
+            var fileName = QiNiuHelper.GetNextFileName();
+            url = QiNiuHelper.domain + fileName;
             // 生成上传凭证，参见
             // https://developer.qiniu.com/kodo/manual/upload-token            
-          
-            HttpResult result = new FormUploader().UploadData(data, saveKey, token);
+
+            HttpResult result = new FormUploader().UploadData(data, fileName, token);
             return QiNiuHelper.UploadResult(result);
         }
 
         /// <summary>
         /// 上传大文件，可以从上次的断点位置继续上传
         /// </summary>
-        public  void UploadBigFile()
+        public void UploadBigFile()
         {
             var token = QiNiuHelper.GetToken();
 
@@ -107,12 +107,12 @@ namespace Amayer.Modules.Qiniu
             Console.WriteLine(result);
         }
         // 内部变量，仅作演示
-        private  bool paused = false;
+        private bool paused = false;
         /// <summary>
         /// 上传控制
         /// </summary>
         /// <returns></returns>
-        private  UPTS uploadControl()
+        private UPTS uploadControl()
         {
             // 这个函数只是作为一个演示，实际当中请根据需要来设置
             // 这个演示的实际效果是“走走停停”，也就是停一下又继续，如此重复直至上传结束
@@ -135,13 +135,14 @@ namespace Amayer.Modules.Qiniu
     {
         static string AccessKey = "YjDHsgJaWptKG-b-deOi4miu-azbGk0uJ6jaPXjj";
         static string SecretKey = "WNJIIhoXW5XxLNniorm2TKsZayPoFRafE-iJt83o";
-        static string bucket = "amayercdn";
+        public static string bucket = "amayercdn";
+        public static string domain = "http://olyh26zl9.bkt.clouddn.com/";
         static QiNiuHelper()
         {
             Config.AutoZone(AccessKey, bucket, false);
         }
         public static string GetToken()
-        {           
+        {
             // 生成(上传)凭证时需要使用此Mac
             // 这个示例单独使用了一个Settings类，其中包含AccessKey和SecretKey
             // 实际应用中，请自行设置您的AccessKey和SecretKey
@@ -168,8 +169,13 @@ namespace Amayer.Modules.Qiniu
             return res;
         }
 
-        public static void  GetNextFileName()
+        public static string GetNextFileName()
         {
+
+            return TimestampID.GetInstance().Next(data =>
+            {
+                return data.ToString("yyyyMMddhhmmss");
+            });
 
         }
 
@@ -179,7 +185,7 @@ namespace Amayer.Modules.Qiniu
         {
             Config.AutoZone(AccessKey, bucket, false);
         }
-        
+
     }
     //public  class UploadFileResult
     //{
