@@ -17,7 +17,7 @@ namespace KuMaDaoCoreAbp.Articles
 
         public virtual string Description { get; set; }
         public virtual long CategoryId { get; set; }
-  
+
         [DisplayName("封面")]
         public virtual long Cover { get; set; }
         public virtual int Type { get; set; }
@@ -25,10 +25,10 @@ namespace KuMaDaoCoreAbp.Articles
         //public virtual long SeeCount { get; set; }
     }
 
-    public  enum ArticleType
+    public enum EnumsArticleType
     {
-        草稿 =1,
-        已发布 =2
+        草稿 = 1,
+        已发布 = 2
     }
 
 }

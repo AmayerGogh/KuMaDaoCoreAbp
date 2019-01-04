@@ -6,11 +6,11 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Files
 {
-    public  class File:Entity<long>
+    public class File : Entity<long>
     {
         public string Name { get; set; }
         public decimal Size { get; set; }
-        
+
         public decimal Extension { get; set; }
 
         public long CategoryId { get; set; }
@@ -24,26 +24,26 @@ namespace KuMaDaoCoreAbp.Files
         public DateTime CreationTime { get; set; }
     }
 
-    public enum FileType
+    public enum EnumFileType
     {
 
-        image=1,
-        video=2,
-        doc=3,
-        other=4,
+        image = 1,
+        video = 2,
+        doc = 3,
+        other = 4,
     }
-    public enum FileStatus
+    public enum EnumFileStatus
     {
-        未显示=0,
-        文件 =1,
-        文件预览 =2,
-        文章内容=3,
-        文章封面 =4,
-        文章附件 =5
+        未显示 = 0,
+        文件 = 1,
+        文件预览 = 2,
+        文章内容 = 3,
+        文章封面 = 4,
+        文章附件 = 5
     }
-    public enum FileLocation
+    public enum EnumFileLocation
     {
-        local=1,
-        qiniu =2
+        local = 1,
+        qiniu = 2
     }
 }

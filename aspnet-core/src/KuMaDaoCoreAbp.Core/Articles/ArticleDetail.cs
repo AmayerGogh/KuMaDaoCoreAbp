@@ -11,7 +11,7 @@ namespace KuMaDaoCoreAbp.Articles
     {
 
         //public virtual string Name { get; set; } ="detail"
-        public virtual long ArticleId {get;set;}
+        public virtual long ArticleId { get; set; }
         public virtual string Body { get; set; }
         public virtual bool IsDefault { get; set; }
         public virtual int Type { get; set; }
@@ -23,7 +23,7 @@ namespace KuMaDaoCoreAbp.Articles
         public ArticleDetail(long _ArticleId)
         {
             ArticleId = _ArticleId;
-            Type = (int)ArticleDetailType.html;
+            Type = (int)EnumArticleDetailType.html;
             IsDefault = true;
         }
 
@@ -31,9 +31,9 @@ namespace KuMaDaoCoreAbp.Articles
 
     }
 
-    public enum ArticleDetailType
+    public enum EnumArticleDetailType
     {
-        html=1,
-        md =2
+        html = 1,
+        md = 2
     }
 }

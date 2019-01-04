@@ -15,9 +15,10 @@ using System;
 namespace KuMaDaoCoreAbp.Migrations
 {
     [DbContext(typeof(KuMaDaoCoreAbpDbContext))]
-    partial class KuMaDaoCoreAbpDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190104122608_redisSimulation")]
+    partial class redisSimulation
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

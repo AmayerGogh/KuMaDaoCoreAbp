@@ -5,7 +5,7 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Categories
 {
-    public  class Category:Entity<long>
+    public class Category : Entity<long>
     {
         public string Name { get; set; }
         public long ParentId { get; set; }
@@ -19,6 +19,6 @@ namespace KuMaDaoCoreAbp.Categories
 
     public enum EnumCategoryType
     {
-        文章=1
+        文章 = 1
     }
 }
