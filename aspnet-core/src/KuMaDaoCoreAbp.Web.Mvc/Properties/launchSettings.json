@@ -1,7 +1,7 @@
 {
   "iisSettings": {
-    "windowsAuthentication": false,
-    "anonymousAuthentication": true,
+    "windowsAuthentication": false, //启动windows身份验证
+    "anonymousAuthentication": true, //启用匿名验证
     "iisExpress": {
       "applicationUrl": "http://localhost:62114/",
       "sslPort": 0

@@ -11,6 +11,14 @@
     .btn_detail_update{
         cursor:pointer
     }
+    div#toolbar .toolbar_item{
+        /*display:inline-block;
+        margin:0 10px;*/
+    }
+    div#toolbar .drop_bsTable {
+        margin-left: 9px;
+        display: inline-block;
+    }
 </style>
 
 }
@@ -239,27 +247,28 @@
             <div id="toolbar" class="btn-group">
 
                 <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
-                <div class="toolbar_item">
-                    <label class="control-label" style="width:45px;">分类1</label>
-                    <select class="form-control" name="">
-                        <option value="-1">请选择</option>
-                        @foreach (var item in Model.ArticleTypeList)
-                        {
-                            <option value="@item.Value">@item.Text</option>
-                        }
-                    </select>
-                </div>
-                <div class="toolbar_item">
-                    <label class="control-label" style="width:45px;">分类2</label>
-                    <select class="form-control" name="">
-                        <option value="-1">请选择</option>
-                        @foreach (var item in Model.ArticleTypeList)
-                        {
-                            <option value="@item.Value">@item.Text</option>
-                        }
-                    </select>
-                </div>
 
+                <div class="toolbar_item">
+                    <label class="control-label" style="width:50px;">分类1</label>
+                    <select class="form-control drop_bsTable" name="">
+                        <option value="-1">请选择</option>
+                        @foreach (var item in Model.ArticleTypeList)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <div class="toolbar_item">
+                    <label class="control-label" style="width:50px;">分类2</label>
+                    <select class="form-control drop_bsTable" name="">
+                        <option value="-1">请选择</option>
+                        @foreach (var item in Model.ArticleTypeList)
+                        {
+                            <option value="@item.Value">@item.Text</option>
+                        }
+                    </select>
+                </div>
+                <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
             </div>
             <table id="table"></table>
         </div>

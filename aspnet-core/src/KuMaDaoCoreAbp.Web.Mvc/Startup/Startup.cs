@@ -164,7 +164,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
                 options.InjectOnCompleteJavaScript("/swagger/ui/abp.js");
                 options.InjectOnCompleteJavaScript("/swagger/ui/on-complete.js");
                 options.SwaggerEndpoint("/swagger/v1/swagger.json", "KuMaDaoCoreAbp API V1");
-                options.ShowRequestHeaders();
+                options.ShowRequestHeaders();               
             }); // URL: /swagger
 
         }
