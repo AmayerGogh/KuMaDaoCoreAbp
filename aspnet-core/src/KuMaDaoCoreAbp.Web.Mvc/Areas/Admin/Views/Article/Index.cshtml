@@ -16,8 +16,8 @@
         margin:0 10px;*/
     }
     div#toolbar .drop_bsTable {
-        margin-left: 9px;
-        display: inline-block;
+        margin-left: 5px;
+       
     }
 </style>
 
@@ -162,9 +162,32 @@
                   }},
                   {
                       title: "操作", events: operateEvents, formatter: function (value, row, index) { 
-                          return ' <div class="btn-group"><button class="btn-white btn btn-xs btn_edit">编辑</button> \
-                                                          <button class="btn-white btn btn-xs btn_edit">附件管理</button> \
-                                  <button class="btn-white btn btn-xs btn_del" > 删除</button ></div > '
+                          return ' <div class="btn-group"> \
+                                    <button class="btn-white btn btn-xs btn_edit" > 编辑</button > \
+                                    <button class="btn-white btn btn-xs btn_edit">附件管理</button> \
+                                   <button class="btn-white btn btn-xs btn_del" > 删除</button > \
+                                    <div class="input-group-btn" > \
+                                  <button data-toggle="dropdown" class="btn btn-xs btn-white dropdown-toggle" type="button" aria-expanded="false"> \
+                                      操作 <span class="caret"></span> \
+                                  </button> \
+                                  <ul class="dropdown-menu"> \
+                                      <li> \
+                                          <a href="form_basic.html#">选项1</a> \
+                                      </li> \
+                                      <li> \
+                                          <a href="form_basic.html#">选项2</a> \
+                                      </li> \
+                                      <li> \
+                                          <a href="form_basic.html#">选项3</a> \
+                                      </li> \
+                                      <li class="divider"></li> \
+                                      <li> \
+                                          <a href="form_basic.html#">选项4</a \
+                                      </li> \
+                                  </ul> \
+                                    </div> \
+                              </div > \
+                          '
                       }
                   },//自定义方法，添加操作按钮
             ];
@@ -180,10 +203,10 @@
                 pageSize: 25,
                 pageList: [10, 15, 25, 50, 100],
                 sidePagination: "server", //服务端请求
-                search: true,
+                search: false,
                 strictSearch: true,
                 showColumns: true,                  //是否显示所有的列
-                showRefresh: true,                  //是否显示刷新按钮
+                showRefresh: false,                  //是否显示刷新按钮
                 clickToSelect: true,                //是否启用点击选中行
                 columns: column,
                 queryParams: function (params) {
@@ -246,10 +269,13 @@
         <div class="col-lg-12">
             <div id="toolbar" class="btn-group">
 
-                <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
+                <div class="toolbar_item">
+                    <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
+                </div>
+                
 
                 <div class="toolbar_item">
-                    <label class="control-label" style="width:50px;">分类1</label>
+                    <label class="control-label" style="width:53px;">分类1</label>
                     <select class="form-control drop_bsTable" name="">
                         <option value="-1">请选择</option>
                         @foreach (var item in Model.ArticleTypeList)
@@ -259,7 +285,7 @@
                     </select>
                 </div>
                 <div class="toolbar_item">
-                    <label class="control-label" style="width:50px;">分类2</label>
+                    <label class="control-label" style="width:53px;">分类2</label>
                     <select class="form-control drop_bsTable" name="">
                         <option value="-1">请选择</option>
                         @foreach (var item in Model.ArticleTypeList)
@@ -268,7 +294,16 @@
                         }
                     </select>
                 </div>
-                <button class="btn btn-primary" id="add" href="#" data-toggle="modal" data-target="#A_rticleCreateModal">添加</button>
+                <div class="toolbar_item">
+                    <label class="control-label" style="width:53px;">关键字</label>    
+                    <div class="input-group" style="width:230px;">
+                        <input type="text" placeholder="请输入关键词" class="form-control">
+                        <span class="input-group-btn">
+                            <button type="button" class="btn btn-primary"> 搜索</button>
+                        </span>
+                    </div>
+                </div>
+                
             </div>
             <table id="table"></table>
         </div>
