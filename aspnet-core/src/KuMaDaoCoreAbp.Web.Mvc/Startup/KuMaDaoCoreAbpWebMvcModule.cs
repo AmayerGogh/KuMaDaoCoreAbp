@@ -26,13 +26,14 @@ namespace KuMaDaoCoreAbp.Web.Startup
             Configuration.Navigation.Providers.Add<KuMaDaoCoreAbpNavigationProvider>();
 
             Configuration.Authorization.Providers.Add<ArticleAppAuthorizationProvider>();
-           
+            
             //Configuration.Authorization.
         }
 
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(typeof(KuMaDaoCoreAbpWebMvcModule).GetAssembly());
+            
         }
     }
 }

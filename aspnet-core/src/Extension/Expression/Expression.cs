@@ -1,6 +1,7 @@
 ﻿using Amayer.Express._pingins;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Amayer.Express
 {
-    public static class Express
+    public static class LambdaHelper
     {
 
         /// <summary>
@@ -17,20 +18,69 @@ namespace Amayer.Express
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
         /// <returns></returns>
-        public static async Task<Expression<Func<T, bool>>> BulidExpressionAsync<T>(List<Expression<Func<T, bool>>> list)
+        public static Expression<Func<T, bool>> BulidExpression<T>(List<Expression<Func<T, bool>>> list)
         {
-           Expression<Func<T, bool>> lam = null;
-           await Task.Run(() =>
+            Expression<Func<T, bool>> lam = null;
+            list.Add(m => 1 == 1); //至少也要有一个条件
+            foreach (var expression in list)
             {
-                
-                list.Add(m => 1 == 1); //至少也要有一个条件
-                foreach (var expression in list)
+                if (lam == null)
                 {
-                    lam = lam == null ? expression : lam.And(expression);
+                    lam = expression;
                 }
-              
-            });
+                else
+                {
+                    lam = lam.And(expression);
+                }
+            }
             return lam;
+        }
+        public static List<Expression<Func<T, bool>>> GetExpressionList<T>()
+        {
+            return new List<Expression<Func<T, bool>>>();
+        }
+        public static IEnumerable<TSource> WhereParam<TSource>(this IEnumerable<TSource> sources, List<Expression<Func<TSource, bool>>> list)
+        {
+            Expression<Func<TSource, bool>> lam = null;
+            if (list.Count == 0)
+            {
+                return sources;
+            }
+            foreach (var expression in list)
+            {
+                if (lam == null)
+                {
+                    lam = expression;
+                }
+                else
+                {
+                    lam = lam.And(expression);
+                }
+            }
+            return sources.Where(lam.Compile());
+        }
+        public static async Task<IEnumerable<TSource>> WhereParamAsync<TSource>(this IQueryable<TSource> sources, List<Expression<Func<TSource, bool>>> list)
+        {
+            Expression<Func<TSource, bool>> lam = null;
+            if (list.Count == 0)
+            {
+                return sources;
+            }
+            await Task.Run(() =>
+             {
+                 foreach (var expression in list)
+                 {
+                     if (lam == null)
+                     {
+                         lam = expression;
+                     }
+                     else
+                     {
+                         lam = lam.And(expression);
+                     }
+                 }
+             });
+            return sources.Where(lam);
         }
     }
 

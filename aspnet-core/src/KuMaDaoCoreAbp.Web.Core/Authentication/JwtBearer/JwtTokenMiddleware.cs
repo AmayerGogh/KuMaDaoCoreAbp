@@ -18,8 +18,8 @@ namespace KuMaDaoCoreAbp.Authentication.JwtBearer
                         ctx.User = result.Principal;
                     }
                 }
-
                 await next();
+               
             });
         }
     }

@@ -10,7 +10,6 @@
     margin-bottom: 0 !important;
     /*border-bottom: 1px solid #ddd;*/
     border-collapse: collapse !important;
- 
 }
 
     .bootstrap-table .table:not(.table-condensed), .bootstrap-table .table:not(.table-condensed) > tbody > tr > td, .bootstrap-table .table:not(.table-condensed) > tbody > tr > th, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > td, .bootstrap-table .table:not(.table-condensed) > tfoot > tr > th, .bootstrap-table .table:not(.table-condensed) > thead > tr > td {
@@ -29,7 +28,6 @@
     position: relative;
     clear: both;
     /*border: 1px solid #ddd;*/
- 
 }
 
     .fixed-table-container.table-no-bordered {
@@ -67,7 +65,6 @@
 
     .fixed-table-container thead th:first-child {
         border-left: none;
-
     }
 
     .fixed-table-container tbody td .th-inner, .fixed-table-container thead th .th-inner {
@@ -114,8 +111,12 @@
     border-left: none;
 }
 
+/*
+    selected设置
+*/
 .fixed-table-container tbody .selected td {
-    background-color: #f5f5f5;
+    background-color: #1ab394;
+    color: #e7eaec
 }
 
 .fixed-table-container .bs-checkbox .th-inner {
@@ -225,7 +226,7 @@
         border-radius: 0;
     }
 
-    /*.fixed-table-toolbar .btn-group > .btn-group:first-child > .btn {
+/*.fixed-table-toolbar .btn-group > .btn-group:first-child > .btn {
         border-top-left-radius: 4px;
         border-bottom-left-radius: 4px;
     }
@@ -276,24 +277,26 @@ div.fixed-table-scroll-outer {
 
 
 
-  /*#table thead tr {
+/*#table thead tr {
             background-color: rgb(14, 154, 239);
             color: #fff;
         }*/
 
-        
-
-    #table input.form-select.bs_row_sort {
-        width: 65%;
-    }
-
-    .toolbar_item {
-        display: inline-flex;
-        margin: 0 10px;
-    }
 
 
+#table input.form-select.bs_row_sort {
+    width: 65%;
+}
 
-    #table .btn {
+.toolbar_item {
+    display: inline-flex;
+    margin: 0 10px;
+}
+
+
+
+#table .btn {
     margin: 0px;
 }
+
+

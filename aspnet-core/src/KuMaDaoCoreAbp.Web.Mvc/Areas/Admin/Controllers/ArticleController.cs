@@ -43,7 +43,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Admin.Controllers
             };
             return View(model);
         }
-
+        
         public async Task<ActionResult> EditArticleModal(long? id)
         {
             if (!id.HasValue)
