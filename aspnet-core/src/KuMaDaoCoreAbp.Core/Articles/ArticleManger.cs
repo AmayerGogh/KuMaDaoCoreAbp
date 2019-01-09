@@ -1,6 +1,5 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.Domain.Services;
-using Amayer.Express;
 using KuMaDaoCoreAbp.Web;
 using System;
 using System.Collections.Generic;
@@ -22,43 +21,20 @@ namespace KuMaDaoCoreAbp.Articles
 
         public void TestManager(Article article)
         {
-            
+            throw new NotImplementedException();
         }
 
         //领域代码
 
 
-        public List<Expression<Func<Article,bool>>> GetListAsync(BsTableRequestModel param)
+        public async Task<Expression<Func<Article,bool>>> GetListAsync(BsTableRequestModel param)
         {
-            //var expressionList = new List<Expression<Func<Article, bool>>>();
-            var lamList = LambdaHelper.GetExpressionList<Article>();
+            var expressionList = new List<Expression<Func<Article, bool>>>();
             if (!string.IsNullOrWhiteSpace(param.search))
             {
-                lamList.Add(m => m.Title == param.search);
+                expressionList.Add(m => m.Title == param.search);
             }
-            string s = null ;
-            try
-            {
-                if (param.searches!=null)
-                {
-                    if (param.searches.ContainsKey("id"))
-                    {
-
-                    }
-                    if (param.searches.ContainsKey("categoryId"))
-                    {
-
-                    }
-                }
-              
-            }
-            catch (Exception ex)
-            {
-
-            
-            }
-           
-            return lamList;
+           return await Amayer.Express.Express.BulidExpressionAsync(expressionList);
         }
     }
 }

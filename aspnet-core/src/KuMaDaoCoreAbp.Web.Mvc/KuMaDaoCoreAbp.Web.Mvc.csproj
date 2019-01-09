@@ -1,26 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web"><PropertyGroup><TargetFramework>netcoreapp2.0</TargetFramework><AssetTargetFallback>$(AssetTargetFallback);portable-net45+win8+wp8+wpa81;</AssetTargetFallback><PreserveCompilationContext>true</PreserveCompilationContext><AssemblyName>KuMaDaoCoreAbp.Web.Mvc</AssemblyName><OutputType>Exe</OutputType><PackageId>KuMaDaoCoreAbp.Web.Mvc</PackageId><UserSecretsId>AbpCompanyName-KuMaDaoCoreAbp-56C2EF2F-ABD6-4EFC-AAF2-2E81C34E8FB1</UserSecretsId><RootNamespace>KuMaDaoCoreAbp.Web</RootNamespace><TypeScriptToolsVersion>2.3</TypeScriptToolsVersion></PropertyGroup><PropertyGroup Condition=" '$(TargetFramework)' == 'net461' "><DefineConstants>FEATURE_SIGNALR</DefineConstants></PropertyGroup><ItemGroup>
-  <Compile Remove="App_Data\Logs\**" />
   <Compile Remove="Areas\Admin\Data\**" />
   <Compile Remove="Models\Account\**" />
   <Compile Remove="Models\Common\**" />
   <Compile Remove="Models\Roles\**" />
   <Compile Remove="Models\Users\**" />
   <Compile Remove="wwwroot\Angular\**" />
-  <Content Remove="App_Data\Logs\**" />
   <Content Remove="Areas\Admin\Data\**" />
   <Content Remove="Models\Account\**" />
   <Content Remove="Models\Common\**" />
   <Content Remove="Models\Roles\**" />
   <Content Remove="Models\Users\**" />
   <Content Remove="wwwroot\Angular\**" />
-  <EmbeddedResource Remove="App_Data\Logs\**" />
   <EmbeddedResource Remove="Areas\Admin\Data\**" />
   <EmbeddedResource Remove="Models\Account\**" />
   <EmbeddedResource Remove="Models\Common\**" />
   <EmbeddedResource Remove="Models\Roles\**" />
   <EmbeddedResource Remove="Models\Users\**" />
   <EmbeddedResource Remove="wwwroot\Angular\**" />
-  <None Remove="App_Data\Logs\**" />
   <None Remove="Areas\Admin\Data\**" />
   <None Remove="Models\Account\**" />
   <None Remove="Models\Common\**" />

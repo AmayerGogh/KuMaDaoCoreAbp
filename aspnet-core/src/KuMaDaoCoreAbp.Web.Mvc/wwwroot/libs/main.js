@@ -1,6 +1,4 @@
-﻿/**
- *  全部
- */
+﻿
 //设置导航条
 ; (function ($, win, undefined) {
     $.fn.xq_navbar = function (_option) {

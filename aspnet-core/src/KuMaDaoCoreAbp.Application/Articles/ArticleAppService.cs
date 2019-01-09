@@ -13,16 +13,10 @@ using System.Text;
 using System.Threading.Tasks;
 using KuMaDaoCoreAbp.Web;
 using KuMaDaoCoreAbp.Categories;
-using Amayer.Express;
-using KuMaDaoCoreAbp.Articles.Authorization;
-using Abp.Application.Services;
 
 namespace KuMaDaoCoreAbp.Articles
 {
-    /// <summary>
-    /// 
-    /// </summary>
-    [AbpAuthorize(ArticleAppPermissions.Article)]
+    //[AbpAuthorize(ArticleAppPermissions.Article)]
     public class ArticleAppService : KuMaDaoCoreAbpAppServiceBase, IArticleAppService
     {
         //private readonly IRepository<Article, long> _articleRepository;
@@ -32,13 +26,7 @@ namespace KuMaDaoCoreAbp.Articles
         private readonly IRepository<ArticleDetail, long> _articleDetailRepository;
         private readonly IRepository<ArticleLabel, long> _articleLabelRepository;
         private IEventBus EventBus { get; set; }
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="articleRepository"></param>
-        /// <param name="articleDetailRepository"></param>
-        /// <param name="categoryRepository"></param>
-        /// <param name="articleManage"></param>
+
         public ArticleAppService(IArticleRepository articleRepository,
                                  IRepository<ArticleDetail, long> articleDetailRepository,
                                 // IRepository<ArticleLabel, long> articleLabelRepository,
@@ -64,9 +52,9 @@ namespace KuMaDaoCoreAbp.Articles
         public async Task<BsTableResponseModel<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param)
         {
 
-            var predicate =  _articleManage.GetListAsync(param);
-            var query = await _articleRepositoryAsNoTrack.WhereParamAsync(predicate);
-            var count = query.Count();
+            var predicate = await _articleManage.GetListAsync(param);
+            var query = _articleRepositoryAsNoTrack.Where(predicate);
+            var count = await query.CountAsync();
 
             var list = query
                .OrderByDescending(m => m.Id)
@@ -250,9 +238,6 @@ namespace KuMaDaoCoreAbp.Articles
         }
         #endregion
 
-        /// <summary>
-        /// 
-        /// </summary>
         public void TestEvent()
         {
             EventBus.Trigger(new ArticleEventData { Article = new Article { } });
