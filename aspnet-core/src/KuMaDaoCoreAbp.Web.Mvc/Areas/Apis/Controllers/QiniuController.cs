@@ -14,7 +14,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
 {
     [Area("Apis")]
-    [Route("apis/[controller]/[action]/{id?}")]
+    [Route("apis/[controller]")]
 
     [AbpAllowAnonymous] //禁用授权
     [DontWrapResult] //不要响应结果的包装
@@ -26,10 +26,10 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
         [Obsolete]
         public IActionResult Index()
         {
-            return Json(new { test="1"} );
+            return Json(new { test = "1" });
         }
         [Obsolete]
-       
+
         public IActionResult GetToken(string bucket)
         {
             return Json(new { test = "1" });
@@ -38,14 +38,14 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
         public IActionResult UploadBase64([FromBody]UoloadModel model)
         {
             try
-            {             
+            {
                 model.msg = model.msg.Replace("data:image/png;base64,", string.Empty);
                 var array = Convert.FromBase64String(model.msg);
                 Upload upload = new Upload();
                 string fileName = string.Empty;
-                var res =  upload.UploadData(array,ref fileName);
+                var res = upload.UploadData(array, ref fileName);
                 ApiBaseCommon result = new ApiBaseCommon();
-                if (res.Code==200)
+                if (res.Code == 200)
                 {
                     result.Code = ApiCode.正确;
                     result.Data = new string[] { fileName };
@@ -58,7 +58,7 @@ namespace KuMaDaoCoreAbp.Web.Mvc.Areas.Apis.Controllers
             }
             catch (Exception ex)
             {
-                return Json(new ApiBaseCommon { Code = ApiCode.未知异常,ErrMsg=ex.ToString() });
+                return Json(new ApiBaseCommon { Code = ApiCode.未知异常, ErrMsg = ex.ToString() });
             }
             //return Json(new ApiBaseCommon { Code = ApiCode.正确 });
         }
