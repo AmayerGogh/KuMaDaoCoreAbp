@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.27130.2010
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28407.52
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}"
 EndProject
@@ -21,13 +21,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KuMaDaoCoreAbp.Web.Core", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KuMaDaoCoreAbp.Web.Mvc", "src\KuMaDaoCoreAbp.Web.Mvc\KuMaDaoCoreAbp.Web.Mvc.csproj", "{A2213374-BB48-48FD-BBD4-81E6A961D866}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tools", "Tools", "{81A15C2B-5962-402F-B671-00BE3AA95917}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KuMaDaoCoreAbp.EntityFrameworkCore", "src\KuMaDaoCoreAbp.EntityFrameworkCore\KuMaDaoCoreAbp.EntityFrameworkCore.csproj", "{7D24162D-1598-487F-941D-C7BB249A1037}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleTest", "test\ConsoleTest\ConsoleTest.csproj", "{4E1B91AB-1233-4A14-9ECC-3619E1675EAA}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Amayer.Common", "src\Extension\Amayer.Common.csproj", "{92F28D9A-6B1E-4725-BDE7-B041DF1905E7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "extension", "extension", "{C2B6C710-8514-415E-9DA4-170397A7B6A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abp.Dapper", "extension\Abp.Dapper\Abp.Dapper.csproj", "{1687A127-0C72-4C69-932B-FF99CA744408}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +119,14 @@ Global
 		{92F28D9A-6B1E-4725-BDE7-B041DF1905E7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{92F28D9A-6B1E-4725-BDE7-B041DF1905E7}.Release|x64.ActiveCfg = Release|Any CPU
 		{92F28D9A-6B1E-4725-BDE7-B041DF1905E7}.Release|x64.Build.0 = Release|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Debug|x64.Build.0 = Debug|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Release|x64.ActiveCfg = Release|Any CPU
+		{1687A127-0C72-4C69-932B-FF99CA744408}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -132,6 +142,7 @@ Global
 		{7D24162D-1598-487F-941D-C7BB249A1037} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
 		{4E1B91AB-1233-4A14-9ECC-3619E1675EAA} = {F10AA149-2626-486E-85BB-9CD5365F3016}
 		{92F28D9A-6B1E-4725-BDE7-B041DF1905E7} = {AFAA0841-BD93-466F-B8F4-FB4EEC86F1FC}
+		{1687A127-0C72-4C69-932B-FF99CA744408} = {C2B6C710-8514-415E-9DA4-170397A7B6A1}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {23D2DBE5-5A5D-4A6F-B758-9E7A82CE5226}

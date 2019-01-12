@@ -1,5 +1,6 @@
 ﻿using Abp.Domain.Repositories;
 using Abp.Domain.Services;
+using Abp.Specifications;
 using KuMaDaoCoreAbp.Web;
 using System;
 using System.Collections.Generic;
@@ -36,5 +37,38 @@ namespace KuMaDaoCoreAbp.Articles
             }
            return await Amayer.Express.Express.BulidExpressionAsync(expressionList);
         }
+        /// <summary>
+        /// 规约
+        /// </summary>
+        /// <param name="specification"></param>
+        /// <returns></returns>
+        //用例
+        //GetList(new IsDeleteSpecification().And(new CategorySelectSpecification(1)));
+        //public int GetList(ISpecification<Article> specification)
+        //{
+        //    //specification.
+        //    _articleRepository.GetAllList(specification.ToExpression());
+        //    return 0;            
+        //}
+    }
+    public class IsDeleteSpecification: Specification<Article>
+    {
+        public override Expression<Func<Article, bool>> ToExpression()
+        {
+            return c => c.IsDeleted == true;
+        }       
+    }
+    public class CategorySelectSpecification : Specification<Article>
+    {
+        public override Expression<Func<Article, bool>> ToExpression()
+        {
+            return c => c.CategoryId == _categoryId;
+        }
+        long _categoryId { get;  }
+        public CategorySelectSpecification(long categoryId)
+        {
+            this._categoryId = categoryId;
+        }
+
     }
 }

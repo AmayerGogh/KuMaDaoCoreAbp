@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using KuMaDaoCoreAbp.Web;
 using KuMaDaoCoreAbp.Categories;
+using Abp.Dapper.Repositories;
 
 namespace KuMaDaoCoreAbp.Articles
 {
@@ -25,6 +26,7 @@ namespace KuMaDaoCoreAbp.Articles
         private readonly IRepository<Categories.Category,long> _categoryRespository;
         private readonly IRepository<ArticleDetail, long> _articleDetailRepository;
         private readonly IRepository<ArticleLabel, long> _articleLabelRepository;
+        
         private IEventBus EventBus { get; set; }
 
         public ArticleAppService(IArticleRepository articleRepository,
