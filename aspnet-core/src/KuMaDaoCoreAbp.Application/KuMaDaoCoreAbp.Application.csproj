@@ -17,6 +17,7 @@
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\extension\Abp.Dapper\Abp.Dapper.csproj" />
     <ProjectReference Include="..\Extension\Amayer.Common.csproj" />
     <ProjectReference Include="..\KuMaDaoCoreAbp.Core\KuMaDaoCoreAbp.Core.csproj" />
   </ItemGroup>
