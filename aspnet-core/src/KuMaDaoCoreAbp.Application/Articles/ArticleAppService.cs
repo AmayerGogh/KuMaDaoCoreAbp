@@ -50,8 +50,9 @@ namespace KuMaDaoCoreAbp.Articles
         /// 根据查询条件获取文章分页列表
         /// </summary>
         /// 
+        [Microsoft.AspNetCore.Mvc.HttpPost]
         [AbpAllowAnonymous]
-        public async Task<BsTableResponseModel<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param)
+        public async Task<BsTableResponseModel<ArticleListDto>> PagedArticlesAsync(BsTableRequestModel param)
         {
 
             var predicate = await _articleManage.GetListAsync(param);

@@ -18,7 +18,7 @@ namespace KuMaDaoCoreAbp.Articles
         /// <summary>
         /// 根据查询条件获取文章分页列表
         /// </summary>        
-        Task<BsTableResponseModel<ArticleListDto>> GetPagedArticlesAsync(BsTableRequestModel param);
+        Task<BsTableResponseModel<ArticleListDto>> PagedArticlesAsync(BsTableRequestModel param);
         /// <summary>
         /// 通过Id获取文章信息进行编辑或修改 
         /// </summary>
