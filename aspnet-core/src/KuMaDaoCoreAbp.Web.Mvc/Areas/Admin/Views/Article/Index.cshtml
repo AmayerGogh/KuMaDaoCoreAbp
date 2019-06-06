@@ -213,6 +213,7 @@
                     params.searches = {
                         'categoryId': $("#categoryId").val()
                     }
+                    params.search = $("#search").val()
                     return params;
                 },   
                 responseHandler: function (res) {
@@ -301,7 +302,7 @@
                 <div class="toolbar_item">
                     <label class="control-label" style="width:53px;">关键字</label>    
                     <div class="input-group" style="width:230px;">
-                        <input type="text" placeholder="请输入关键词" class="form-control">
+                        <input type="text" placeholder="请输入关键词" class="form-control" id="search">
                         <span class="input-group-btn">
                             <button type="button" class="btn btn-primary" id="refresh"> 搜索</button>
                         </span>

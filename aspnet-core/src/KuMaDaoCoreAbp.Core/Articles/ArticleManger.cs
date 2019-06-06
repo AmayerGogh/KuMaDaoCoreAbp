@@ -33,7 +33,19 @@ namespace KuMaDaoCoreAbp.Articles
             var expressionList = new List<Expression<Func<Article, bool>>>();
             if (!string.IsNullOrWhiteSpace(param.search))
             {
-                expressionList.Add(m => m.Title == param.search);
+                expressionList.Add(m => m.Title.Contains(param.search));
+            }
+            if (param.searches!=null)
+            {
+                if (param.searches.ContainsKey("categoryId"))
+                {
+                    int cate =-1;
+                    Int32.TryParse(param.searches["categoryId"], out cate);
+                    if (cate!=-1&&cate!=0)
+                    {
+                        expressionList.Add(m => m.CategoryId ==cate );
+                    }                    
+                }
             }
            return await Amayer.Express.Express.BulidExpressionAsync(expressionList);
         }
