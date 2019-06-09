@@ -31,6 +31,9 @@ namespace KuMaDaoCoreAbp.Articles.Dto
     {
         public virtual long Id { get; set; }
         public virtual bool IsDefault { get; set; }
+        public virtual long ArticleId { get; set; }
+
+
     }
 
 

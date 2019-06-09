@@ -63,7 +63,8 @@ namespace KuMaDaoCoreAbp.Web.Host.Startup
                     Type = "apiKey"
                 });
                 //options.IncludeXmlComments("C:/Code/KuMaDaoCoreAbp/src/KuMaDaoCoreAbp.Web.Host/bin/Debug/netcoreapp2.0/KuMaDaoCoreAbp.Application.xml");
-                options.IncludeXmlComments(@"D:\Amayer\KuMaDaoCoreAbp\src\KuMaDaoCoreAbp.Web.Host\bin\Debug\netcoreapp2.0\KuMaDaoCoreAbp.Application.xml");
+               
+                options.IncludeXmlComments(Environment.CurrentDirectory + @"\bin\Debug\netcoreapp2.2\KuMaDaoCoreAbp.Application.xml");
                 // Assign scope requirements to operations based on AuthorizeAttribute
                 //options.OperationFilter<SecurityRequirementsOperationFilter>();
             });

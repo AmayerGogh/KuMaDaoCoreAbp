@@ -70,14 +70,14 @@ namespace KuMaDaoCoreAbp.Articles
             var cateList = _categoryRespository.GetAllList(m => m.Type ==(int)EnumCategoryType.文章);
 
             var ids = listDtos.Select(m => m.Id).ToList();
-            var articleDetailList =_articleDetailRepository.GetAllList(m => ids.Contains(m.ArticleId));
+            var articleDetailList =_articleDetailRepository.GetAllList(m => ids.Contains(m.ArticleId)).Select(m=> new ArticleListDto_Detail {
+                Id =m.Id,
+                IsDefault =m.IsDefault,                
+            });
             foreach (var item in listDtos)
             {
                 item.CategoryName = cateList.FirstOrDefault(m => m.Id == item.CategoryId)?.Name;
-                item.ArticleDetail = articleDetailList.Where(m => m.ArticleId == item.Id).Select(m=> new ArticleListDto_Detail {
-                    Id =m.Id,
-                    IsDefault=m.IsDefault
-                }).ToList();
+                item.ArticleDetail = articleDetailList.Where(m => m.ArticleId == item.Id).ToList();
             }
             return new BsTableResponseModel<ArticleListDto>()
             {
