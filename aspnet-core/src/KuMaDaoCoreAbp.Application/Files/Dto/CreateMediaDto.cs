@@ -5,8 +5,10 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Files.Dto
 {
+    /// <summary></summary>
     public class CreateMediaDto
     {
-        public  IFormFile File{get;set;}
+        /// <summary></summary>
+        public IFormFile File{get;set;}
     }
 }

@@ -1,7 +1,9 @@
 ﻿namespace KuMaDaoCoreAbp.SignalR
 {
+    /// <summary></summary>
     public static class SignalRFeature
     {
+        /// <summary></summary>
         public static bool IsAvailable
         {
             get

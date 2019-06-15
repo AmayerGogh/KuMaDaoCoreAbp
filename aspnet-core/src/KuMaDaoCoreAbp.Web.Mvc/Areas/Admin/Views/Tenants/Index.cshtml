@@ -5,6 +5,7 @@
 @model Abp.Application.Services.Dto.PagedResultDto<KuMaDaoCoreAbp.MultiTenancy.Dto.TenantDto>
 @{
     ViewBag.CurrentPageName = PageNames.Tenants; //The menu item will be active for this page.
+    Layout = "~/Areas/Admin/Views/Shared/_Layout_Inner.cshtml";
 }
 @section scripts
 {

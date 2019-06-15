@@ -16,19 +16,20 @@ using KuMaDaoCoreAbp.Roles.Dto;
 
 namespace KuMaDaoCoreAbp.Roles
 {
+    /// <summary></summary>
     [AbpAuthorize(PermissionNames.Pages_Roles)]
     public class RoleAppService : AsyncCrudAppService<Role, RoleDto, int, PagedResultRequestDto, CreateRoleDto, RoleDto>, IRoleAppService
     {
         private readonly RoleManager _roleManager;
         private readonly UserManager _userManager;
-
+        /// <summary></summary>
         public RoleAppService(IRepository<Role> repository, RoleManager roleManager, UserManager userManager)
             : base(repository)
         {
             _roleManager = roleManager;
             _userManager = userManager;
         }
-
+        /// <summary></summary>
         public override async Task<RoleDto> Create(CreateRoleDto input)
         {
             CheckCreatePermission();
@@ -47,7 +48,7 @@ namespace KuMaDaoCoreAbp.Roles
 
             return MapToEntityDto(role);
         }
-
+        /// <summary></summary>
         public override async Task<RoleDto> Update(RoleDto input)
         {
             CheckUpdatePermission();
@@ -67,7 +68,7 @@ namespace KuMaDaoCoreAbp.Roles
 
             return MapToEntityDto(role);
         }
-
+        /// <summary></summary>
         public override async Task Delete(EntityDto<int> input)
         {
             CheckDeletePermission();
@@ -87,7 +88,7 @@ namespace KuMaDaoCoreAbp.Roles
 
             CheckErrors(await _roleManager.DeleteAsync(role));
         }
-
+        /// <summary></summary>
         public Task<ListResultDto<PermissionDto>> GetAllPermissions()
         {
             var permissions = PermissionManager.GetAllPermissions();
@@ -96,22 +97,22 @@ namespace KuMaDaoCoreAbp.Roles
                 ObjectMapper.Map<List<PermissionDto>>(permissions)
             ));
         }
-
+        /// <summary></summary>
         protected override IQueryable<Role> CreateFilteredQuery(PagedResultRequestDto input)
         {
             return Repository.GetAllIncluding(x => x.Permissions);
         }
-
+        /// <summary></summary>
         protected override async Task<Role> GetEntityByIdAsync(int id)
         {
             return await Repository.GetAllIncluding(x => x.Permissions).FirstOrDefaultAsync(x => x.Id == id);
         }
-
+        /// <summary></summary>
         protected override IQueryable<Role> ApplySorting(IQueryable<Role> query, PagedResultRequestDto input)
         {
             return query.OrderBy(r => r.DisplayName);
         }
-
+        /// <summary></summary>
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);

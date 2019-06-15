@@ -58,6 +58,7 @@ namespace KuMaDaoCoreAbp.Categories
         /// <param name="input"></param>
         /// <returns></returns>
         Task<List<CategorySelectListItem>> GetCategoryByType2KVAsync(EnumCategoryType input);
+        /// <summary></summary>
         Task<CategoryRecursion> GetCategoryRecursionAsync(int type);
     }
 }

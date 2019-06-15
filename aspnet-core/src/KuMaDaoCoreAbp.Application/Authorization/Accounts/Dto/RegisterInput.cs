@@ -7,33 +7,35 @@ using KuMaDaoCoreAbp.Validation;
 
 namespace KuMaDaoCoreAbp.Authorization.Accounts.Dto
 {
+    /// <summary></summary>
     public class RegisterInput : IValidatableObject
     {
+        /// <summary></summary>
         [Required]
         [StringLength(AbpUserBase.MaxNameLength)]
         public string Name { get; set; }
-
+        /// <summary></summary>
         [Required]
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
-
+        /// <summary></summary>
         [Required]
         [StringLength(AbpUserBase.MaxUserNameLength)]
         public string UserName { get; set; }
-
+        /// <summary></summary>
         [Required]
         [EmailAddress]
         [StringLength(AbpUserBase.MaxEmailAddressLength)]
         public string EmailAddress { get; set; }
-
+        /// <summary></summary>
         [Required]
         [StringLength(AbpUserBase.MaxPlainPasswordLength)]
         [DisableAuditing]
         public string Password { get; set; }
-
+        /// <summary></summary>
         [DisableAuditing]
         public string CaptchaResponse { get; set; }
-
+        /// <summary></summary>
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
             if (!UserName.IsNullOrEmpty())

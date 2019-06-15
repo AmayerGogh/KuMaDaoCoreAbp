@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace KuMaDaoCoreAbp.Common
 {
+    /// <summary>
+    /// 
+    /// </summary>
    public  class CommonAppService : KuMaDaoCoreAbpAppServiceBase, ICommonAppService
     {
 

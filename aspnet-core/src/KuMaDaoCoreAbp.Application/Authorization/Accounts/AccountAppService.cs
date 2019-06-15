@@ -6,16 +6,17 @@ using KuMaDaoCoreAbp.Authorization.Users;
 
 namespace KuMaDaoCoreAbp.Authorization.Accounts
 {
+    /// <summary></summary>
     public class AccountAppService : KuMaDaoCoreAbpAppServiceBase, IAccountAppService
     {
         private readonly UserRegistrationManager _userRegistrationManager;
-
+        /// <summary></summary>
         public AccountAppService(
             UserRegistrationManager userRegistrationManager)
         {
             _userRegistrationManager = userRegistrationManager;
         }
-
+        /// <summary></summary>
         public async Task<IsTenantAvailableOutput> IsTenantAvailable(IsTenantAvailableInput input)
         {
             var tenant = await TenantManager.FindByTenancyNameAsync(input.TenancyName);
@@ -31,7 +32,7 @@ namespace KuMaDaoCoreAbp.Authorization.Accounts
 
             return new IsTenantAvailableOutput(TenantAvailabilityState.Available, tenant.Id);
         }
-
+        /// <summary></summary>
         public async Task<RegisterOutput> Register(RegisterInput input)
         {
             var user = await _userRegistrationManager.RegisterAsync(

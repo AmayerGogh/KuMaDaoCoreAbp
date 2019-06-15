@@ -30,10 +30,7 @@ namespace Amayer.Modules.Ueditor
 
     public static class UEditorServiceExtension
     {
-        public static UEditorActionCollection AddUEditorService(
-            this IServiceCollection services,
-            string configFile = "config.json",
-            bool isCache = false)
+        public static UEditorActionCollection AddUEditorService(this IServiceCollection services,string configFile = "config.json",bool isCache = false)
         {
             Config.ConfigFile = configFile;
             Config.noCache = !isCache;

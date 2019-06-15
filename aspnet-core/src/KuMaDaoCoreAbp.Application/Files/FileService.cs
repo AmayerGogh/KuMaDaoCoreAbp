@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 
 namespace KuMaDaoCoreAbp.Files
 {
+    /// <summary></summary>
     class FileService
     {
 
 
+        /// <summary></summary>
 
-
-        public  async void Create([FromForm]CreateMediaDto input)
+        public async void Create([FromForm]CreateMediaDto input)
         {
             using (var fileStream = new FileStream($"{"dir"}\\{"filename"}.{"ext"}", FileMode.Create))
             {

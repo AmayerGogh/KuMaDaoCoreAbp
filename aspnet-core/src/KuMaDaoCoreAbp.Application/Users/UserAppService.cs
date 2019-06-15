@@ -18,6 +18,7 @@ using Abp.Localization;
 
 namespace KuMaDaoCoreAbp.Users
 {
+    /// <summary></summary>
     [AbpAuthorize(PermissionNames.Pages_Users)]
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedResultRequestDto, CreateUserDto, UserDto>, IUserAppService
     {
@@ -25,7 +26,7 @@ namespace KuMaDaoCoreAbp.Users
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
         private readonly IPasswordHasher<User> _passwordHasher;
-
+        /// <summary></summary>
         public UserAppService(
             IRepository<User, long> repository,
             UserManager userManager,
@@ -39,7 +40,7 @@ namespace KuMaDaoCoreAbp.Users
             _roleRepository = roleRepository;
             _passwordHasher = passwordHasher;
         }
-
+        /// <summary></summary>
         public override async Task<UserDto> Create(CreateUserDto input)
         {
             CheckCreatePermission();
@@ -61,7 +62,7 @@ namespace KuMaDaoCoreAbp.Users
 
             return MapToEntityDto(user);
         }
-
+        /// <summary></summary>
         public override async Task<UserDto> Update(UserDto input)
         {
             CheckUpdatePermission();
@@ -79,32 +80,32 @@ namespace KuMaDaoCoreAbp.Users
 
             return await Get(input);
         }
-
+        /// <summary></summary>
         public override async Task Delete(EntityDto<long> input)
         {
             var user = await _userManager.GetUserByIdAsync(input.Id);
             await _userManager.DeleteAsync(user);
         }
-
+        /// <summary></summary>
         public async Task<ListResultDto<RoleDto>> GetRoles()
         {
             var roles = await _roleRepository.GetAllListAsync();
             return new ListResultDto<RoleDto>(ObjectMapper.Map<List<RoleDto>>(roles));
         }
-
+        /// <summary></summary>
         protected override User MapToEntity(CreateUserDto createInput)
         {
             var user = ObjectMapper.Map<User>(createInput);
             user.SetNormalizedNames();
             return user;
         }
-
+        /// <summary></summary>
         protected override void MapToEntity(UserDto input, User user)
         {
             ObjectMapper.Map(input, user);
             user.SetNormalizedNames();
         }
-
+        /// <summary></summary>
         protected override UserDto MapToEntityDto(User user)
         {
             var roles = _roleManager.Roles.Where(r => user.Roles.Any(ur => ur.RoleId == r.Id)).Select(r => r.NormalizedName);
@@ -112,26 +113,27 @@ namespace KuMaDaoCoreAbp.Users
             userDto.RoleNames = roles.ToArray();
             return userDto;
         }
-
+        /// <summary></summary>
         protected override IQueryable<User> CreateFilteredQuery(PagedResultRequestDto input)
         {
             return Repository.GetAllIncluding(x => x.Roles);
         }
-
+        /// <summary></summary>
         protected override async Task<User> GetEntityByIdAsync(long id)
         {
             return await Repository.GetAllIncluding(x => x.Roles).FirstOrDefaultAsync(x => x.Id == id);
         }
-
+        /// <summary></summary>
         protected override IQueryable<User> ApplySorting(IQueryable<User> query, PagedResultRequestDto input)
         {
             return query.OrderBy(r => r.UserName);
         }
-
+        /// <summary></summary>
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
         }
+        /// <summary></summary>
         public async Task ChangeLanguage(ChangeUserLanguageDto input)
         {
             await SettingManager.ChangeSettingForUserAsync(

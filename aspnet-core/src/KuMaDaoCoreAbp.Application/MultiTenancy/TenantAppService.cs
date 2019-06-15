@@ -17,6 +17,7 @@ using KuMaDaoCoreAbp.MultiTenancy.Dto;
 
 namespace KuMaDaoCoreAbp.MultiTenancy
 {
+    /// <summary></summary>
     [AbpAuthorize(PermissionNames.Pages_Tenants)]
     public class TenantAppService : AsyncCrudAppService<Tenant, TenantDto, int, PagedResultRequestDto, CreateTenantDto, TenantDto>, ITenantAppService
     {
@@ -26,7 +27,7 @@ namespace KuMaDaoCoreAbp.MultiTenancy
         private readonly RoleManager _roleManager;
         private readonly IAbpZeroDbMigrator _abpZeroDbMigrator;
         private readonly IPasswordHasher<User> _passwordHasher;
-
+        /// <summary></summary>
         public TenantAppService(
             IRepository<Tenant, int> repository, 
             TenantManager tenantManager, 
@@ -44,7 +45,7 @@ namespace KuMaDaoCoreAbp.MultiTenancy
             _abpZeroDbMigrator = abpZeroDbMigrator;
             _passwordHasher = passwordHasher;
         }
-        
+        /// <summary></summary>
         public override async Task<TenantDto> Create(CreateTenantDto input)
         {
             CheckCreatePermission();
@@ -92,7 +93,7 @@ namespace KuMaDaoCoreAbp.MultiTenancy
 
             return MapToEntityDto(tenant);
         }
-
+        /// <summary></summary>
         protected override void MapToEntity(TenantDto updateInput, Tenant entity)
         {
             // Manually mapped since TenantDto contains non-editable properties too.
@@ -100,7 +101,7 @@ namespace KuMaDaoCoreAbp.MultiTenancy
             entity.TenancyName = updateInput.TenancyName;
             entity.IsActive = updateInput.IsActive;
         }
-
+        /// <summary></summary>
         public override async Task Delete(EntityDto<int> input)
         {
             CheckDeletePermission();
@@ -108,7 +109,7 @@ namespace KuMaDaoCoreAbp.MultiTenancy
             var tenant = await _tenantManager.GetByIdAsync(input.Id);
             await _tenantManager.DeleteAsync(tenant);
         }
-
+        /// <summary></summary>
         private void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);

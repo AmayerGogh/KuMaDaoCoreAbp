@@ -7,11 +7,17 @@ using KuMaDaoCoreAbp.Categories.Mapper;
 
 namespace KuMaDaoCoreAbp
 {
+    /// <summary>
+    /// 
+    /// </summary>
     [DependsOn(
         typeof(KuMaDaoCoreAbpCoreModule), 
         typeof(AbpAutoMapperModule))]
     public class KuMaDaoCoreAbpApplicationModule : AbpModule
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public override void PreInitialize()
         {
             Configuration.Authorization.Providers.Add<KuMaDaoCoreAbpAuthorizationProvider>();
@@ -20,7 +26,9 @@ namespace KuMaDaoCoreAbp
             Configuration.Modules.AbpAutoMapper().Configurators.Add(ArticleDtoMapper.CreateMappings);
             Configuration.Modules.AbpAutoMapper().Configurators.Add(CustomerCategoryMapper.CreateMappings);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public override void Initialize()
         {
             var thisAssembly = typeof(KuMaDaoCoreAbpApplicationModule).GetAssembly();

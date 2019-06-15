@@ -195,8 +195,9 @@
                 url: '/api/services/app/Article/PagedArticlesAsync',
                 toolbar: '#toolbar',
                 method: 'post',
-                striped: true,
-                pagination: true,
+                striped: true,//行间
+                cache:true,
+                pagination: true,//分页
                 uniqueId: "id",                    //每一行的唯一标识，一般为主键列
                 singleSelect: true,
                 pageNumber: 1,                       //初始化加载第一页，默认第一页
@@ -254,7 +255,7 @@
         <h2>文章管理</h2>
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">仪表板</a>
+                <a href="index.html">主页</a>
             </li>
             <li>
                 <a>Miscellaneous</a>
@@ -280,7 +281,7 @@
                 
 
                 <div class="toolbar_item">
-                    <label class="control-label" style="width:53px;">分类1</label>
+                    <label class="control-label" style="width:53px;">分类</label>
                     <select class="form-control drop_bsTable" name="" id="categoryId">
                         <option value="-1">请选择</option>
                         @foreach (var item in Model.ArticleTypeList)

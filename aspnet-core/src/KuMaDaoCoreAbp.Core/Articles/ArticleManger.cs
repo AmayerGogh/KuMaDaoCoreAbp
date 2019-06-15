@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
+using Amayer.Express;
 
 namespace KuMaDaoCoreAbp.Articles
 {
@@ -28,9 +29,10 @@ namespace KuMaDaoCoreAbp.Articles
         //领域代码
 
 
-        public async Task<Expression<Func<Article,bool>>> GetListAsync(BsTableRequestModel param)
+        public List<Expression<Func<Article,bool>>> GetListPredicate(BsTableRequestModel param)
         {
-            var expressionList = new List<Expression<Func<Article, bool>>>();
+            var expressionList = Express.GetExpressionList<Article>();
+            //var expressionList = new List<Expression<Func<Article, bool>>>();
             if (!string.IsNullOrWhiteSpace(param.search))
             {
                 expressionList.Add(m => m.Title.Contains(param.search));
@@ -41,13 +43,13 @@ namespace KuMaDaoCoreAbp.Articles
                 {
                     int cate =-1;
                     Int32.TryParse(param.searches["categoryId"], out cate);
-                    if (cate!=-1&&cate!=0)
+                    if (cate > 0)
                     {
                         expressionList.Add(m => m.CategoryId ==cate );
                     }                    
                 }
             }
-           return await Amayer.Express.Express.BulidExpressionAsync(expressionList);
+            return expressionList;
         }
         /// <summary>
         /// 规约

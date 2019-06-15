@@ -12,6 +12,6 @@ namespace KuMaDaoCoreAbp.Articles
     {
         void TestManager(Article article);
 
-        Task<Expression<Func<Article, bool>>> GetListAsync(BsTableRequestModel param);
+        List<Expression<Func<Article, bool>>> GetListPredicate(BsTableRequestModel param);
     }
 }

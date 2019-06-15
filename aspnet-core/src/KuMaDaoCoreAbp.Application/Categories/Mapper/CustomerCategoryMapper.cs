@@ -24,6 +24,7 @@ namespace KuMaDaoCoreAbp.Categories.Mapper
 
 
     }
+    /// <summary></summary>
     class CategorySelectListItemTypeConverter : ITypeConverter<Category, CategorySelectListItem>
     {
         public CategorySelectListItem Convert(Category source, CategorySelectListItem destination, ResolutionContext context)

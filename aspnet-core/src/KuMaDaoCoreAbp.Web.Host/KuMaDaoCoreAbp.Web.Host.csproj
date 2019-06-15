@@ -14,7 +14,7 @@
     <DefineConstants>FEATURE_SIGNALR</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'"> 
-    <DocumentationFile /> 
+    <DocumentationFile></DocumentationFile> 
   </PropertyGroup>
   <ItemGroup>
     <None Include="app.config" />
@@ -52,8 +52,8 @@
     <PackageReference Include="Microsoft.Owin.Cors" Version="3.1.0" />
   </ItemGroup>
   <ItemGroup>
-    <DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.2.0" />
+    <!--<DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.2.0" />
     <DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.2.0" />
-    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />-->
   </ItemGroup>
 </Project>

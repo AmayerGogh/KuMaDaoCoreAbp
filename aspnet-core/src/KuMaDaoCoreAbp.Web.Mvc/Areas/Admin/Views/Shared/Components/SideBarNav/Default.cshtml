@@ -12,7 +12,7 @@
 
         if (UrlChecker.IsRooted(url))
         {
-            return url;
+            return "admin/";
         }
 
         return ApplicationPath + "admin/" + url;
@@ -22,6 +22,7 @@
     @foreach (var item in Model.MainMenu.Items)
     {
         var active = item.Items.FirstOrDefault(m => m.Name == Model.ActiveMenuItemName);
+
         <li class="@(active!=null? "active" : "")">
             @if (item.Items.IsNullOrEmpty())
             {

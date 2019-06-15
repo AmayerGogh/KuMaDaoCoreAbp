@@ -37,6 +37,9 @@ namespace KuMaDaoCoreAbp.Articles.Mapper
 
             configuration.CreateMap<ArticleEditDto, Article>();
             configuration.CreateMap<Article, ArticleListDto>()
+                //.BeforeMap((a, b) => { a.CategoryId =a.CategoryId+1})   
+                //.AfterMap((src, dest) => dest.Name = HttpContext.Current.Identity.Name);
+                //.ForMember(dest => dest.Age, opt => opt.Condition(src => src.Age > 0 && src.Age < 149)); 条件映射
                 .ForMember(artd => artd.CategoryName, o => o.Ignore());
         }
 
@@ -46,7 +49,7 @@ namespace KuMaDaoCoreAbp.Articles.Mapper
 
         /// <summary>
         ///    Configuration.Modules.AbpAutoMapper().Configurators.Add(ArticleDtoMapper.CreateMappings);
-        ///注入位置    <see cref = "AbpProjectTemplateApplicationModule" /> 
+        ///注入位置    see cref = AbpProjectTemplateApplicationModule 
         /// <param name="configuration"></param>
         /// </summary>       
         private static void CreateMappingsInternal(IMapperConfigurationExpression configuration)

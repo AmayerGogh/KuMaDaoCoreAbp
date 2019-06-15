@@ -10,6 +10,10 @@ namespace KuMaDaoCoreAbp.Common
     /// </summary>
     public interface  ICommonAppService: IApplicationService
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
         string GetUeditor();
     }
 }

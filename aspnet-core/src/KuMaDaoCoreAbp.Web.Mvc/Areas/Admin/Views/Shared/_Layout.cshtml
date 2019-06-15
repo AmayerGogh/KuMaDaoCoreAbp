@@ -498,8 +498,19 @@
         <script src="~/view-resources/Views/_Bundles/shared-layout.min.js" asp-append-version="true"></script>
     </environment>
     <script>
-    //Localizing momentjs
-    moment.locale('@CultureInfo.CurrentUICulture.Name');
+       //Localizing momentjs
+        moment.locale('@CultureInfo.CurrentUICulture.Name');
+      
+        $(function () {
+            $("#side-menu a").click(function () {                
+                var url = $(this).data("url");                
+                if (url.length<=0) {
+                    return;
+                }
+                $("#frame").attr("src",url);
+                console.log(url);
+            })
+        });
     </script>
     <!-- Dynamic scripts of ABP system (They are created on runtime and can not be bundled) -->
     @*<script src="~/AbpServiceProxies/GetAll?v=@(AppTimes.StartupTime.Ticks)" type="text/javascript"></script>

@@ -28,8 +28,12 @@ namespace KuMaDaoCoreAbp.Articles
         /// 通过指定id获取文章ListDto信息
         /// </summary>
         Task<ArticleListDto> GetArticleByIdAsync(EntityDto<long> input);
-
-
+        /// <summary>
+        /// 新
+        /// </summary>
+        /// <param name="input"></param>
+        /// <returns></returns>
+        Task<ArticleForEditDto> GetArticleForEditAsync2(NullableIdDto<long> input);
         // object PostTest(object input);
 
 

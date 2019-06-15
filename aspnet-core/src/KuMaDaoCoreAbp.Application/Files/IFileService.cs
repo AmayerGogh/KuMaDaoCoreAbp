@@ -4,7 +4,8 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Files
 {
-   public  interface IFileService
+    /// <summary></summary>
+    public interface IFileService
     {
     }
 }

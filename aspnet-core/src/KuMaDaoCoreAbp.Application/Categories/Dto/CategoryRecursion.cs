@@ -4,17 +4,14 @@ using System.Text;
 
 namespace KuMaDaoCoreAbp.Categories.Dto
 {
-   public  class CategoryRecursion:Category
+    /// <summary>
+    /// category 树的形式
+    /// </summary>
+    public class CategoryRecursion : Category
     {
-        public long Id { get; set; }
-        public string Name { get; set; }
-        public long ParentId { get; set; }
-        public int Status { get; set; }
-        public int Sort { get; set; }
-        public string Mark { get; set; }
-        public string Icon { get; set; }
-
-        public int Type { get; set; }
+        /// <summary></summary>
+        public Category Category { get; set; }
+        /// <summary></summary>
         public List<Category> Children { get; set; }
     }
 }

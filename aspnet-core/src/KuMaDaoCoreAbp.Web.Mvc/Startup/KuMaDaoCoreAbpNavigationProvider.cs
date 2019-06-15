@@ -16,15 +16,8 @@ namespace KuMaDaoCoreAbp.Web.Startup
                 .AddItem(Demonav())
                 .AddItem(Wechat())
                 .AddItem(Alimm())
-                .AddItem(Setting())
-                 .AddItem(Demonav())
-                .AddItem(Wechat())
-                .AddItem(Alimm())
-                .AddItem(Setting())
-                 .AddItem(Demonav())
-                .AddItem(Wechat())
-                .AddItem(Alimm())
                 .AddItem(Setting());
+
         }
 
         private static ILocalizableString L(string name)
@@ -39,9 +32,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
                          .AddItem(new MenuItemDefinition(PageNames.Roles, L("Roles"), url: "Roles", requiredPermissionName: PermissionNames.Pages_Roles))
                          .AddItem(new MenuItemDefinition(PageNames.About, L("About"), url: "About"))
                          .AddItem(new MenuItemDefinition("常用数据", new FixedLocalizableString("ASP.NET Boilerplate"))
-                          .AddItem(new MenuItemDefinition("json数据", new FixedLocalizableString("Home"), url: "https://aspnetboilerplate.com?ref=abptmpl"))
-
-
+                         .AddItem(new MenuItemDefinition("json数据", new FixedLocalizableString("Home"), url: "https://aspnetboilerplate.com?ref=abptmpl"))
                          );
         }
 
@@ -49,9 +40,9 @@ namespace KuMaDaoCoreAbp.Web.Startup
         private static MenuItemDefinition Demonav()
         {
             return new MenuItemDefinition("内容", L("MultiLevelMenu"), icon: "menu")
-                .AddItem(new MenuItemDefinition("分类", L("Article"), url: "Article"))
                 .AddItem(new MenuItemDefinition(PageNames.Article, L("Article"), url: "Article"))
-                .AddItem(new MenuItemDefinition("媒体库", new FixedLocalizableString("Templates"), url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"))
+                .AddItem(new MenuItemDefinition("", L("媒体库"), url: "Article"))
+                .AddItem(new MenuItemDefinition("媒体库", new FixedLocalizableString("媒体库"), url: "https://aspnetboilerplate.com/Templates?ref=abptmpl"))
                ;
         }
 

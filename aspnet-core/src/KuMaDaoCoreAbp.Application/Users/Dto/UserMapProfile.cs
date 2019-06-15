@@ -3,8 +3,10 @@ using KuMaDaoCoreAbp.Authorization.Users;
 
 namespace KuMaDaoCoreAbp.Users.Dto
 {
+    /// <summary></summary>
     public class UserMapProfile : Profile
     {
+        /// <summary></summary>
         public UserMapProfile()
         {
             CreateMap<UserDto, User>();

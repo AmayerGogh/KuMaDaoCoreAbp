@@ -14,15 +14,24 @@ namespace KuMaDaoCoreAbp
     /// </summary>
     public abstract class KuMaDaoCoreAbpAppServiceBase : ApplicationService
     {
+        /// <summary>
+        /// 
+        /// </summary>
         public TenantManager TenantManager { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         public UserManager UserManager { get; set; }
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected KuMaDaoCoreAbpAppServiceBase()
         {
             LocalizationSourceName = KuMaDaoCoreAbpConsts.LocalizationSourceName;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected virtual Task<User> GetCurrentUserAsync()
         {
             var user = UserManager.FindByIdAsync(AbpSession.GetUserId().ToString());
@@ -33,12 +42,16 @@ namespace KuMaDaoCoreAbp
 
             return user;
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected virtual Task<Tenant> GetCurrentTenantAsync()
         {
             return TenantManager.GetByIdAsync(AbpSession.GetTenantId());
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);

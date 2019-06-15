@@ -6,13 +6,15 @@ using Abp.UI;
 
 namespace KuMaDaoCoreAbp.Authorization
 {
+    /// <summary></summary>
     public class AbpLoginResultTypeHelper : AbpServiceBase, ITransientDependency
     {
+        /// <summary></summary>
         public AbpLoginResultTypeHelper()
         {
             LocalizationSourceName = KuMaDaoCoreAbpConsts.LocalizationSourceName;
         }
-
+        /// <summary></summary>
         public Exception CreateExceptionForFailedLoginAttempt(AbpLoginResultType result, string usernameOrEmailAddress, string tenancyName)
         {
             switch (result)
@@ -37,7 +39,7 @@ namespace KuMaDaoCoreAbp.Authorization
                     return new UserFriendlyException(L("LoginFailed"));
             }
         }
-
+        /// <summary></summary>
         public string CreateLocalizedMessageForFailedLoginAttempt(AbpLoginResultType result, string usernameOrEmailAddress, string tenancyName)
         {
             switch (result)

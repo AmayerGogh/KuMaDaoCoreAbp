@@ -237,8 +237,8 @@
 
 </head>
 <body class="grid-loaded">
-    @Html.Partial("_navigation")
-    @*@Html.Partial("~/Views/Shared/_navigation.cshtml")*@
+    @await Html.PartialAsync("_navigation")
+    @*@await Html.PartialAsync("~/Views/Shared/_navigation.cshtml")*@
     @*<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
             <!-- Indicators -->
             <ol class="carousel-indicators">

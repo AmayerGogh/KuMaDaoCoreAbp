@@ -6,8 +6,10 @@ using KuMaDaoCoreAbp.SignalR;
 
 namespace KuMaDaoCoreAbp.Sessions
 {
+    /// <summary></summary>
     public class SessionAppService : KuMaDaoCoreAbpAppServiceBase, ISessionAppService
     {
+        /// <summary></summary>
         [DisableAuditing]
         public async Task<GetCurrentLoginInformationsOutput> GetCurrentLoginInformations()
         {

@@ -178,7 +178,11 @@ namespace KuMaDaoCoreAbp.Categories
             //TODO:批量删除前的逻辑判断，是否允许删除
             await _categoryRepository.DeleteAsync(s => input.Contains(s.Id));
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="type"></param>
+        /// <returns></returns>
         public Task<CategoryRecursion> GetCategoryRecursionAsync(int type)
         {
             throw new System.NotImplementedException();

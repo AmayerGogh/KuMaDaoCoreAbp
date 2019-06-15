@@ -1,6 +1,7 @@
 ﻿using Amayer.Express._pingins;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
@@ -32,6 +33,44 @@ namespace Amayer.Express
             });
             return lam;
         }
+        public static List<Expression<Func<T, bool>>> GetExpressionList<T>()
+        {
+            return new List<Expression<Func<T, bool>>>();
+        }
+        public static IEnumerable<TSource> WhereParam<TSource>(this IEnumerable<TSource> sources, List<Expression<Func<TSource, bool>>> list)
+        {
+            Expression<Func<TSource, bool>> lam = null;
+            if (list.Count == 0)
+            {
+                return sources;
+            }
+            foreach (var expression in list)
+            {
+                if (lam == null)
+                {
+                    lam = expression;
+                }
+                else
+                {
+                    lam = lam.And(expression);
+                }
+            }
+            return sources.Where(lam.Compile());
+        }
+        public static IEnumerable<TSource> WhereParam<TSource>(this IQueryable<TSource> sources, List<Expression<Func<TSource, bool>>> list)
+        {
+            Expression<Func<TSource, bool>> lam = null;
+            if (list.Count == 0)
+            {
+                return sources;
+            }            
+            foreach (var expression in list)
+            {
+                lam = lam == null ? expression : lam.And(expression);
+            }
+            return sources.Where(lam);
+        }
+
     }
 
     /// <summary>
