@@ -16,78 +16,78 @@
     <DefineConstants>FEATURE_SIGNALR</DefineConstants>
   </PropertyGroup>
   <ItemGroup> 
-    <Compile Remove="Areas\Admin\Data\**"/>  
-    <Compile Remove="Models\Account\**"/>  
-    <Compile Remove="Models\Common\**"/>  
-    <Compile Remove="Models\Roles\**"/>  
-    <Compile Remove="Models\Users\**"/>  
-    <Compile Remove="wwwroot\Angular\**"/>  
-    <Content Remove="Areas\Admin\Data\**"/>  
-    <Content Remove="Models\Account\**"/>  
-    <Content Remove="Models\Common\**"/>  
-    <Content Remove="Models\Roles\**"/>  
-    <Content Remove="Models\Users\**"/>  
-    <Content Remove="wwwroot\Angular\**"/>  
-    <EmbeddedResource Remove="Areas\Admin\Data\**"/>  
-    <EmbeddedResource Remove="Models\Account\**"/>  
-    <EmbeddedResource Remove="Models\Common\**"/>  
-    <EmbeddedResource Remove="Models\Roles\**"/>  
-    <EmbeddedResource Remove="Models\Users\**"/>  
-    <EmbeddedResource Remove="wwwroot\Angular\**"/>  
-    <None Remove="Areas\Admin\Data\**"/>  
-    <None Remove="Models\Account\**"/>  
-    <None Remove="Models\Common\**"/>  
-    <None Remove="Models\Roles\**"/>  
-    <None Remove="Models\Users\**"/>  
-    <None Remove="wwwroot\Angular\**"/> 
+    <Compile Remove="Areas\Admin\Data\**" />  
+    <Compile Remove="Models\Account\**" />  
+    <Compile Remove="Models\Common\**" />  
+    <Compile Remove="Models\Roles\**" />  
+    <Compile Remove="Models\Users\**" />  
+    <Compile Remove="wwwroot\Angular\**" />  
+    <Content Remove="Areas\Admin\Data\**" />  
+    <Content Remove="Models\Account\**" />  
+    <Content Remove="Models\Common\**" />  
+    <Content Remove="Models\Roles\**" />  
+    <Content Remove="Models\Users\**" />  
+    <Content Remove="wwwroot\Angular\**" />  
+    <EmbeddedResource Remove="Areas\Admin\Data\**" />  
+    <EmbeddedResource Remove="Models\Account\**" />  
+    <EmbeddedResource Remove="Models\Common\**" />  
+    <EmbeddedResource Remove="Models\Roles\**" />  
+    <EmbeddedResource Remove="Models\Users\**" />  
+    <EmbeddedResource Remove="wwwroot\Angular\**" />  
+    <None Remove="Areas\Admin\Data\**" />  
+    <None Remove="Models\Account\**" />  
+    <None Remove="Models\Common\**" />  
+    <None Remove="Models\Roles\**" />  
+    <None Remove="Models\Users\**" />  
+    <None Remove="wwwroot\Angular\**" /> 
   </ItemGroup>
   <ItemGroup> 
-    <Compile Remove="Controllers\AboutController.cs"/>  
-    <Compile Remove="Controllers\ErrorController.cs"/>  
-    <Compile Remove="Controllers\RolesController.cs"/>  
-    <Compile Remove="Controllers\TenantsController.cs"/>  
-    <Compile Remove="Controllers\UsersController.cs"/>  
-    <Compile Remove="Views\UrlChecker.cs"/> 
+    <Compile Remove="Controllers\AboutController.cs" />  
+    <Compile Remove="Controllers\ErrorController.cs" />  
+    <Compile Remove="Controllers\RolesController.cs" />  
+    <Compile Remove="Controllers\TenantsController.cs" />  
+    <Compile Remove="Controllers\UsersController.cs" />  
+    <Compile Remove="Views\UrlChecker.cs" /> 
   </ItemGroup>
   <ItemGroup> 
-    <Content Remove="wwwroot\%2a%2a"/> 
+    <Content Remove="wwwroot\%2a%2a" /> 
   </ItemGroup>
   <ItemGroup>
-    <None Include="app.config"/>
-    <None Include="Areas\Admin\Views\Home\Index.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\AccountLanguages\Default.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\RightSideBar\Default.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\SideBarNav\Default.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\SideBarUserArea\Default.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\TenantChange\Default.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\TenantChange\_ChangeModal.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Components\TopBarLanguageSwitch\Default.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Modals\_ModalFooterWithSaveAndCancel.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\Modals\_ModalHeader.cshtml"/>
-    <None Include="Areas\Admin\Views\Shared\_Layout.cshtml"/>
-    <None Include="Areas\Admin\Views\_ViewImports.cshtml"/>
-    <None Include="Areas\Admin\Views\_ViewStart.cshtml"/>
-    <None Include="Views\About\Index.cshtml"/>
-    <None Include="Views\Account\Login.cshtml"/>
-    <None Include="Views\Account\Register.cshtml"/>
-    <None Include="Views\Account\RegisterResult.cshtml"/>
-    <None Include="Views\Account\_Layout.cshtml"/>
-    <None Include="Views\Account\_ViewStart.cshtml"/>
-    <None Include="Views\Roles\Index.cshtml"/>
-    <None Include="Views\Roles\_EditRoleModal.cshtml"/>
-    <None Include="Views\Shared\Components\RightSideBar\Default.cshtml"/>
-    <None Include="Views\Shared\Components\TopBarLanguageSwitch\Default.cshtml"/>
-    <None Include="Views\Shared\Error.cshtml"/>
-    <None Include="Views\Shared\Modals\_ModalFooterWithSaveAndCancel.cshtml"/>
-    <None Include="Views\Shared\Modals\_ModalHeader.cshtml"/>
-    <None Include="Views\Shared\_Layout.cshtml"/>
-    <None Include="Views\Shared\_navigation.cshtml"/>
-    <None Include="Views\Tenants\Index.cshtml"/>
-    <None Include="Views\Tenants\_EditTenantModal.cshtml"/>
-    <None Include="Views\Users\Index.cshtml"/>
-    <None Include="Views\Users\_EditUserModal.cshtml"/>
-    <None Include="wwwroot\inspinia\skin-config.html"/>
-    <None Include="wwwroot\lib\bootstrap-select\.github\ISSUE_TEMPLATE.md"/>
+    <None Include="app.config" />
+    <None Include="Areas\Admin\Views\Home\Index.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\AccountLanguages\Default.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\RightSideBar\Default.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\SideBarNav\Default.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\SideBarUserArea\Default.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\TenantChange\Default.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\TenantChange\_ChangeModal.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Components\TopBarLanguageSwitch\Default.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Modals\_ModalFooterWithSaveAndCancel.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\Modals\_ModalHeader.cshtml" />
+    <None Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewImports.cshtml" />
+    <None Include="Areas\Admin\Views\_ViewStart.cshtml" />
+    <None Include="Views\About\Index.cshtml" />
+    <None Include="Views\Account\Login.cshtml" />
+    <None Include="Views\Account\Register.cshtml" />
+    <None Include="Views\Account\RegisterResult.cshtml" />
+    <None Include="Views\Account\_Layout.cshtml" />
+    <None Include="Views\Account\_ViewStart.cshtml" />
+    <None Include="Views\Roles\Index.cshtml" />
+    <None Include="Views\Roles\_EditRoleModal.cshtml" />
+    <None Include="Views\Shared\Components\RightSideBar\Default.cshtml" />
+    <None Include="Views\Shared\Components\TopBarLanguageSwitch\Default.cshtml" />
+    <None Include="Views\Shared\Error.cshtml" />
+    <None Include="Views\Shared\Modals\_ModalFooterWithSaveAndCancel.cshtml" />
+    <None Include="Views\Shared\Modals\_ModalHeader.cshtml" />
+    <None Include="Views\Shared\_Layout.cshtml" />
+    <None Include="Views\Shared\_navigation.cshtml" />
+    <None Include="Views\Tenants\Index.cshtml" />
+    <None Include="Views\Tenants\_EditTenantModal.cshtml" />
+    <None Include="Views\Users\Index.cshtml" />
+    <None Include="Views\Users\_EditUserModal.cshtml" />
+    <None Include="wwwroot\inspinia\skin-config.html" />
+    <None Include="wwwroot\lib\bootstrap-select\.github\ISSUE_TEMPLATE.md" />
     <None Update="Dockerfile">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -100,35 +100,35 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\KuMaDaoCoreAbp.Web.Core\KuMaDaoCoreAbp.Web.Core.csproj"/>
+    <ProjectReference Include="..\KuMaDaoCoreAbp.Web.Core\KuMaDaoCoreAbp.Web.Core.csproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.Net.Compilers" Version="3.1.1"/>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Net.Compilers" Version="2.8.2" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.1">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="AspNet.Security.OpenIdConnect.Server" Version="1.0.1"/>
-    <PackageReference Include="PaulMiami.AspNetCore.Mvc.Recaptcha" Version="1.2.1"/>
-    <PackageReference Include="Castle.LoggingFacility.MsLogging" Version="3.1.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1"/>
-    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0"/>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0"/>
-    <PackageReference Include="Abp.HangFire" Version="3.1.1"/>
-    <PackageReference Include="Abp.RedisCache" Version="3.1.1"/>
-    <PackageReference Include="Abp.Castle.Log4Net" Version="3.1.1"/>
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.2.0" PrivateAssets="All"/>
+    <PackageReference Include="AspNet.Security.OpenIdConnect.Server" Version="1.0.1" />
+    <PackageReference Include="PaulMiami.AspNetCore.Mvc.Recaptcha" Version="1.2.1" />
+    <PackageReference Include="Castle.LoggingFacility.MsLogging" Version="3.1.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Twitter" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.IISIntegration" Version="2.2.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Server.Kestrel" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="2.2.0" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="2.2.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="2.2.0" />
+    <PackageReference Include="Abp.HangFire" Version="3.1.1" />
+    <PackageReference Include="Abp.RedisCache" Version="3.1.1" />
+    <PackageReference Include="Abp.Castle.Log4Net" Version="3.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Razor.ViewCompilation" Version="2.2.0" PrivateAssets="All" />
   </ItemGroup>
   <ItemGroup Condition=" '$(TargetFramework)' == 'net461' ">
-    <Reference Include="System"/>
-    <Reference Include="Microsoft.CSharp"/>
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
   </ItemGroup>
   <ItemGroup>
     <!--<DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0"/>-->
@@ -137,10 +137,10 @@
      <!--<DotNetCliToolReference Include="Microsoft.DotNet.Watcher.Tools" Version="2.0.0" />-->
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Areas\Apis\Views\"/>
-    <Folder Include="Models\"/>
-    <Folder Include="wwwroot\view-resources\Views\_Bundles\"/>
-    <Folder Include="wwwroot\view-resources\Views\_Bundles\"/>
+    <Folder Include="Areas\Apis\Views\" />
+    <Folder Include="Models\" />
+    <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
+    <Folder Include="wwwroot\view-resources\Views\_Bundles\" />
   </ItemGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'"> 
     <TypeScriptTarget>ES6</TypeScriptTarget>  
@@ -149,21 +149,21 @@
     <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>  
     <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>  
     <TypeScriptRemoveComments>False</TypeScriptRemoveComments>  
-    <TypeScriptOutFile/>  
-    <TypeScriptOutDir/>  
+    <TypeScriptOutFile />  
+    <TypeScriptOutDir />  
     <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>  
     <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>  
     <TypeScriptSourceMap>True</TypeScriptSourceMap>  
-    <TypeScriptMapRoot/>  
-    <TypeScriptSourceRoot/> 
+    <TypeScriptMapRoot />  
+    <TypeScriptSourceRoot /> 
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'"> 
-    <DocumentationFile/>  
+    <DocumentationFile />  
     <NoWarn>1701;1702;1705;1591;</NoWarn> 
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties compilerconfig_1json__JSONSchema="http://json.schemastore.org/csslintrc"/>
+      <UserProperties compilerconfig_1json__JSONSchema="http://json.schemastore.org/csslintrc" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>

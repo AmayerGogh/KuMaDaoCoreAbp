@@ -38,7 +38,7 @@ namespace KuMaDaoCoreAbp.Articles
         private readonly ArticleManager _articleManage;
         private readonly IRepository<Categories.Category, long> _categoryRespository;
         private readonly IRepository<ArticleDetail, long> _articleDetailRepository;
-        private readonly IRepository<ArticleLabel, long> _articleLabelRepository;
+        //private readonly IRepository<ArticleLabel, long> _articleLabelRepository;
 
         private IEventBus EventBus { get; set; }
         /// <summary>

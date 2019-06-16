@@ -76,5 +76,24 @@
             elementPathEnabled: true
             //更多其他参数，请参考editor_config.js中的配置项
         });   
+        //todo https://www.cnblogs.com/lhm166/articles/6079973.html
+        editor.ready(function () {
+            uploadEditor.addListener("beforeInsertImage", _beforeInsertImage);
+            uploadEditor.addListener("afterUpfile", _afterUpfile);
+        });
+        function _beforeInsertImage(t, result) {
+            var imageHtml = '';
+            for (var i in result) {
+                imageHtml += '<li><img src="' + result[i].src + '" alt="' + result[i].alt + '" height="150"></li>';
+            }
+            document.getElementById('upload_img_wrap').innerHTML = imageHtml;
+        }
+        function _afterUpfile(t, result) {
+            var fileHtml = '';
+            for (var i in result) {
+                fileHtml += '<li><a href="' + result[i].url + '" target="_blank">' + result[i].url + '</a></li>';
+            }
+            document.getElementById('upload_file_wrap').innerHTML = fileHtml;
+        }
      })(jQuery);
 </script>

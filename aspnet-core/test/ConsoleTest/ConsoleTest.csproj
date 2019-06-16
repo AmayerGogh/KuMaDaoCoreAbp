@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\extension\Abp.Dapper\Abp.Dapper.csproj" />
     <ProjectReference Include="..\..\src\KuMaDaoCoreAbp.EntityFrameworkCore\KuMaDaoCoreAbp.EntityFrameworkCore.csproj" />
   </ItemGroup>
 
