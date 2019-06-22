@@ -96,6 +96,7 @@ namespace KuMaDaoCoreAbp.Articles
             {
                 Id = m.Id,
                 IsDefault = m.IsDefault,
+                ArticleId =m.ArticleId
             });
             //组合
             foreach (var item in listDtos)
