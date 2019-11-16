@@ -128,6 +128,89 @@ namespace Amayer.Modules.Qiniu
         }
 
 
+
+        ///// <summary>
+        ///// 根据前缀获得文件列表
+        ///// </summary>
+        ///// <param name="prefix">指定前缀，只有资源名匹配该前缀的资源会被列出</param>
+        ///// <param name="marker">上一次列举返回的位置标记，作为本次列举的起点信息</param>
+        ///// <returns></returns>
+        //public static CloudFile List(string prefix = "case", string marker = "")
+        //{
+        //    var model = new CloudFile();
+        //    try
+        //    {
+        //        Mac mac = new Mac(Ak, Sk);
+        //        // 设置存储区域
+        //        Config.SetZone(ZoneID.CN_North, false);
+        //        BucketManager bucketManager = new BucketManager(mac);
+        //        // 指定目录分隔符，列出所有公共前缀（模拟列出目录效果）
+        //        string delimiter = "";
+        //        // 本次列举的条目数，范围为1-1000
+        //        int limit = 20;
+        //        prefix = BasePath + prefix;
+        //        ListResult listRet = bucketManager.ListFiles(Bucket, prefix, marker, limit, delimiter);
+        //        model.Code = listRet.Code;
+        //        model.Page = listRet.Result.Marker;
+        //        if (model.Code != 200)
+        //        {
+        //            model.Message = listRet.Text;
+        //        }
+        //        if (listRet.Code == (int)HttpCode.OK)
+        //        {
+        //            var list = new List<Qiniu_ListInfo>();
+        //            foreach (var item in listRet.Result.Items)
+        //            {
+        //                list.Add(new Qiniu_ListInfo
+        //                {
+        //                    Name = domain + item.Key,
+        //                    Size = item.Fsize,
+        //                    Type = item.MimeType,
+        //                    Time = Utils.ConvertToDateTime(item.PutTime)
+        //                });
+        //            }
+        //            model.list = list;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        model.Code = 500;
+        //        model.Message = ex.Message;
+        //    }
+        //    return model;
+        //}
+
+        ///// <summary>
+        ///// 删除云端图片
+        ///// </summary>
+        ///// <param name="filename">文件名称</param>
+        ///// <returns></returns>
+        //public static CloudFile Delete(string filename)
+        //{
+        //    var model = new CloudFile();
+        //    try
+        //    {
+        //        Mac mac = new Mac(Ak, Sk);
+        //        // 设置存储区域
+        //        Config.SetZone(ZoneID.CN_North, false);
+        //        BucketManager bucketManager = new BucketManager(mac);
+        //        // 文件名
+        //        filename = filename.Replace(domain, "");
+        //        HttpResult deleteRet = bucketManager.Delete(Bucket, filename);
+        //        model.Code = deleteRet.Code;
+        //        if (model.Code != 200)
+        //        {
+        //            model.Message = deleteRet.Text;
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        model.Code = 500;
+        //        model.Message = ex.Message;
+        //    }
+        //    return model;
+        //}
+
     }
 
 
@@ -192,4 +275,36 @@ namespace Amayer.Modules.Qiniu
 
     //}
 
+
+    public class CloudFile
+    {
+        public int Code { get; set; } = 200;
+        public string Message { get; set; }
+        public string Page { get; set; } = "";
+        public string Token { get; set; }
+        public List<Qiniu_ListInfo> list { get; set; }
+    }
+
+    public class Qiniu_ListInfo
+    {
+        /// <summary>
+        /// 文件名称
+        /// </summary>
+        public string Name { get; set; }
+
+        /// <summary>
+        /// 文件大小
+        /// </summary>
+        public long Size { get; set; }
+
+        /// <summary>
+        /// 文件类型
+        /// </summary>
+        public string Type { get; set; }
+
+        /// <summary>
+        /// 上传时间
+        /// </summary>
+        public DateTime Time { get; set; }
+    }
 }

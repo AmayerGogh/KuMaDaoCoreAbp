@@ -49,6 +49,7 @@ namespace KuMaDaoCoreAbp.Web.Startup
             services.AddMvc(options =>
             {
                 //abp带 可以为所有的POST、PUT、PATCH和DLETE actions自动进行防伪造校验。
+                //允许跨域
                 options.Filters.Add(new CorsAuthorizationFilterFactory(DefaultCorsPolicyName));
             });
             // 为了兼容sqlserver 2008

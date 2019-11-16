@@ -6,6 +6,7 @@ using Abp.Authorization;
 
 namespace KuMaDaoCoreAbp.Web.Host.Startup
 {
+    //swagger的配置
     public class SecurityRequirementsOperationFilter : IOperationFilter
     {
         public void Apply(Operation operation, OperationFilterContext context)
